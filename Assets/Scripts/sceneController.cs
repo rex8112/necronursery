@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class sceneController : MonoBehaviour
 {
-    public Vector2 touchStart;
-    public Vector2 touchDir;
+    public Vector3 touchStart;
+    public Vector3 touchDir;
+
+    public float slowness = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +25,11 @@ public class sceneController : MonoBehaviour
             switch (touch.phase)
             {
                 case TouchPhase.Began:
-                    touchStart = touch.position;
+                    touchStart = Camera.main.ScreenToWorldPoint(touch.position);
                     break;
                 case TouchPhase.Moved:
-                    touchDir = touch.position - touchStart;
+                    touchDir = Camera.main.ScreenToWorldPoint(touch.position) - touchStart;
+                    touchDir.z = 0f;
                     moveCamera(touchDir);
                     break;
             }
@@ -38,6 +41,6 @@ public class sceneController : MonoBehaviour
         Transform cam = Camera.main.transform;
 
         Debug.Log(dir);
-        cam.Translate(-dir/4);
+        cam.Translate(-dir/slowness);
     }
 }
