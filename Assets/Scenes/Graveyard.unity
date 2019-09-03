@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 82705934}
   - component: {fileID: 82705933}
   - component: {fileID: 82705932}
+  - component: {fileID: 82705935}
   m_Layer: 5
   m_Name: Close button
   m_TagString: Untagged
@@ -231,7 +232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -544.2, y: 252}
+  m_AnchoredPosition: {x: -514, y: 250}
   m_SizeDelta: {x: 47.6, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &82705932
@@ -276,7 +277,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 82705933}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 82705935}
+        m_MethodName: OnMouseDown
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Close
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &82705933
@@ -317,6 +329,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82705930}
   m_CullTransparentMesh: 0
+--- !u!114 &82705935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82705930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63cdea5e390e0744a70eb30f8cff0a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuCanvas: {fileID: 786270577}
 --- !u!1 &281824476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,6 +1270,7 @@ GameObject:
   - component: {fileID: 1184093484}
   - component: {fileID: 1184093483}
   - component: {fileID: 1184093482}
+  - component: {fileID: 1184093485}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1315,15 +1341,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1184093480}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1184093485}
+        m_MethodName: OnMouseDown
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Resource Menu
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1366,6 +1392,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184093480}
   m_CullTransparentMesh: 0
+--- !u!114 &1184093485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184093480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63cdea5e390e0744a70eb30f8cff0a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuCanvas: {fileID: 786270577}
 --- !u!1 &1264433118
 GameObject:
   m_ObjectHideFlags: 0
