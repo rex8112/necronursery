@@ -8,22 +8,26 @@ public class resourceQuantities : MonoBehaviour
     // Start is called before the first frame update
 
     public Text fleshCountBar;
+    public Text moneyCount;
+    public int moneyTotal = 5;
     public int fleshCount = 0;
     public int fleshCap = 10;
+public void fleshManagement()
+    {
+        //change = 2;
+        //fleshCount += change;
+        Debug.Log("HEY");
 
+    }
     void Start()
     {
-        fleshCount = 0;
+        fleshCount = 1;
         //fleshCountBar = gameObject.GetComponent<Text>();
-        fleshCountBar.text = fleshCount.ToString(); //+ "/" + fleshCap.ToString(); 
+        fleshCountBar.text = fleshCount.ToString() + "/" + fleshCap.ToString();
+        moneyCount.text = moneyTotal.ToString();
     }
 
-    public void fleshManagement(int change)
-    {
-        change = 2;
-        fleshCount += change;
-
-    }
+    
 
 
     // Update is called once per frame
