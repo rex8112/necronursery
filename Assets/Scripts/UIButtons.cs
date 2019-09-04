@@ -8,6 +8,7 @@ public class UIButtons : MonoBehaviour
     GameObject menuCanvas;
     string resourceMenu = "Resource Menu";
     string closeButton = "Close";
+
     private void Start()
     {
         menuCanvas.SetActive(false);
