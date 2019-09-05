@@ -6,15 +6,28 @@ public class merchantTrading : MonoBehaviour
 {
     // Start is called before the first frame update
 
-        public resourceQuantities help;
+        public GameObject help;
+    resourceQuantities plsWork;
+
+
 
     void Start()
     {
-        help.fleshManagement();
+        plsWork = help.GetComponent<resourceQuantities>();
+        
 
     }
 
+    public void TradeThisBitch()
+    {
+        plsWork.tradeButtonOne();
 
+    }
+
+    public void TradeNumberTwo()
+    {
+        plsWork.tradeButtonTwo();
+    }
 
 
     // Update is called once per frame
