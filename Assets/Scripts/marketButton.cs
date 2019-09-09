@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class resourceQuantities : MonoBehaviour
+public class marketButton : MonoBehaviour
 {
     // Start is called before the first frame update
 
@@ -17,7 +17,19 @@ public class resourceQuantities : MonoBehaviour
     public int fleshCap = 10;
     public int moneyChange, fleshChange, soulChange;
 
+    [SerializeField] resourceManager resourceManager;
+    public string sellResource;
+    public int sellCount;
+    public string buyResource;
+    public int buyCount;
+    Text buttonText;
 
+
+
+    private void Awake()
+    {
+        buttonText = gameObject.transform.GetComponentInChildren<Text>();
+    }
     void Start()
     {
         moneyChange = 0;
@@ -31,11 +43,11 @@ public class resourceQuantities : MonoBehaviour
     public void tradeButtonOne()
     {
         Debug.Log("money = " + moneyTotal);
-
+            moneyChange = -3;
+            fleshChange = 2;
         if (moneyTotal + moneyChange >= 0)
         {
-            moneyChange = -3;
-            fleshChange = 2; 
+             
             fleshCount += fleshChange;
             moneyTotal += moneyChange;
 
@@ -47,21 +59,17 @@ public class resourceQuantities : MonoBehaviour
            Debug.Log("money = " + moneyTotal);
         }
 
-        
-        
-
-        
     }
 
 
     public void tradeButtonTwo()
     {
         Debug.Log("money = " + moneyTotal);
-
-        if(moneyTotal + moneyChange >= 0)
-        {
             moneyChange = -5;
             soulChange = 7;
+        if(moneyTotal + moneyChange >= 0)
+        {
+            
             soulCount += soulChange;
             moneyTotal += moneyChange;
 
@@ -73,8 +81,15 @@ public class resourceQuantities : MonoBehaviour
             Debug.Log("money = " + moneyTotal);
         }
 
+    }
 
+    public void randomize()
+    {
+        resourceManager.resources
+    }
 
+    public void initializeButton()
+    {
 
     }
 

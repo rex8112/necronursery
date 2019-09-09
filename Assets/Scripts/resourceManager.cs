@@ -6,7 +6,6 @@ using UnityEngine;
 public class resourceManager : ScriptableObject
 {
     public List<Resource> resources;
-    string findName;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +15,7 @@ public class resourceManager : ScriptableObject
     // Update is called once per frame
     void Update()
     {
-        findName = "test";
 
-        Debug.Log(resources.FindIndex(name => name.name == findName));
     }
 
     [System.Serializable]

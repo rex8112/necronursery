@@ -6,14 +6,14 @@ public class merchantTrading : MonoBehaviour
 {
     // Start is called before the first frame update
 
-        public GameObject help;
-    resourceQuantities plsWork;
+    public GameObject help;
+    marketButton plsWork;
 
 
 
     void Start()
     {
-        plsWork = help.GetComponent<resourceQuantities>();
+        plsWork = help.GetComponent<marketButton>();
         
 
     }
