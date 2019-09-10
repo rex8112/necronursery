@@ -5,92 +5,64 @@ using UnityEngine.UI;
 
 public class marketButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    public Text fleshCountBar;
-    public Text moneyCount;
-    public Text souls;
-    public int moneyTotal = 5;
-    public int fleshCount = 0;
-    public int soulCount = 0;
-    public int soulCap = 10;
-    public int fleshCap = 10;
-    public int moneyChange, fleshChange, soulChange;
 
     [SerializeField] resourceManager resourceManager;
-    public string sellResource;
+    public resourceManager.Resource sellResource;
     public int sellCount;
-    public string buyResource;
+    public resourceManager.Resource buyResource;
     public int buyCount;
     Text buttonText;
-
-
 
     private void Awake()
     {
         buttonText = gameObject.transform.GetComponentInChildren<Text>();
+        initializeButton();
     }
     void Start()
     {
-        moneyChange = 0;
-        fleshChange = 0;
-        //fleshCountBar = gameObject.GetComponent<Text>();
-        fleshCountBar.text = fleshCount.ToString() + "/" + fleshCap.ToString();
-        moneyCount.text = moneyTotal.ToString();
-        souls.text = soulCount.ToString() + "/" + soulCap.ToString();
-    }
-
-    public void tradeButtonOne()
-    {
-        Debug.Log("money = " + moneyTotal);
-            moneyChange = -3;
-            fleshChange = 2;
-        if (moneyTotal + moneyChange >= 0)
-        {
-             
-            fleshCount += fleshChange;
-            moneyTotal += moneyChange;
-
-            fleshCountBar.text = fleshCount.ToString() + "/" + fleshCap.ToString();
-            moneyCount.text = moneyTotal.ToString();
-        }
-        else
-        {
-           Debug.Log("money = " + moneyTotal);
-        }
 
     }
 
-
-    public void tradeButtonTwo()
+    public resourceManager.Resource randomize()
     {
-        Debug.Log("money = " + moneyTotal);
-            moneyChange = -5;
-            soulChange = 7;
-        if(moneyTotal + moneyChange >= 0)
-        {
-            
-            soulCount += soulChange;
-            moneyTotal += moneyChange;
+        resourceManager.Resource ran;
+        int max = resourceManager.resources.Count;
+        ran = resourceManager.resources[Random.Range(0, max)];
 
-            souls.text = soulCount.ToString() + "/" + soulCap.ToString();
-            moneyCount.text = moneyTotal.ToString();
-        }
-        else
-        {
-            Debug.Log("money = " + moneyTotal);
-        }
-
-    }
-
-    public void randomize()
-    {
-        resourceManager.resources
+        return ran;
     }
 
     public void initializeButton()
     {
+        buyResource = randomize();
 
+        if (buyResource.name == "Teeth") // If resource to buy is teeth, thus selling material for teeth.
+        {
+            do
+            {
+                sellResource = randomize();
+            } while (sellResource.name == "Teeth");
+
+            buyCount = sellResource.teethValue;
+            sellCount = Random.Range(1, 10);
+            buyCount = sellCount * buyCount;
+        }
+        else // Else buy material with teeth
+        {
+            sellResource = resourceManager.resources.Find(name => name.name == "Teeth");
+            sellCount = buyResource.teethValue;
+            buyCount = Random.Range(1, 10);
+            sellCount = buyCount * sellCount;
+        }
+
+        buttonText.text = "Trade " + sellCount + " " + sellResource.name + " for " + buyCount + " " + buyResource.name;
+
+    }
+
+    public void purchase()
+    {
+        if (sellResource.Remove(sellCount))
+            buyResource.Add(buyCount);
     }
 
     // Update is called once per frame
