@@ -9,27 +9,24 @@ public class gameTimer : MonoBehaviour
     public Text timer;
     public GameObject afterTimer;
     public GameObject tapToStart;
-    public 
+    public bool startTimer = false;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (!tapToStart.activeInHierarchy)
+        if (startTimer)
         {
+            Debug.Log ("timer started");
             remainingTime -= Time.deltaTime;
             timer.text = (remainingTime).ToString("0");
         }
 
         if (remainingTime <= 0)
         {
-            Time.timeScale = 0;
+            Debug.Log("timer stopped");
+            startTimer = false;
+            //Time.timeScale = 0;
             afterTimer.SetActive(true);
         }
     }
-
-    private void OnMouseDown()
-    {
-        tapToStart.SetActive(false);
-    }
-
 }

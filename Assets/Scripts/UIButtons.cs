@@ -10,6 +10,9 @@ public class UIButtons : MonoBehaviour
     string openCanvas = "Open";
     string closeButton = "Close";
     string graveyardScene = "Graveyard";
+    string startTimer = "Start";
+
+    bool timer;
 
     private void Start()
     {
@@ -28,6 +31,11 @@ public class UIButtons : MonoBehaviour
         if (buttonName == graveyardScene)
         {
             SceneManager.LoadScene("Graveyard");
+        }
+        if (buttonName == startTimer)
+        {
+            timer = GameObject.Find("Main Camera").GetComponent<gameTimer>().startTimer = true;
+            gameObject.SetActive(false);
         }
     }
 }
