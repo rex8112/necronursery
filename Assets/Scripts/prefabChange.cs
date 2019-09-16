@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class prefabChange : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class prefabChange : MonoBehaviour
     }
     public void changeImage()
     {
-        //test.GetComponent<Image>().sprite = second;
+        gameObject.GetComponent<Image>().sprite = second;
     }
 
     // Update is called once per frame
