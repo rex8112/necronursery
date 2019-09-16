@@ -19,7 +19,7 @@ public class prefabChange : MonoBehaviour
     }
     public void changeImage()
     {
-        test.GetComponent<Image>().sprite = second;
+        //test.GetComponent<Image>().sprite = second;
     }
 
     // Update is called once per frame

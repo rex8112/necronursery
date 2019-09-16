@@ -7,13 +7,13 @@ using UnityEngine;
 public class moveWithTouch : MonoBehaviour
 {
     float deltaX, deltaY;// touch offset allows ball not to shake when it starts moving
-    Rigidbody2D rb;
+    //Rigidbody2D rb;
     bool moveAllowed = false;
 
     // Use this for initialization
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        //rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -37,22 +37,22 @@ public class moveWithTouch : MonoBehaviour
                         moveAllowed = true;
 
                         // restrict some rigidbody properties so it moves more smoothly
-                        rb.freezeRotation = true;
-                        rb.velocity = new Vector2(0, 0);
+                        //rb.freezeRotation = true;
+                        //rb.velocity = new Vector2(0, 0);
                     }
                     break;
 
                 case TouchPhase.Moved://you move your finger    
-                    if (GetComponent<CircleCollider2D>() == Physics2D.OverlapPoint(touchPos) && moveAllowed)// if you touch the ball and movement is allowed then move
-                        rb.MovePosition(new Vector2(touchPos.x - deltaX, touchPos.y - deltaY));
+                    if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos) && moveAllowed)// if you touch the  and movement is allowed then move
+                        transform.position = new Vector2(touchPos.x - deltaX, touchPos.y - deltaY);
                     break;
 
                 case TouchPhase.Ended: // you release your finger
 
                     // restore initial parameters
                     moveAllowed = false;
-                    rb.freezeRotation = false;
-                    rb.gravityScale = 2;
+                    //rb.freezeRotation = false;
+                    //rb.gravityScale = 2;
                     break;
             }
         }
