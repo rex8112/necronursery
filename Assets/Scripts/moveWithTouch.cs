@@ -43,7 +43,7 @@ public class moveWithTouch : MonoBehaviour
                     break;
 
                 case TouchPhase.Moved://you move your finger    
-                    if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos) && moveAllowed)// if you touch the  and movement is allowed then move
+                    if (moveAllowed)// if you touch the  and movement is allowed then move
                         transform.position = new Vector2(touchPos.x - deltaX, touchPos.y - deltaY);
                     break;
 
