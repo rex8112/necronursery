@@ -7,24 +7,46 @@ public class prefabChange : MonoBehaviour
 {
 
     public Button test;
-    public Sprite second;
+    public Sprite second, second1;
+
+    //public GameObject plant;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        test = GetComponent<Button>();
-
         
+        //changeSkin(second);
+        Button btn = test.GetComponent<Button>();
+        btn.onClick.AddListener(changeImage);
     }
+  
     public void changeImage()
     {
-        gameObject.GetComponent<Image>().sprite = second;
+        if(gameObject.tag == "spirit")
+        {
+            gameObject.GetComponent<Image>().sprite = second;
+        }
+        else
+        {
+            gameObject.GetComponent<Image>().sprite = second1;
+        }
+
+
+
     }
+    
+
 
     // Update is called once per frame
     void Update()
     {
+
         
     }
+
+    /*public void changeSkin(Sprite sprite)
+    {
+        plant.GetComponent<SpriteRenderer>().sprite = sprite;
+    }*/
 }
