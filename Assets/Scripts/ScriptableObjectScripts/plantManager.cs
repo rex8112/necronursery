@@ -12,9 +12,9 @@ public class plantManager : ScriptableObject
     {
         public string name;
         public string type;
-        List<resource> stage1 = new List<resource>();
-        List<resource> stage2 = new List<resource>();
-        List<resource> stage3 = new List<resource>();
+        public List<resource> stage1 = new List<resource>();
+        public List<resource> stage2 = new List<resource>();
+        public List<resource> stage3 = new List<resource>();
         public GameObject stages;
     }
 

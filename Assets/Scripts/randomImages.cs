@@ -8,12 +8,12 @@ public class randomImages : MonoBehaviour
     SpriteRenderer sr;
     int count = 5;
     int index;
-    Sprite[] images = new Sprite[5];
+    Sprite[] images;
 
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        fillListOfSprites();
+        //fillListOfSprites();
         showRandomImage();
     }
 
@@ -23,10 +23,10 @@ public class randomImages : MonoBehaviour
         sr.sprite = images[index];
     }
 
-    void fillListOfSprites()
-    {
-        if(images)
-        images = Resources.Load<Sprite>("Sprites");
-    }
+    //void fillListOfSprites()
+    //{
+    //    if(images)
+    //    images = Resources.LoadAll("Sprites",typeof(Sprite));
+    //}
 
 }
