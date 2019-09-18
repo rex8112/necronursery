@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class graveController : MonoBehaviour
 {
+    [SerializeField] resourceManager resourceManager;
+    [Space(10)]
+    [Header("Grave Information")]
+    public int stage;
+    public List<graveResource> requiredResources = new List<graveResource>();
+
     [SerializeField]
     GameObject resourceInformation;
+
     public void activate()
     {
         resourceInformation.SetActive(true);
@@ -14,5 +21,13 @@ public class graveController : MonoBehaviour
     public void deactivate()
     {
         resourceInformation.SetActive(false);
+    }
+
+    [System.Serializable]
+    public class graveResource
+    {
+        public string name;
+        public int current;
+        public int needed;
     }
 }
