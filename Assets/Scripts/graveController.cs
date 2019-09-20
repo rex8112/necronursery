@@ -8,6 +8,7 @@ public class graveController : MonoBehaviour
     [SerializeField] plantManager plantManager;
     [Space(10)]
     [Header("Grave Information")]
+    public plantManager.plant seed;
     public int stage;
     public List<graveResource> requiredResources = new List<graveResource>();
     GameObject stages;
@@ -24,6 +25,12 @@ public class graveController : MonoBehaviour
     public void deactivate()
     {
         resourceInformation.SetActive(false);
+    }
+
+    public void plant(string name)
+    {
+        seed = plantManager.plants.Find(seed => seed.name == name);
+
     }
 
     [System.Serializable]
