@@ -14,22 +14,24 @@ public class morgueController : MonoBehaviour
 {
     public GameObject bodyPart;
     public GameObject trash;
+    SpriteRenderer spriteSwitch;
     public int bodyPartCount = 6;
     public int trashCount = 10;
     int randomAmount;
     int partNumber;
     public GameObject[] allParts;
     public List<SpriteRenderer> wantedParts;
-//    public Sprite placeHolder;
+    float randomY;
+    float randomX;
+    SpriteRenderer chosenOne;
 
     void Start()
     {
+        randomY = Random.Range(-3.0f, 1.5f);
+        randomX = Random.Range(-5.0f, 5.0f);
         MakeGameObjects();
         allParts = GameObject.FindGameObjectsWithTag("bodypart");
-        Debug.Log(allParts.Length);
-//        wantedParts.Add(placeHolder);
         WantedBodyParts();
-
     }
 
     void Update()
@@ -42,12 +44,13 @@ public class morgueController : MonoBehaviour
     void WantedBodyParts()
     {
         randomAmount = Random.Range(1, 3);
-        for(int r = 0; r <= randomAmount; r ++)
+        for (int r = 0; r <= randomAmount; r++)
         {
             partNumber = Random.Range(0, allParts.Length);
             wantedParts.Add(allParts[partNumber].GetComponent<SpriteRenderer>());
-            //wantedParts[r] = allParts[partNumber].GetComponent<SpriteRenderer>().sprite;
-            Debug.Log(wantedParts.Count);
+            chosenOne = wantedParts[r]; // Starting here this should put a picture of the sprite on the side of the screen so people know what to find
+            spriteSwitch = GameObject.Find("Object" + r).GetComponent<SpriteRenderer>(); //something is wrong here
+            spriteSwitch.sprite = chosenOne.sprite;
         }
     }
 
@@ -55,13 +58,18 @@ public class morgueController : MonoBehaviour
     {
         for (int i = 0; i < bodyPartCount; i++)
         {
-            Instantiate(bodyPart, new Vector3(0, 0, 0), Quaternion.identity);
+            Instantiate(bodyPart, new Vector3(randomX, randomY, 0), Quaternion.identity);
+            randomY = Random.Range(-3.0f, 1.5f);
+            randomX = Random.Range(-5.0f, 5.0f);
         }
 
         for (int j = 0; j < trashCount; j++)
         {
-            Instantiate(trash, new Vector3(0, 0, 0), Quaternion.identity);
+            Instantiate(trash, new Vector3(randomX, randomY, 0), Quaternion.identity);
+            randomY = Random.Range(-3.0f, 1.5f);
+            randomX = Random.Range(-5.0f, 5.0f);
         }
+
     }
 
 }
