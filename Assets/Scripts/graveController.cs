@@ -29,7 +29,43 @@ public class graveController : MonoBehaviour
 
     public void plant(string name)
     {
-        seed = plantManager.plants.Find(seed => seed.name == name);
+        if (stage == 0)
+        {
+            seed = plantManager.plants.Find(seed => seed.name == name);
+            foreach (plantManager.resource plant in seed.stage1)
+            {
+                graveResource shit = new graveResource();
+                shit.name = plant.name;
+                shit.needed = plant.required;
+
+
+                requiredResources.Add(shit);
+            }
+            stages = seed.stages;
+
+
+            stage = 1;
+        }
+        
+
+    }
+
+    public void give()
+    {
+        foreach (graveResource resource in requiredResources)
+        {
+            resourceManager.Resource giveResource = resourceManager.resources.Find(r => r.name == resource.name);
+            if (giveResource.Remove(resource.needed))
+            {
+                Debug.Log("it worked");
+                resource.current += resource.needed;
+            }
+            else
+            {
+                Debug.Log("It didnt work");
+            }
+        }
+
 
     }
 

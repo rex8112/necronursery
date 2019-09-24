@@ -18,6 +18,8 @@ MonoBehaviour:
     stage1:
     - name: Flesh
       required: 10
+    - name: Souls
+      required: 10
     stage2: []
     stage3: []
     stages: {fileID: 0}
