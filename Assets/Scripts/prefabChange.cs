@@ -31,9 +31,6 @@ public class prefabChange : MonoBehaviour
         {
             gameObject.GetComponent<Image>().sprite = second1;
         }
-
-
-
     }
     
 
