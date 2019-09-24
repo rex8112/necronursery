@@ -49,7 +49,7 @@ public class morgueController : MonoBehaviour
             partNumber = Random.Range(0, allParts.Length);
             wantedParts.Add(allParts[partNumber].GetComponent<SpriteRenderer>());
             chosenOne = wantedParts[r]; // Starting here this should put a picture of the sprite on the side of the screen so people know what to find
-            spriteSwitch = GameObject.Find("Object" + r).GetComponent<SpriteRenderer>(); //something is wrong here
+            spriteSwitch = GameObject.Find("Object" + r).GetComponent<SpriteRenderer>();
             spriteSwitch.sprite = chosenOne.sprite;
         }
     }

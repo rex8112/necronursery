@@ -8,7 +8,7 @@ public class randomImages : MonoBehaviour
     SpriteRenderer sr;
 
 
-    void Start()
+    void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         showRandomImage();
