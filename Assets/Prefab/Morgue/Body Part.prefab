@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8381337358861546357}
   m_Layer: 0
   m_Name: Body Part
-  m_TagString: Untagged
+  m_TagString: bodypart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,11 +96,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   images:
-  - {fileID: 21300000, guid: 4f0008f142b54d34db8fb5665b72000a, type: 3}
-  - {fileID: 21300000, guid: 84faff707d7174a4da2a85152e66e145, type: 3}
-  - {fileID: 21300000, guid: 6ef3a74eccf743e498a2af19eb48d57f, type: 3}
-  - {fileID: 21300000, guid: 995977eeb661b784d91c131877a083d3, type: 3}
-  - {fileID: 21300000, guid: d67fc63cf9e30044aaccb05d0e901dcb, type: 3}
+  - {fileID: -7618976031964854112, guid: 78a77d2e3c227a24298277904e27666c, type: 3}
+  - {fileID: 1471655893363534324, guid: 78a77d2e3c227a24298277904e27666c, type: 3}
+  - {fileID: -8190826169958854494, guid: 78a77d2e3c227a24298277904e27666c, type: 3}
+  - {fileID: 2415638219950541397, guid: 78a77d2e3c227a24298277904e27666c, type: 3}
+  - {fileID: -8651875095205008039, guid: 78a77d2e3c227a24298277904e27666c, type: 3}
+  - {fileID: 6278073758480087101, guid: 78a77d2e3c227a24298277904e27666c, type: 3}
+  - {fileID: -1983441148831000775, guid: 78a77d2e3c227a24298277904e27666c, type: 3}
+  - {fileID: 5101134285588445033, guid: 78a77d2e3c227a24298277904e27666c, type: 3}
 --- !u!114 &8381337358861546356
 MonoBehaviour:
   m_ObjectHideFlags: 0

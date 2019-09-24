@@ -6,6 +6,8 @@ TagManager:
   tags:
   - grave
   - spirit
+  - bodypart
+  - trash
   layers:
   - Default
   - TransparentFX

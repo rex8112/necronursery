@@ -16,14 +16,12 @@ public class gameTimer : MonoBehaviour
     {
         if (startTimer)
         {
-            Debug.Log ("timer started");
             remainingTime -= Time.deltaTime;
             timer.text = (remainingTime).ToString("0");
         }
 
         if (remainingTime <= 0)
         {
-            Debug.Log("timer stopped");
             startTimer = false;
             //Time.timeScale = 0;
             afterTimer.SetActive(true);

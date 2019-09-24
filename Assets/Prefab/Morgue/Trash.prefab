@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4105206731619836708}
   m_Layer: 0
   m_Name: Trash
-  m_TagString: Untagged
+  m_TagString: trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,11 +96,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   images:
-  - {fileID: 21300000, guid: 4f0008f142b54d34db8fb5665b72000a, type: 3}
-  - {fileID: 21300000, guid: 84faff707d7174a4da2a85152e66e145, type: 3}
-  - {fileID: 21300000, guid: 6ef3a74eccf743e498a2af19eb48d57f, type: 3}
-  - {fileID: 21300000, guid: 995977eeb661b784d91c131877a083d3, type: 3}
-  - {fileID: 21300000, guid: d67fc63cf9e30044aaccb05d0e901dcb, type: 3}
+  - {fileID: 7886154905807412684, guid: 3bbed7dde763b87479b94924905da908, type: 3}
+  - {fileID: 8801971845485781973, guid: 3bbed7dde763b87479b94924905da908, type: 3}
+  - {fileID: 2354626658230211636, guid: 3bbed7dde763b87479b94924905da908, type: 3}
+  - {fileID: 8384967988059038933, guid: 3bbed7dde763b87479b94924905da908, type: 3}
+  - {fileID: 8384967988059038933, guid: 3bbed7dde763b87479b94924905da908, type: 3}
+  - {fileID: 2767418353236451497, guid: 3bbed7dde763b87479b94924905da908, type: 3}
+  - {fileID: -4540182482368715750, guid: 3bbed7dde763b87479b94924905da908, type: 3}
+  - {fileID: -1330126730333755445, guid: 3bbed7dde763b87479b94924905da908, type: 3}
+  - {fileID: -1724829058781615542, guid: 3bbed7dde763b87479b94924905da908, type: 3}
+  - {fileID: -5230395246226558502, guid: 3bbed7dde763b87479b94924905da908, type: 3}
 --- !u!114 &5891255319899512911
 MonoBehaviour:
   m_ObjectHideFlags: 0
