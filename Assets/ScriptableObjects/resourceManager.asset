@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resources:
   - name: Flesh
-    value: 45
+    value: 48
     teethValue: 5
   - name: Souls
     value: 30

@@ -24,6 +24,7 @@ public class morgueController : MonoBehaviour
     float randomY;
     float randomX;
     SpriteRenderer chosenOne;
+    public bool Win;
 
     void Start()
     {
@@ -32,6 +33,8 @@ public class morgueController : MonoBehaviour
         MakeGameObjects();
         allParts = GameObject.FindGameObjectsWithTag("bodypart");
         WantedBodyParts();
+        gameObject.GetComponent<gameTimer>().resourceAmmount = randomAmount + 1;
+        gameObject.GetComponent<gameTimer>().resourceName = "Flesh";
     }
 
     void Update()
