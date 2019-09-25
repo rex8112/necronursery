@@ -1,31 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class populateScrollview : MonoBehaviour
 {
     [SerializeField] plantManager plantManager;
-    [SerializeField] GameObject content;
+    [SerializeField] graveController gc;
+    public GameObject content;
     [SerializeField] GameObject buttonPrefab;
 
     public float buffer = 5;
 
     void Awake()
     {
-        
+        gc = transform.GetComponentInParent<graveController>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        int count = 0;
         foreach (plantManager.plant plant in plantManager.plants)
         {
+            count += 1;
             GameObject button = Instantiate(buttonPrefab, content.transform);
-            RectTransform rt = button.transform.GetComponent<RectTransform>();
-            float buttonHeight = rt.localScale.y * rt.sizeDelta.y;
-            float buttonWidthPosition = (rt.localScale.x * rt.sizeDelta.x);
-            rt.localPosition = new Vector2(buttonWidthPosition, -buttonHeight - buffer);
+            Text text = button.GetComponentInChildren<Text>();
+            text.text = plant.name;
 
+            button.GetComponent<Button>().onClick.AddListener(delegate{gc.plant(plant.name);});
         }
     }
 

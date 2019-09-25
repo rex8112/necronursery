@@ -12,19 +12,33 @@ public class graveController : MonoBehaviour
     public int stage;
     public List<graveResource> requiredResources = new List<graveResource>();
     GameObject stages;
+    [Space(10)]
+    [Header("UI Information")]
+    [SerializeField] GameObject resourceInformation;
+    [SerializeField] GameObject seedView;
+    [SerializeField] GameObject plantButton;
 
-    [SerializeField]
-    GameObject resourceInformation;
 
 
-    public void activate()
+    public void activateRI()
     {
         resourceInformation.SetActive(true);
     }
 
-    public void deactivate()
+    public void activate(GameObject ui)
     {
-        resourceInformation.SetActive(false);
+        ui.SetActive(true);
+    }
+    public void deactivate(GameObject ui)
+    {
+        ui.SetActive(false);
+    }
+    public void toggle(GameObject ui)
+    {
+        if (ui.activeSelf == true)
+            deactivate(ui);
+        else
+            activate(ui);
     }
 
     public void plant(string name)
@@ -34,20 +48,21 @@ public class graveController : MonoBehaviour
             seed = plantManager.plants.Find(seed => seed.name == name);
             foreach (plantManager.resource plant in seed.stage1)
             {
-                graveResource shit = new graveResource();
-                shit.name = plant.name;
-                shit.needed = plant.required;
+                graveResource gr = new graveResource();
+                gr.name = plant.name;
+                gr.needed = plant.required;
 
 
-                requiredResources.Add(shit);
+                requiredResources.Add(gr);
             }
             stages = seed.stages;
 
 
             stage = 1;
         }
-        
 
+        deactivate(seedView);
+        deactivate(plantButton);
     }
 
     public void give()

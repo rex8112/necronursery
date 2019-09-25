@@ -46,7 +46,7 @@ public class sceneController : MonoBehaviour
 
             if (hit.collider.CompareTag("grave"))
             {
-                hit.collider.GetComponent<graveController>().activate();
+                hit.collider.GetComponent<graveController>().activateRI();
             }
         }
     }

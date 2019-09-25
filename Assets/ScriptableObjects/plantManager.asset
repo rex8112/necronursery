@@ -19,5 +19,18 @@ MonoBehaviour:
     - name: Flesh
       required: 10
     stage2: []
-    stage3: []
+    stages: {fileID: 0}
+  - name: Demon
+    type: Souls
+    stage1:
+    - name: Souls
+      required: 10
+    stage2: []
+    stages: {fileID: 0}
+  - name: Wraith
+    type: Magic
+    stage1:
+    - name: Magic
+      required: 10
+    stage2: []
     stages: {fileID: 0}

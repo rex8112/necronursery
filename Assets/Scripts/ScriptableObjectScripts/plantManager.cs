@@ -14,7 +14,6 @@ public class plantManager : ScriptableObject
         public string type;
         public List<resource> stage1 = new List<resource>();
         public List<resource> stage2 = new List<resource>();
-        public List<resource> stage3 = new List<resource>();
         public GameObject stages;
     }
 
