@@ -7,13 +7,26 @@ public class sceneController : MonoBehaviour
     public Vector3 touchStart;
     public Vector3 touchDir;
 
+    public bool lockCamera;
+    [SerializeField] Camera mainCam;
+    [SerializeField] Camera camToMoveTo;
+    float initSize;
+    [SerializeField] float tranSpeed = 6f;
+    [SerializeField] float sizeSpeed = 1f;
+
     Vector3 touchPosWorld;
     TouchPhase touchPhase = TouchPhase.Ended;
+
+    private void Awake()
+    {
+        initSize = Camera.main.orthographicSize;
+        mainCam = Camera.main;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -47,7 +60,25 @@ public class sceneController : MonoBehaviour
             if (hit.collider.CompareTag("grave"))
             {
                 hit.collider.GetComponent<graveController>().activateRI();
+                lockCamera = true;
+                camToMoveTo = hit.collider.GetComponentInChildren<Camera>();
             }
+        }
+
+        if (lockCamera)
+        {
+            float sizeToChange = (camToMoveTo.orthographicSize - mainCam.orthographicSize) * sizeSpeed * Time.deltaTime;
+            float predictSize = (mainCam.orthographicSize + sizeToChange);
+
+            mainCam.orthographicSize += sizeToChange;
+
+            mainCam.transform.position = Vector2.MoveTowards(mainCam.transform.position, camToMoveTo.transform.position, tranSpeed * Time.deltaTime);
+            mainCam.transform.position = new Vector3(mainCam.transform.position.x, mainCam.transform.position.y, -10f);
+        }
+        else
+        {
+            float sizeToChange = (initSize - mainCam.orthographicSize) * sizeSpeed * Time.deltaTime;
+            mainCam.orthographicSize += sizeToChange;
         }
     }
 

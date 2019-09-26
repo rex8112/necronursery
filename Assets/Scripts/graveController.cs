@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class graveController : MonoBehaviour
 {
@@ -17,8 +19,14 @@ public class graveController : MonoBehaviour
     [SerializeField] GameObject resourceInformation;
     [SerializeField] GameObject seedView;
     [SerializeField] GameObject plantButton;
+    [SerializeField] GameObject infoGroup;
+    public UnityEvent OnValueChange;
 
 
+    public void Awake()
+    {
+        OnValueChange.AddListener(updateInfo);
+    }
 
     public void activateRI()
     {
@@ -31,6 +39,10 @@ public class graveController : MonoBehaviour
     }
     public void deactivate(GameObject ui)
     {
+        if (ui.name == "graveInfo")
+        {
+            GameObject.Find("sceneController").GetComponent<sceneController>().lockCamera = false;
+        }
         ui.SetActive(false);
     }
     public void toggle(GameObject ui)
@@ -61,8 +73,10 @@ public class graveController : MonoBehaviour
             stage = 1;
         }
 
+        OnValueChange.Invoke();
         deactivate(seedView);
         deactivate(plantButton);
+        activate(infoGroup);
     }
 
     public void give()
@@ -80,8 +94,23 @@ public class graveController : MonoBehaviour
                 Debug.Log("It didnt work");
             }
         }
+        OnValueChange.Invoke();
+    }
 
+    public void updateInfo()
+    {
+        Text plantName = infoGroup.transform.Find("PlantName").GetComponent<Text>();
+        Text reqResources = infoGroup.transform.Find("ReqResources").Find("Text").GetComponent<Text>();
+        Text curResources = infoGroup.transform.Find("CurResources").Find("Text").GetComponentInChildren<Text>();
 
+        plantName.text = seed.name;
+        reqResources.text = "";
+        curResources.text = "";
+        foreach (graveResource res in requiredResources)
+        {
+            reqResources.text += (res.name + ": " + res.needed);
+            curResources.text += (res.name + ": " + res.current);
+        }
     }
 
     [System.Serializable]
