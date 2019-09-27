@@ -16,6 +16,7 @@ public class graveController : MonoBehaviour
     GameObject stages;
     [Space(10)]
     [Header("UI Information")]
+    [SerializeField] GameObject graveImageCanvas;
     [SerializeField] GameObject resourceInformation;
     [SerializeField] GameObject seedView;
     [SerializeField] GameObject plantButton;
@@ -68,7 +69,7 @@ public class graveController : MonoBehaviour
                 requiredResources.Add(gr);
             }
             stages = seed.stages;
-
+            stages = Instantiate(stages, graveImageCanvas.transform);
 
             stage = 1;
         }
@@ -81,6 +82,7 @@ public class graveController : MonoBehaviour
 
     public void give()
     {
+        int full = 0;
         foreach (graveResource resource in requiredResources)
         {
             resourceManager.Resource giveResource = resourceManager.resources.Find(r => r.name == resource.name);
@@ -93,7 +95,18 @@ public class graveController : MonoBehaviour
             {
                 Debug.Log("It didnt work");
             }
+
+            if (resource.current >= resource.needed)
+            {
+                full += 1;
+            }
         }
+
+        if (full >= requiredResources.Capacity)
+        {
+            nextStage();
+        }
+
         OnValueChange.Invoke();
     }
 
@@ -111,6 +124,11 @@ public class graveController : MonoBehaviour
             reqResources.text += (res.name + ": " + res.needed);
             curResources.text += (res.name + ": " + res.current);
         }
+    }
+
+    public void nextStage()
+    {
+        
     }
 
     [System.Serializable]

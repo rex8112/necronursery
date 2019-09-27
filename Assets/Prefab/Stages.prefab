@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3818744407241088473}
   - component: {fileID: 4511130647450219740}
   - component: {fileID: 227057473187892665}
+  - component: {fileID: 2432316643974228636}
   m_Layer: 0
   m_Name: Stages
   m_TagString: Untagged
@@ -65,7 +66,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d67fc63cf9e30044aaccb05d0e901dcb, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -75,3 +76,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2432316643974228636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7798496621293433460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb723a7f8756d6a4c8bccc155f1ef036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 1
+  first: {fileID: -4891496646393363327, guid: 78a77d2e3c227a24298277904e27666c, type: 3}
+  second: {fileID: 2415638219950541397, guid: 78a77d2e3c227a24298277904e27666c, type: 3}
+  third: {fileID: -4031924987712576978, guid: 78a77d2e3c227a24298277904e27666c, type: 3}
