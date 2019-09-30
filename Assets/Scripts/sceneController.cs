@@ -32,7 +32,7 @@ public class sceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0) //Drag to move camera
         {
             Touch touch = Input.GetTouch(0);
 
@@ -49,7 +49,7 @@ public class sceneController : MonoBehaviour
             }
         }
 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == touchPhase)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == touchPhase) //Check for grave touch
         {
             touchPosWorld = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
 
@@ -57,7 +57,7 @@ public class sceneController : MonoBehaviour
 
             RaycastHit2D hit = Physics2D.Raycast(touchPosWorld2D, Camera.main.transform.forward);
 
-            if (hit.collider.CompareTag("grave"))
+            if (hit.collider.CompareTag("grave") && lockCamera == false)
             {
                 hit.collider.GetComponent<graveController>().activateRI();
                 lockCamera = true;

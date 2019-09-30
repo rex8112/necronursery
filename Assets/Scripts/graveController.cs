@@ -105,7 +105,8 @@ public class graveController : MonoBehaviour
             }
         }
 
-        if (full >= requiredResources.Capacity)
+        //Debug.Log(full + " Full " + requiredResources.Count + " Capacity");
+        if (full >= requiredResources.Count)
         {
             nextStage();
         }
@@ -124,8 +125,8 @@ public class graveController : MonoBehaviour
         curResources.text = "";
         foreach (graveResource res in requiredResources)
         {
-            reqResources.text += (res.name + ": " + res.needed);
-            curResources.text += (res.name + ": " + res.current);
+            reqResources.text += (res.name + ": " + res.needed + "\n");
+            curResources.text += (res.name + ": " + res.current + "\n");
         }
     }
 
@@ -133,18 +134,28 @@ public class graveController : MonoBehaviour
     {
         if (stage == 1)
         {
-            seed = plantManager.plants.Find(seed => seed.name == name);
+            requiredResources.Clear();
             foreach (plantManager.resource plant in seed.stage2)
             {
                 graveResource gr = new graveResource();
                 gr.name = plant.name;
                 gr.needed = plant.required;
+
+
+                requiredResources.Add(gr);
             }
-            stages = seed.stages;
-            stages = Instantiate(stages, graveImageCanvas.transform);
+            stages.GetComponent<prefabChange>().nextStage();
 
             stage = 2;
         }
+        else if (stage == 2)
+        {
+            requiredResources.Clear();
+            stages.GetComponent<prefabChange>().nextStage();
+            stage = 3;
+        }
+
+        OnValueChange.Invoke();
     }
 
     [System.Serializable]
