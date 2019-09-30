@@ -74,6 +74,9 @@ public class graveController : MonoBehaviour
             stage = 1;
         }
 
+        
+
+
         OnValueChange.Invoke();
         deactivate(seedView);
         deactivate(plantButton);
@@ -128,7 +131,20 @@ public class graveController : MonoBehaviour
 
     public void nextStage()
     {
-        
+        if (stage == 1)
+        {
+            seed = plantManager.plants.Find(seed => seed.name == name);
+            foreach (plantManager.resource plant in seed.stage2)
+            {
+                graveResource gr = new graveResource();
+                gr.name = plant.name;
+                gr.needed = plant.required;
+            }
+            stages = seed.stages;
+            stages = Instantiate(stages, graveImageCanvas.transform);
+
+            stage = 2;
+        }
     }
 
     [System.Serializable]

@@ -18,7 +18,11 @@ MonoBehaviour:
     stage1:
     - name: Flesh
       required: 10
-    stage2: []
+    stage2:
+    - name: Flesh
+      required: 14
+    - name: Souls
+      required: 5
     stages: {fileID: 2017790332621676551, guid: 0de4c470cd4a4e84eaeca1d6a71df1f7,
       type: 3}
   - name: Demon
