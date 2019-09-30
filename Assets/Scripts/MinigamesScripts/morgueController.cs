@@ -39,7 +39,10 @@ public class morgueController : MonoBehaviour
 
     void Update()
     {
-        
+        if (Win)
+        {
+            //do stuff
+        }
     }
 
         //make list of bodyparts from scene
@@ -55,6 +58,8 @@ public class morgueController : MonoBehaviour
             spriteSwitch = GameObject.Find("Object" + r).GetComponent<SpriteRenderer>();
             spriteSwitch.sprite = chosenOne.sprite;
         }
+        GameObject.Find("Bag").GetComponent<morgueWin>().wantedPartsList = wantedParts;
+        GameObject.Find("Bag").GetComponent<morgueWin>().winAmount = randomAmount;
     }
 
     void MakeGameObjects()
