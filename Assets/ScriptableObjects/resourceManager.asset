@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resources:
   - name: Flesh
-    value: 24
+    value: 300
     teethValue: 5
   - name: Souls
-    value: 10
+    value: 300
     teethValue: 10
   - name: Magic
-    value: 90
+    value: 100
     teethValue: 20
   - name: Teeth
-    value: 999525
+    value: 300
     teethValue: 1

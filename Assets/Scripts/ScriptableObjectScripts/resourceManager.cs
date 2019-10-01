@@ -41,5 +41,20 @@ public class resourceManager : ScriptableObject
             else
                 return false;
         }
+
+        public int RemoveForce(int change)
+        {
+            if (value - change < 0)
+            {
+                int valueChange = value;
+                value = 0;
+                return valueChange;
+            }
+            else
+            {
+                value -= change;
+                return change;
+            }
+        }
     }
 }

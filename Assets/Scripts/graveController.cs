@@ -21,6 +21,7 @@ public class graveController : MonoBehaviour
     [SerializeField] GameObject seedView;
     [SerializeField] GameObject plantButton;
     [SerializeField] GameObject infoGroup;
+    [SerializeField] GameObject giveButton;
     public UnityEvent OnValueChange;
 
 
@@ -89,15 +90,7 @@ public class graveController : MonoBehaviour
         foreach (graveResource resource in requiredResources)
         {
             resourceManager.Resource giveResource = resourceManager.resources.Find(r => r.name == resource.name);
-            if (giveResource.Remove(resource.needed))
-            {
-                Debug.Log("it worked");
-                resource.current += resource.needed;
-            }
-            else
-            {
-                Debug.Log("It didnt work");
-            }
+            resource.current += giveResource.RemoveForce(resource.needed - resource.current);
 
             if (resource.current >= resource.needed)
             {
@@ -151,8 +144,25 @@ public class graveController : MonoBehaviour
         else if (stage == 2)
         {
             requiredResources.Clear();
+            foreach (plantManager.resource plant in seed.stage3)
+            {
+                graveResource gr = new graveResource();
+                gr.name = plant.name;
+                gr.needed = plant.required;
+
+
+                requiredResources.Add(gr);
+            }
             stages.GetComponent<prefabChange>().nextStage();
             stage = 3;
+        }
+        else if (stage == 3)
+        {
+            requiredResources.Clear();
+            Destroy(stages);
+            deactivate(infoGroup);
+            activate(plantButton);
+            stage = 0;
         }
 
         OnValueChange.Invoke();
