@@ -826,6 +826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 320855041}
   - component: {fileID: 320855040}
+  - component: {fileID: 320855042}
   m_Layer: 0
   m_Name: sceneController
   m_TagString: Untagged
@@ -850,7 +851,7 @@ MonoBehaviour:
   lockCamera: 0
   mainCam: {fileID: 0}
   camToMoveTo: {fileID: 0}
-  tranSpeed: 6
+  tranSpeed: 8
   sizeSpeed: 4
 --- !u!4 &320855041
 Transform:
@@ -866,6 +867,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &320855042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320855039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf31174903f83f4cb67a4177eb23651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceManager: {fileID: 11400000, guid: e435da9cf84180e42bde6c1982faacbf, type: 2}
 --- !u!1001 &341213736
 PrefabInstance:
   m_ObjectHideFlags: 0
