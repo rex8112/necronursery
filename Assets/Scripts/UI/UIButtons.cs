@@ -11,6 +11,7 @@ public class UIButtons : MonoBehaviour
     string closeButton = "Close";
     string graveyardScene = "Graveyard";
     string startTimer = "Start";
+    string morgueMinigame = "Morgue";
 
     bool timer;
 
@@ -36,6 +37,10 @@ public class UIButtons : MonoBehaviour
         {
             timer = GameObject.Find("Main Camera").GetComponent<gameTimer>().startTimer = true;
             gameObject.SetActive(false);
+        }
+        if (buttonName == morgueMinigame)
+        {
+            SceneManager.LoadScene("Morgue");
         }
     }
 }

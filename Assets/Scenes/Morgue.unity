@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb528f1e19da3924a8a3c853ba50ceeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remainingTime: 3
+  remainingTime: 300
   timer: {fileID: 1094692946}
   afterTimer: {fileID: 1691823881}
   tapToStart: {fileID: 888157466}
@@ -1501,7 +1501,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -473.17, y: 213.03}
+  m_AnchoredPosition: {x: -391, y: 213.03}
   m_SizeDelta: {x: 139.65, y: 71.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094692946
@@ -1575,7 +1575,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.035719633, y: -0.019029379}
@@ -1605,6 +1605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wantedPartsList: []
   winAmount: 0
+  currentAmount: 0
 --- !u!212 &1129254712
 SpriteRenderer:
   m_ObjectHideFlags: 0

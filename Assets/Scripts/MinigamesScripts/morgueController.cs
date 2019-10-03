@@ -49,7 +49,7 @@ public class morgueController : MonoBehaviour
         //pick X parts from list
     void WantedBodyParts()
     {
-        randomAmount = Random.Range(1, 3);
+        randomAmount = Random.Range(0, 2);
         for (int r = 0; r <= randomAmount; r++)
         {
             partNumber = Random.Range(0, allParts.Length);
@@ -59,7 +59,7 @@ public class morgueController : MonoBehaviour
             spriteSwitch.sprite = chosenOne.sprite;
         }
         GameObject.Find("Bag").GetComponent<morgueWin>().wantedPartsList = wantedParts;
-        GameObject.Find("Bag").GetComponent<morgueWin>().winAmount = randomAmount;
+        GameObject.Find("Bag").GetComponent<morgueWin>().winAmount = randomAmount + 1;
     }
 
     void MakeGameObjects()
