@@ -8,6 +8,7 @@ public class morgueWin : MonoBehaviour
     public int winAmount;
     [SerializeField]
     int currentAmount;
+    Sprite objectCheck;
 
     void Start()
     {
@@ -36,30 +37,51 @@ public class morgueWin : MonoBehaviour
     //        }
     //    }
     //}
+    //void OnCollider2D(Collider colided)
+    //{
+    //    Debug.Log("Got the object");
+    //    objectCheck = gameObject.GetComponent<SpriteRenderer>().sprite;
+    //    for (int i = 0; i <= wantedPartsList.Count; i++)
+    //    {
+    //        if (objectCheck == wantedPartsList[i].sprite)
+    //        {
+    //            currentAmount++;
+    //            Debug.Log("increase Current amount");
+    //            CheckForWin();
+    //            Destroy(gameObject);
+    //            Debug.Log("Object has been destory");
+    //        }
+    //    }
+    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        SpriteRenderer objectCheck = collision.gameObject.GetComponent<SpriteRenderer>();
-        Debug.Log("Got the object");
+        objectCheck = collision.transform.gameObject.GetComponent<SpriteRenderer>().sprite;
         for (int i = 0; i <= wantedPartsList.Count; i++)
         {
-            if (objectCheck.sprite == wantedPartsList[i].sprite)
+            if (objectCheck == wantedPartsList[i].sprite)
             {
                 currentAmount++;
                 Debug.Log("increase Current amount");
                 CheckForWin();
-                Destroy(objectCheck.gameObject);
+                Destroy(collision.gameObject);
                 Debug.Log("Object has been destory");
             }
         }
     }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        objectCheck = null;
+    }
+
+
 
     void CheckForWin()
     {
         if (currentAmount == winAmount + 1)
         {
             GameObject.Find("Main Camera").GetComponent<morgueController>().Win = true;
-            Debug.Log("You won");
+            GameObject.Find("Main Camera").GetComponent<gameTimer>().win = true;
         }
         else
         {

@@ -24,24 +24,28 @@ public class gameTimer : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (startTimer)
         {
             remainingTime -= Time.deltaTime;
             timer.text = (remainingTime).ToString("0.0");
         }
+    }
 
+
+    void FixedUpdate()
+    {
         if (remainingTime <= 0 && win == false)
         {
             startTimer = false;
-            //Time.timeScale = 0;
+            Time.timeScale = 0;
             afterTimer.SetActive(true);
         }
         else if(win == true && winOver == false)
         {
             startTimer = false;
+            Time.timeScale = 0;
             changeResource = resourceManager.resources.Find(name => name.name == resourceName);
             changeResource.Add(resourceAmmount);
             winOver = true;
