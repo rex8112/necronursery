@@ -20,13 +20,30 @@ public class morgueWin : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    SpriteRenderer objectCheck = collision.gameObject.GetComponent<SpriteRenderer>();
+    //    Debug.Log("Got the object");
+    //    for (int i = 0; i < wantedPartsList.Count; i++)
+    //    {
+    //        if (objectCheck = wantedPartsList[i])
+    //        {
+    //            currentAmount++;
+    //            Debug.Log("increase Current amount");
+    //            CheckForWin();
+    //            Destroy(objectCheck.gameObject);
+    //            Debug.Log("Object has been destory");
+    //        }
+    //    }
+    //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         SpriteRenderer objectCheck = collision.gameObject.GetComponent<SpriteRenderer>();
         Debug.Log("Got the object");
-        for (int i = 0; i < wantedPartsList.Count; i++)
+        for (int i = 0; i <= wantedPartsList.Count; i++)
         {
-            if (objectCheck = wantedPartsList[i])
+            if (objectCheck.sprite == wantedPartsList[i].sprite)
             {
                 currentAmount++;
                 Debug.Log("increase Current amount");
@@ -36,20 +53,6 @@ public class morgueWin : MonoBehaviour
             }
         }
     }
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    SpriteRenderer objectCheck = collision.gameObject.GetComponent<SpriteRenderer>();
-    //    for (int i = 0; i < wantedPartsList.Count; i++)
-    //    {
-    //        if (objectCheck = wantedPartsList[i])
-    //        {
-    //            currentAmount++;
-    //            CheckForWin();
-    //            Destroy(objectCheck.gameObject);
-    //        }
-    //    }
-    //}
 
     void CheckForWin()
     {

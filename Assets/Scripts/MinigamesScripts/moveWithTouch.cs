@@ -35,10 +35,6 @@ public class moveWithTouch : MonoBehaviour
 
                         // if touch begins within the collider then it is allowed to move 
                         moveAllowed = true;
-
-                        // restrict some rigidbody properties so it moves more smoothly
-                        //rb.freezeRotation = true;
-                        //rb.velocity = new Vector2(0, 0);
                     }
                     break;
 
@@ -48,11 +44,8 @@ public class moveWithTouch : MonoBehaviour
                     break;
 
                 case TouchPhase.Ended: // you release your finger
-
                     // restore initial parameters
                     moveAllowed = false;
-                    //rb.freezeRotation = false;
-                    //rb.gravityScale = 2;
                     break;
             }
         }
