@@ -7,7 +7,8 @@ public class gameTimer : MonoBehaviour
 {
     public float remainingTime = 10.0f;
     public Text timer;
-    public GameObject afterTimer;
+    public GameObject playerLostScreen;
+    public GameObject playerWonScreen;
     public GameObject tapToStart;
     public bool startTimer = false;
     public bool win = false;
@@ -23,24 +24,18 @@ public class gameTimer : MonoBehaviour
         winOver = false;
     }
 
-
-    void Update()
+    void FixedUpdate()
     {
         if (startTimer)
         {
             remainingTime -= Time.deltaTime;
             timer.text = (remainingTime).ToString("0.0");
         }
-    }
-
-
-    void FixedUpdate()
-    {
         if (remainingTime <= 0 && win == false)
         {
             startTimer = false;
             Time.timeScale = 0;
-            afterTimer.SetActive(true);
+            playerLostScreen.SetActive(true);
         }
         else if(win == true && winOver == false)
         {
@@ -48,6 +43,7 @@ public class gameTimer : MonoBehaviour
             Time.timeScale = 0;
             changeResource = resourceManager.resources.Find(name => name.name == resourceName);
             changeResource.Add(resourceAmmount);
+            playerWonScreen.SetActive(true);
             winOver = true;
         }
     }

@@ -1,83 +1,75 @@
-﻿
-    //needs to choose what body parts are need to 'win' 
-    //make a list of body part to find. check list with 
-    //the body parts in the scene and if one of the 
-    //parts in the list is not in the scene pick a new one
-    //the bag should check whaat parts are needed and if 
-    //a needed part is drug on top of it then destory the object
-    //and "cross" it out
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class morgueController : MonoBehaviour
 {
-    public GameObject bodyPart;
-    public GameObject trash;
-    SpriteRenderer spriteSwitch;
-    public int bodyPartCount = 6;
-    public int trashCount = 10;
-    int randomAmount;
-    int partNumber;
-    public GameObject[] allParts;
-    public List<SpriteRenderer> wantedParts;
-    float randomY;
-    float randomX;
-    SpriteRenderer chosenOne;
-    public bool Win;
+    public GameObject bodyPart; //bodyPart Prefab
+    public GameObject trash; //Trash Prefab
+    public GameObject[] allParts; //An array of all the bodyparts in the scene
+    public List<SpriteRenderer> wantedParts; //List of the parts the player needs to find
+    SpriteRenderer spriteSwitch; //The sprite that is getting set (for what the player needs to find)
+    SpriteRenderer chosenOne; //Holds the sprite before the spriteSwitch
+    public int bodyPartCount = 6; //The number of bodyParts that will spawn
+    public int trashCount = 10; //How many trash will spawn
+    int randomAmount; // The amount of bodyparts the player has to find (1-3)
+    int partNumber; //Which partLocation in allParts that the player needs to find
+    float randomY; //The random Y location of a body part
+    float randomX; //The random X location of a body part
 
     void Start()
     {
-        randomY = Random.Range(-3.0f, 1.5f);
-        randomX = Random.Range(-5.0f, 5.0f);
+        RandomLocation();
         MakeGameObjects();
         allParts = GameObject.FindGameObjectsWithTag("bodypart");
         WantedBodyParts();
-        gameObject.GetComponent<gameTimer>().resourceAmmount = randomAmount + 1;
-        gameObject.GetComponent<gameTimer>().resourceName = "Flesh";
     }
 
-    void Update()
-    {
-        if (Win)
-        {
-            //do stuff
-        }
-    }
-
-        //make list of bodyparts from scene
-        //pick X parts from list
-    void WantedBodyParts()
+    void WantedBodyParts() //Makes a list of bodyParts that the player needs to find
     {
         randomAmount = Random.Range(1, 3);
         for (int r = 0; r < randomAmount; r++)
         {
             partNumber = Random.Range(0, allParts.Length);
-            wantedParts.Add(allParts[partNumber].GetComponent<SpriteRenderer>());
-            chosenOne = wantedParts[r]; // Starting here this should put a picture of the sprite on the side of the screen so people know what to find
-            spriteSwitch = GameObject.Find("Object" + r).GetComponent<SpriteRenderer>();
-            spriteSwitch.sprite = chosenOne.sprite;
+
+            if (allParts[partNumber] == null) //if the bodypart[partnumber] has already been used pick another
+            {
+                partNumber = Random.Range(0, allParts.Length);
+            }
+
+            else //else add the bodyPart[partNumber] to the list
+            {
+                wantedParts.Add(allParts[partNumber].GetComponent<SpriteRenderer>());
+                chosenOne = wantedParts[r];
+                spriteSwitch = GameObject.Find("Object" + r).GetComponent<SpriteRenderer>();
+                spriteSwitch.sprite = chosenOne.sprite;
+                allParts[partNumber] = null; //setting the location to NULL so it won't be picked twice
+            }
         }
         GameObject.Find("Bag").GetComponent<morgueWin>().wantedPartsList = wantedParts;
         GameObject.Find("Bag").GetComponent<morgueWin>().winAmount = randomAmount;
     }
 
-    void MakeGameObjects()
+    void MakeGameObjects() //Create gameobjects in the scene
     {
-        for (int i = 0; i < bodyPartCount; i++)
+        for (int i = 0; i < bodyPartCount; i++) //Make bodyparts
         {
             Instantiate(bodyPart, new Vector3(randomX, randomY, 0), Quaternion.identity);
-            randomY = Random.Range(-3.0f, 1.5f);
-            randomX = Random.Range(-5.0f, 5.0f);
+            RandomLocation();
         }
 
-        for (int j = 0; j < trashCount; j++)
+        for (int j = 0; j < trashCount; j++) //make trash
         {
             Instantiate(trash, new Vector3(randomX, randomY, 0), Quaternion.identity);
-            randomY = Random.Range(-3.0f, 1.5f);
-            randomX = Random.Range(-5.0f, 5.0f);
+            RandomLocation();
         }
 
+    }
+
+    void RandomLocation() //pick a random location
+    {
+            randomY = Random.Range(-3.0f, 1.5f);
+            randomX = Random.Range(-5.0f, 5.0f);
     }
 
 }
