@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class sceneController : MonoBehaviour
 {
+    [SerializeField] SaveLoad SaveLoad;
+    [SerializeField] Save save;
     public Vector3 touchStart;
     public Vector3 touchDir;
 
@@ -13,6 +15,7 @@ public class sceneController : MonoBehaviour
     float initSize;
     [SerializeField] float tranSpeed = 6f;
     [SerializeField] float sizeSpeed = 1f;
+    [SerializeField] List<graveController> graves = new List<graveController>();
 
     Vector3 touchPosWorld;
     TouchPhase touchPhase = TouchPhase.Ended;
@@ -88,5 +91,12 @@ public class sceneController : MonoBehaviour
 
         Debug.Log(dir);
         cam.Translate(-dir);
+    }
+
+    void Save()
+    {
+        foreach (graveController grave in graves)
+        {
+        }
     }
 }

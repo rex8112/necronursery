@@ -5,10 +5,12 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SaveLoad : MonoBehaviour
+[CreateAssetMenu(fileName = "Save", menuName = "ScriptableObjects/SpawnSave", order = 1)]
+public class SaveLoad : ScriptableObject
 {
-    [SerializeField]
-    resourceManager resourceManager;
+    [SerializeField] List<resourceManager.Resource> resources = new List<resourceManager.Resource>();
+    [SerializeField] List<plantManager.plant> plants = new List<plantManager.plant>();
+    [SerializeField] List<int> stageInts = new List<int>();
     public void SaveToDisk(Save save)
     { 
         BinaryFormatter bf = new BinaryFormatter();
@@ -29,7 +31,6 @@ public class SaveLoad : MonoBehaviour
     }
 }
 
-[System.Serializable]
 public class Save
 {
     List<resourceManager.Resource> resources = new List<resourceManager.Resource>();
