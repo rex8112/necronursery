@@ -5,7 +5,7 @@ using UnityEngine;
 public class sceneController : MonoBehaviour
 {
     [SerializeField] SaveLoad SaveLoad;
-    [SerializeField] Save save;
+    [SerializeField] resourceManager resourceManager;
     public Vector3 touchStart;
     public Vector3 touchDir;
 
@@ -97,6 +97,12 @@ public class sceneController : MonoBehaviour
     {
         foreach (graveController grave in graves)
         {
+            SaveLoad.plants.Add(grave.seed);
+            SaveLoad.stageInts.Add(grave.stage);
+        }
+        foreach (resourceManager.Resource res in resourceManager.resources)
+        {
+            SaveLoad.resources.Add(res);
         }
     }
 }
