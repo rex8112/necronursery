@@ -1013,6 +1013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SaveLoad: {fileID: 11400000, guid: f12a6d5fed3c47347a7c7bd2c0732b0a, type: 2}
+  resourceManager: {fileID: 11400000, guid: e435da9cf84180e42bde6c1982faacbf, type: 2}
   touchStart: {x: 0, y: 0, z: 0}
   touchDir: {x: 0, y: 0, z: 0}
   lockCamera: 0
