@@ -17,6 +17,11 @@ public class morgueController : MonoBehaviour
     float randomY; //The random Y location of a body part
     float randomX; //The random X location of a body part
 
+    void Awake()
+    {
+
+    }
+
     void Start()
     {
         RandomLocation();

@@ -23,7 +23,7 @@ public class morgueWin : MonoBehaviour
         objectCheck = collision.transform.gameObject.GetComponent<SpriteRenderer>().sprite;
         for (int i = 0; i < wantedPartsList.Count; i++)
         {
-            if (objectCheck == wantedPartsList[i].sprite)
+            if (objectCheck == wantedPartsList[i].sprite) // game is getting mad here
             {
                 ++currentAmount;
                 CheckForWin();
