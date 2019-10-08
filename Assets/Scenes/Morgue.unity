@@ -794,11 +794,10 @@ MonoBehaviour:
   bodyPart: {fileID: 8381337358861546355, guid: f8f1e78459140be468abe33daa7d5adb,
     type: 3}
   trash: {fileID: 8960548393756888740, guid: 656f9bf10ea32644cbb2cda42f9d9e13, type: 3}
-  bodyPartCount: 6
-  trashCount: 10
   allParts: []
   wantedParts: []
-  Win: 0
+  bodyPartCount: 6
+  trashCount: 10
 --- !u!1 &533539454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,8 +1802,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wantedPartsList: []
-  winAmount: 0
   currentAmount: 0
+  winAmount: 0
 --- !u!212 &1129254712
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1862,7 +1861,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129254709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.26, y: -1.81, z: 0}
+  m_LocalPosition: {x: -9.62, y: -1.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

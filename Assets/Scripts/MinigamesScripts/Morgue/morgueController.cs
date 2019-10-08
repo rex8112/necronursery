@@ -16,14 +16,18 @@ public class morgueController : MonoBehaviour
     int partNumber; //Which partLocation in allParts that the player needs to find
     float randomY; //The random Y location of a body part
     float randomX; //The random X location of a body part
+    int test = 0;
 
     void Awake()
     {
-
+        if(test >= 1)
+        ResetMinigame(true);
     }
 
     void Start()
     {
+        randomAmount = 0;
+        partNumber = 0;
         RandomLocation();
         MakeGameObjects();
         allParts = GameObject.FindGameObjectsWithTag("bodypart");
@@ -77,5 +81,15 @@ public class morgueController : MonoBehaviour
             randomX = Random.Range(-5.0f, 5.0f);
     }
 
+    public void ResetMinigame(bool reset)
+    {
+        if (reset)
+        {
+            System.Array.Clear(allParts, 0, allParts.Length); //Clear the array and list then remake them
+            wantedParts.Clear();
+            allParts = GameObject.FindGameObjectsWithTag("bodypart");
+            WantedBodyParts();
+        }
+    }
 }
 

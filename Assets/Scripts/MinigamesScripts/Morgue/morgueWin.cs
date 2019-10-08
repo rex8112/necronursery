@@ -42,12 +42,18 @@ public class morgueWin : MonoBehaviour
         }
     }
 
+
+    //-------------------This breaks it--------------------
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (objectCheck != null)
         {
             movePosition.transform.position = newLocation;
             objectCheck = null;
+        }
+        else
+        {
+            return;
         }
     }
 
@@ -70,4 +76,5 @@ public class morgueWin : MonoBehaviour
         randomY = Random.Range(-3.0f, 1.5f);
         randomX = Random.Range(-5.0f, 5.0f);
     }
+
 }
