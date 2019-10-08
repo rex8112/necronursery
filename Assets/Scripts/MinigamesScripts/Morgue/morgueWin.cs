@@ -28,7 +28,7 @@ public class morgueWin : MonoBehaviour
                 ++currentAmount;
                 CheckForWin();
                 Destroy(collision.gameObject);
-                wantedPartsList[i] = null;
+                wantedPartsList.RemoveAt(i);
                 objectCheck = null;
             }
             else
@@ -37,7 +37,6 @@ public class morgueWin : MonoBehaviour
                 newLocation = new Vector2(randomX, randomY);
                 movePosition = collision.gameObject;
                 movePosition.transform.position = newLocation;
-                objectCheck = null;
             }
         }
     }
