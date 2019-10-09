@@ -26,6 +26,7 @@ public class gameTimer : MonoBehaviour
 
     void FixedUpdate()
     {
+        Debug.Log("UPDATING");
         if (startTimer)
         {
             remainingTime -= Time.deltaTime;
@@ -34,13 +35,13 @@ public class gameTimer : MonoBehaviour
         if (remainingTime <= 0 && win == false)
         {
             startTimer = false;
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             playerLostScreen.SetActive(true);
         }
         else if(win == true && winOver == false)
         {
             startTimer = false;
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             changeResource = resourceManager.resources.Find(name => name.name == resourceName);
             changeResource.Add(resourceAmmount);
             playerWonScreen.SetActive(true);
