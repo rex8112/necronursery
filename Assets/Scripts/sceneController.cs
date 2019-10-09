@@ -93,8 +93,11 @@ public class sceneController : MonoBehaviour
         cam.Translate(-dir);
     }
 
-    void Save()
+    void Save() //Load important resources into the SaveLoad object and save
     {
+        SaveLoad.plants.Clear();
+        SaveLoad.resources.Clear();
+        SaveLoad.stageInts.Clear();
         foreach (graveController grave in graves)
         {
             SaveLoad.plants.Add(grave.seed);
