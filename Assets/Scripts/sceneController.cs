@@ -95,15 +95,15 @@ public class sceneController : MonoBehaviour
 
     public void Save() //Load important resources into the SaveLoad object and save
     {
-        SaveLoad.plants.Clear();
+        SaveLoad.plants.Clear(); //Clears the current save info to be repopulated with the new info
         SaveLoad.resources.Clear();
         SaveLoad.stageInts.Clear();
-        foreach (graveController grave in graves)
+        foreach (graveController grave in graves) //Saves all the graves
         {
             SaveLoad.plants.Add(grave.seed.name);
             SaveLoad.stageInts.Add(grave.stage);
         }
-        foreach (resourceManager.Resource res in resourceManager.resources)
+        foreach (resourceManager.Resource res in resourceManager.resources) //Saves all the resources
         {
             SaveLoad.resources.Add(res);
         }
@@ -112,26 +112,24 @@ public class sceneController : MonoBehaviour
         SaveLoad.BuildSave();
     }
 
-    public void Load()
+    public void Load() //Loads the save file
     {
         SaveLoad.UnbuildSave();
         for (int i = 0; i < SaveLoad.stageInts.Count; i++)
         {
-            if (SaveLoad.stageInts[i] > 0) //Checks if the stage exists
+            if (SaveLoad.stageInts[i] > 0) //Checks if the stage exists, allows remembering grave positions
             {
-                graves[i].plant(SaveLoad.plants[i]);
+                graves[i].plant(SaveLoad.plants[i]); //Passes the name of the plant and lets graveController handle getting the further details
 
                 if (SaveLoad.stageInts[i] > 1) //If stage is larger than 1, then update grave to that point.
                 {
-                    graves[i].stage = SaveLoad.stageInts[i] - 1;
-                    Debug.Log(graves[i].stage);
+                    graves[i].stage = SaveLoad.stageInts[i] - 1; //Due to how nextStage() works, we have to remove one from the current stage to get to the intended one
                     graves[i].nextStage();
-                    Debug.Log(graves[i].stage);
                 }
             }
         }
-        resourceManager.resources.Clear();
-        foreach (resourceManager.Resource res in SaveLoad.resources)
+        resourceManager.resources.Clear(); //Resets all resources
+        foreach (resourceManager.Resource res in SaveLoad.resources) //Fills the resources back in, was the simplest way to do it that I could think of
         {
             resourceManager.resources.Add(res);
         }

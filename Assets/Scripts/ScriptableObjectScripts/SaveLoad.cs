@@ -12,7 +12,7 @@ public class SaveLoad : ScriptableObject
     public List<string> plants = new List<string>();
     public List<int> stageInts = new List<int>();
     Save mainSave = new Save();
-    public void BuildSave()
+    public void BuildSave() //Takes the variables above and loads them into the Save object to then be saved to the disk
     {
         Debug.Log("Building Save");
         mainSave.resources = resources;
@@ -21,16 +21,16 @@ public class SaveLoad : ScriptableObject
         SaveToDisk(mainSave);
     }
 
-    public void UnbuildSave()
+    public void UnbuildSave() //Takes the loaded Save and populates the Scriptable Object's values
     {
         mainSave = LoadFromDisk();
-        if (mainSave.stageInts.Count >= 1)
+        if (mainSave.stageInts.Count >= 1) //Checks if the returned save has content
         {
             resources = mainSave.resources;
             plants = mainSave.plants;
             stageInts = mainSave.stageInts;
         }
-        else
+        else //Clears everything otherwise so it doesn't get loaded
         {
             resources.Clear();
             plants.Clear();
@@ -38,7 +38,7 @@ public class SaveLoad : ScriptableObject
         }
     }
 
-    public void SaveToDisk(Save save)
+    public void SaveToDisk(Save save) //Handles converting the Save class into binary and saving it to a file
     {
         Debug.Log("Saving to Disk");
         BinaryFormatter bf = new BinaryFormatter();
@@ -47,9 +47,9 @@ public class SaveLoad : ScriptableObject
         file.Close();
     }
 
-    public Save LoadFromDisk()
+    public Save LoadFromDisk() //Handles taking the binary from the file and returning it to it's Save class form
     {
-        if (File.Exists(Application.persistentDataPath + "/NNSave.save"))
+        if (File.Exists(Application.persistentDataPath + "/NNSave.save")) //Checks if the save file exists to prevent an error
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/NNSave.save", FileMode.Open);
@@ -58,7 +58,7 @@ public class SaveLoad : ScriptableObject
             file.Close();
             return save;
         }
-        Save Failed = new Save();
+        Save Failed = new Save(); //Creates and empty save to return, which gets recognized as empty and is ignored
         return Failed;
     }
 }
