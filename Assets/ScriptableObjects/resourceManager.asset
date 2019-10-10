@@ -20,7 +20,7 @@ MonoBehaviour:
     value: 300
     teethValue: 10
   - name: Magic
-    value: 100
+    value: 300
     teethValue: 20
   - name: Teeth
     value: 300

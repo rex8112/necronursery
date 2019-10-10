@@ -93,19 +93,47 @@ public class sceneController : MonoBehaviour
         cam.Translate(-dir);
     }
 
-    void Save() //Load important resources into the SaveLoad object and save
+    public void Save() //Load important resources into the SaveLoad object and save
     {
         SaveLoad.plants.Clear();
         SaveLoad.resources.Clear();
         SaveLoad.stageInts.Clear();
         foreach (graveController grave in graves)
         {
-            SaveLoad.plants.Add(grave.seed);
+            SaveLoad.plants.Add(grave.seed.name);
             SaveLoad.stageInts.Add(grave.stage);
         }
         foreach (resourceManager.Resource res in resourceManager.resources)
         {
             SaveLoad.resources.Add(res);
+        }
+
+        Debug.Log("Preparing Save");
+        SaveLoad.BuildSave();
+    }
+
+    public void Load()
+    {
+        SaveLoad.UnbuildSave();
+        for (int i = 0; i < SaveLoad.stageInts.Count; i++)
+        {
+            if (SaveLoad.stageInts[i] > 0) //Checks if the stage exists
+            {
+                graves[i].plant(SaveLoad.plants[i]);
+
+                if (SaveLoad.stageInts[i] > 1) //If stage is larger than 1, then update grave to that point.
+                {
+                    graves[i].stage = SaveLoad.stageInts[i] - 1;
+                    Debug.Log(graves[i].stage);
+                    graves[i].nextStage();
+                    Debug.Log(graves[i].stage);
+                }
+            }
+        }
+        resourceManager.resources.Clear();
+        foreach (resourceManager.Resource res in SaveLoad.resources)
+        {
+            resourceManager.resources.Add(res);
         }
     }
 }

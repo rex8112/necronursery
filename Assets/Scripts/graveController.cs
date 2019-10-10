@@ -137,9 +137,8 @@ public class graveController : MonoBehaviour
 
                 requiredResources.Add(gr);
             }
-            stages.GetComponent<prefabChange>().nextStage();
-
             stage = 2;
+            stages.GetComponent<prefabChange>().nextStage(stage);
         }
         else if (stage == 2)
         {
@@ -153,8 +152,8 @@ public class graveController : MonoBehaviour
 
                 requiredResources.Add(gr);
             }
-            stages.GetComponent<prefabChange>().nextStage();
             stage = 3;
+            stages.GetComponent<prefabChange>().nextStage(stage);
         }
         else if (stage == 3)
         {
