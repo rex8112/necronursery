@@ -17,7 +17,7 @@ MonoBehaviour:
     value: 300
     teethValue: 5
   - name: Souls
-    value: 300
+    value: 295
     teethValue: 10
   - name: Magic
     value: 300

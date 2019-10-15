@@ -26,12 +26,6 @@ public class sceneController : MonoBehaviour
         mainCam = Camera.main;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -39,16 +33,19 @@ public class sceneController : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            switch (touch.phase)
+            if (!lockCamera)
             {
-                case TouchPhase.Began:
-                    touchStart = Camera.main.ScreenToWorldPoint(touch.position);
-                    break;
-                case TouchPhase.Moved:
-                    touchDir = Camera.main.ScreenToWorldPoint(touch.position) - touchStart;
-                    touchDir.z = 0f;
-                    moveCamera(touchDir);
-                    break;
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
+                        touchStart = Camera.main.ScreenToWorldPoint(touch.position);
+                        break;
+                    case TouchPhase.Moved:
+                        touchDir = Camera.main.ScreenToWorldPoint(touch.position) - touchStart;
+                        touchDir.z = 0f;
+                        moveCamera(touchDir);
+                        break;
+                }
             }
         }
 
@@ -100,8 +97,14 @@ public class sceneController : MonoBehaviour
         SaveLoad.stageInts.Clear();
         foreach (graveController grave in graves) //Saves all the graves
         {
+            List<graveController.graveResource> gResources = new List<graveController.graveResource>();
             SaveLoad.plants.Add(grave.seed.name);
             SaveLoad.stageInts.Add(grave.stage);
+            foreach (graveController.graveResource res in grave.requiredResources)
+            {
+                gResources.Add(res);
+            }
+            SaveLoad.gResources.Add(gResources);
         }
         foreach (resourceManager.Resource res in resourceManager.resources) //Saves all the resources
         {
@@ -126,6 +129,8 @@ public class sceneController : MonoBehaviour
                     graves[i].stage = SaveLoad.stageInts[i] - 1; //Due to how nextStage() works, we have to remove one from the current stage to get to the intended one
                     graves[i].nextStage();
                 }
+
+                graves[i].LoadResources(SaveLoad.gResources[i]);
             }
         }
         resourceManager.resources.Clear(); //Resets all resources

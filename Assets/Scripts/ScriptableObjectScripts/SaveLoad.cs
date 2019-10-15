@@ -11,6 +11,7 @@ public class SaveLoad : ScriptableObject
     public List<resourceManager.Resource> resources = new List<resourceManager.Resource>();
     public List<string> plants = new List<string>();
     public List<int> stageInts = new List<int>();
+    public List<List<graveController.graveResource>> gResources = new List<List<graveController.graveResource>>();
     Save mainSave = new Save();
     public void BuildSave() //Takes the variables above and loads them into the Save object to then be saved to the disk
     {
@@ -18,6 +19,7 @@ public class SaveLoad : ScriptableObject
         mainSave.resources = resources;
         mainSave.plants = plants;
         mainSave.stageInts = stageInts;
+        mainSave.gResources = gResources;
         SaveToDisk(mainSave);
     }
 
@@ -29,12 +31,14 @@ public class SaveLoad : ScriptableObject
             resources = mainSave.resources;
             plants = mainSave.plants;
             stageInts = mainSave.stageInts;
+            gResources = mainSave.gResources;
         }
         else //Clears everything otherwise so it doesn't get loaded
         {
             resources.Clear();
             plants.Clear();
             stageInts.Clear();
+            gResources.Clear();
         }
     }
 
@@ -69,4 +73,5 @@ public class Save
     public List<resourceManager.Resource> resources = new List<resourceManager.Resource>();
     public List<string> plants = new List<string>();
     public List<int> stageInts = new List<int>();
+    public List<List<graveController.graveResource>> gResources = new List<List<graveController.graveResource>>();
 }

@@ -55,6 +55,14 @@ public class graveController : MonoBehaviour
             activate(ui);
     }
 
+    public void LoadResources(List<graveResource> gResources)
+    {
+        requiredResources.Clear();
+        foreach (graveResource res in gResources)
+            requiredResources.Add(res);
+        OnValueChange.Invoke();
+    }
+
     public void plant(string name)
     {
         if (stage == 0)
