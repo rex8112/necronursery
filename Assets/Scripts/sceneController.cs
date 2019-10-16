@@ -24,6 +24,8 @@ public class sceneController : MonoBehaviour
 
     [Header("Events")]
     public UnityEvent OnValueChange;
+    public UnityEvent OnLoad;
+    public UnityEvent OnSave;
 
     Vector3 touchPosWorld;
     TouchPhase touchPhase = TouchPhase.Ended;
@@ -121,6 +123,8 @@ public class sceneController : MonoBehaviour
 
         Debug.Log("Preparing Save");
         SaveLoad.BuildSave();
+
+        OnSave.Invoke();
     }
 
     public void Load() //Loads the save file
@@ -146,5 +150,7 @@ public class sceneController : MonoBehaviour
         {
             resourceManager.resources.Add(res);
         }
+
+        OnLoad.Invoke();
     }
 }
