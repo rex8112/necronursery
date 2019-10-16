@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class graveController : MonoBehaviour
 {
+    [SerializeField] sceneController sc;
     [SerializeField] resourceManager resourceManager;
     [SerializeField] plantManager plantManager;
     [Space(10)]
@@ -22,12 +23,12 @@ public class graveController : MonoBehaviour
     [SerializeField] GameObject plantButton;
     [SerializeField] GameObject infoGroup;
     [SerializeField] GameObject giveButton;
-    public UnityEvent OnValueChange;
 
 
     public void Awake()
     {
-        OnValueChange.AddListener(updateInfo);
+        sc = GameObject.Find("sceneController").GetComponent<sceneController>();
+        sc.OnValueChange.AddListener(updateInfo);
     }
 
     public void activateRI()
@@ -60,7 +61,7 @@ public class graveController : MonoBehaviour
         requiredResources.Clear();
         foreach (graveResource res in gResources)
             requiredResources.Add(res);
-        OnValueChange.Invoke();
+        sc.OnValueChange.Invoke();
     }
 
     public void plant(string name)
@@ -86,7 +87,7 @@ public class graveController : MonoBehaviour
         
 
 
-        OnValueChange.Invoke();
+        sc.OnValueChange.Invoke();
         deactivate(seedView);
         deactivate(plantButton);
         activate(infoGroup);
@@ -112,7 +113,7 @@ public class graveController : MonoBehaviour
             nextStage();
         }
 
-        OnValueChange.Invoke();
+        sc.OnValueChange.Invoke();
     }
 
     public void updateInfo()
@@ -172,7 +173,7 @@ public class graveController : MonoBehaviour
             stage = 0;
         }
 
-        OnValueChange.Invoke();
+        sc.OnValueChange.Invoke();
     }
 
     [System.Serializable]

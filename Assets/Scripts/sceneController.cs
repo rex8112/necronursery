@@ -1,21 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class sceneController : MonoBehaviour
 {
+    [Header("Scriptable Objects")]
     [SerializeField] SaveLoad SaveLoad;
     [SerializeField] resourceManager resourceManager;
+
+    [Header("Camera Movement")]
     public Vector3 touchStart;
     public Vector3 touchDir;
-
     public bool lockCamera;
     [SerializeField] Camera mainCam;
     [SerializeField] Camera camToMoveTo;
     float initSize;
     [SerializeField] float tranSpeed = 6f;
     [SerializeField] float sizeSpeed = 1f;
+
+    [Space(10)]
     [SerializeField] List<graveController> graves = new List<graveController>();
+
+    [Header("Events")]
+    public UnityEvent OnValueChange;
 
     Vector3 touchPosWorld;
     TouchPhase touchPhase = TouchPhase.Ended;
