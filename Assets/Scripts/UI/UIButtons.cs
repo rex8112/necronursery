@@ -17,7 +17,7 @@ public class UIButtons : MonoBehaviour
 
     private void Start()
     {
-        canvas.SetActive(false);
+        //canvas.SetActive(false); //Deactivated to prevent the necessity of clicking Menu twice
     }
     public void OnMouseDown(string buttonName)
     {
