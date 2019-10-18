@@ -26,7 +26,7 @@ public class gameTimer : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log("UPDATING");
+        //Debug.Log("UPDATING");
         if (startTimer)
         {
             remainingTime -= Time.deltaTime;

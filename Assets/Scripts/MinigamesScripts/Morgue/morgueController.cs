@@ -114,18 +114,15 @@ public class morgueController : MonoBehaviour
 
     private float[] spawnRange()
     {
-        Rect fixedRect;
-        fixedRect = RectTransformUtility.PixelAdjustRect(dumpster, mainCanvas);
-        Vector2 bottomL = new Vector2(fixedRect.x, fixedRect.y);
-        Vector2 topR = new Vector2(fixedRect.x + fixedRect.width, fixedRect.y + fixedRect.height);
-        Vector2 worldBottom = Camera.main.ScreenToWorldPoint(bottomL);
-        Vector2 worldTop = Camera.main.ScreenToWorldPoint(topR);
+        Vector3[] corners = new Vector3[4];
+        dumpster.GetWorldCorners(corners);
+
         float[] values = new float[4];
-        values[0] = worldBottom.x;
-        values[1] = worldBottom.y;
-        values[2] = worldTop.x;
-        values[3] = worldTop.y;
-        Debug.Log(dumpster.sizeDelta.x + " " + dumpster.sizeDelta.y);
+        values[0] = corners[0].x;
+        values[1] = corners[0].y;
+        values[2] = corners[2].x;
+        values[3] = corners[2].y;
+
         return values;
     }
 }
