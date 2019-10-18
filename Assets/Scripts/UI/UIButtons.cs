@@ -12,6 +12,7 @@ public class UIButtons : MonoBehaviour
     string graveyardScene = "Graveyard";
     string startTimer = "Start";
     string morgueMinigame = "Morgue";
+    string marketPlace = "MarketPlace";
 
     bool timer;
 
@@ -41,6 +42,10 @@ public class UIButtons : MonoBehaviour
         if (buttonName == morgueMinigame)
         {
             SceneManager.LoadScene("Morgue");
+        }
+        if (buttonName == marketPlace)
+        {
+            SceneManager.LoadScene("MarketPlace");
         }
     }
 }
