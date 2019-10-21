@@ -286,7 +286,6 @@ GameObject:
   - component: {fileID: 95843040}
   - component: {fileID: 95843039}
   - component: {fileID: 95843038}
-  - component: {fileID: 95843037}
   m_Layer: 5
   m_Name: Morgue
   m_TagString: Untagged
@@ -314,19 +313,6 @@ RectTransform:
   m_AnchoredPosition: {x: 42.80005, y: -89}
   m_SizeDelta: {x: 57.70999, y: 44.45999}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &95843037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95843035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c63cdea5e390e0744a70eb30f8cff0a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 786270577}
 --- !u!114 &95843038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,7 +356,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 95843037}
+      - m_Target: {fileID: 320855042}
         m_MethodName: OnMouseDown
         m_Mode: 5
         m_Arguments:
@@ -429,7 +415,6 @@ GameObject:
   - component: {fileID: 196133671}
   - component: {fileID: 196133670}
   - component: {fileID: 196133669}
-  - component: {fileID: 196133672}
   m_Layer: 5
   m_Name: Menu Button
   m_TagString: Untagged
@@ -500,7 +485,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 196133672}
+      - m_Target: {fileID: 320855042}
         m_MethodName: OnMouseDown
         m_Mode: 5
         m_Arguments:
@@ -547,19 +532,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196133667}
   m_CullTransparentMesh: 0
---- !u!114 &196133672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196133667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c63cdea5e390e0744a70eb30f8cff0a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 786270577}
 --- !u!1001 &205154792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -993,6 +965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 320855041}
   - component: {fileID: 320855040}
+  - component: {fileID: 320855042}
   m_Layer: 0
   m_Name: sceneController
   m_TagString: Untagged
@@ -1077,6 +1050,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &320855042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320855039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63cdea5e390e0744a70eb30f8cff0a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 786270577}
 --- !u!1001 &341213736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1953,7 +1939,6 @@ GameObject:
   - component: {fileID: 907539749}
   - component: {fileID: 907539748}
   - component: {fileID: 907539747}
-  - component: {fileID: 907539746}
   m_Layer: 5
   m_Name: MarketPlace
   m_TagString: Untagged
@@ -1978,22 +1963,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 55.9, y: -139}
+  m_AnchoredPosition: {x: 55.899994, y: -139}
   m_SizeDelta: {x: 83.8, y: 44.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &907539746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 907539744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c63cdea5e390e0744a70eb30f8cff0a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 786270577}
 --- !u!114 &907539747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2037,7 +2009,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 907539746}
+      - m_Target: {fileID: 320855042}
         m_MethodName: OnMouseDown
         m_Mode: 5
         m_Arguments:

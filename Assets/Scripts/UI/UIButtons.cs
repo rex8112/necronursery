@@ -32,6 +32,7 @@ public class UIButtons : MonoBehaviour
         }
         if (buttonName == graveyardScene)
         {
+            Save();
             SceneManager.LoadScene("Graveyard");
         }
         if (buttonName == startTimer)
@@ -41,11 +42,26 @@ public class UIButtons : MonoBehaviour
         }
         if (buttonName == morgueMinigame)
         {
+            Save();
             SceneManager.LoadScene("Morgue");
         }
         if (buttonName == marketPlace)
         {
+            Save();
             SceneManager.LoadScene("MarketPlace");
         }
     }
+
+    void Save()
+    {
+        if (gameObject.name == "sceneController")
+        {
+            gameObject.GetComponent<sceneController>().Save();
+        }
+        else
+        {
+            //I NEED THIS TO FIND THE SAVELOAD SCRIPTABLEOBJECT IN ALL INSTANCES OF THE SCRIPT
+        }
+    }
 }
+//thisscriptishell
