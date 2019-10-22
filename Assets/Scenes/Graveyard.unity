@@ -357,7 +357,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 320855042}
-        m_MethodName: OnMouseDown
+        m_MethodName: ChangeScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -486,14 +486,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 320855042}
-        m_MethodName: OnMouseDown
-        m_Mode: 5
+        m_MethodName: Activate
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 786270577}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Open
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &196133670
@@ -1063,6 +1063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 786270577}
+  rm: {fileID: 0}
 --- !u!1001 &341213736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2010,7 +2011,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 320855042}
-        m_MethodName: OnMouseDown
+        m_MethodName: ChangeScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2787,7 +2788,6 @@ GameObject:
   - component: {fileID: 1403377535}
   - component: {fileID: 1403377534}
   - component: {fileID: 1403377533}
-  - component: {fileID: 1403377532}
   m_Layer: 5
   m_Name: Close Button
   m_TagString: Untagged
@@ -2815,19 +2815,6 @@ RectTransform:
   m_AnchoredPosition: {x: 47, y: -38}
   m_SizeDelta: {x: 63.3, y: 46.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1403377532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403377530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c63cdea5e390e0744a70eb30f8cff0a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 786270577}
 --- !u!114 &1403377533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2871,12 +2858,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1403377532}
-        m_MethodName: OnMouseDown
-        m_Mode: 5
+      - m_Target: {fileID: 320855042}
+        m_MethodName: Deactivate
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 786270577}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Close
@@ -3563,7 +3550,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -107.6, y: -2}
+  m_AnchoredPosition: {x: -107.599976, y: -2}
   m_SizeDelta: {x: -260.1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2051922400

@@ -7,6 +7,7 @@ public class UIButtons : MonoBehaviour
 {
     [SerializeField]
     GameObject canvas;
+    [SerializeField] resourceManager rm;
     string openCanvas = "Open";
     string closeButton = "Close";
     string graveyardScene = "Graveyard";
@@ -52,9 +53,30 @@ public class UIButtons : MonoBehaviour
         }
     }
 
+    public void Activate(GameObject obj)
+    {
+        obj.SetActive(true);
+    }
+
+    public void Deactivate(GameObject obj)
+    {
+        obj.SetActive(false);
+    }
+
+    public void StartTimer(gameTimer timer)
+    {
+        timer.startTimer = true;
+    }
+
+    public void ChangeScene(string name)
+    {
+        Save();
+        SceneManager.LoadScene(name);
+    }
+
     void Save()
     {
-        if (gameObject.name == "sceneController")
+        if (SceneManager.GetActiveScene().name == "Graveyard")
         {
             gameObject.GetComponent<sceneController>().Save();
         }

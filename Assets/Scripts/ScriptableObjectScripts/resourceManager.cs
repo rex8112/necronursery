@@ -6,16 +6,21 @@ using UnityEngine;
 public class resourceManager : ScriptableObject
 {
     public List<Resource> resources;
+    public SaveLoad SL;
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Save()
     {
-
+        SL.resources.Clear();
+        foreach (Resource res in resources)
+        {
+            SL.resources.Add(res);
+        }
+        SL.BuildSave();
     }
 
     [System.Serializable]
