@@ -36,6 +36,28 @@ public class sceneController : MonoBehaviour
         mainCam = Camera.main;
     }
 
+    private void Start()
+    {
+        Load();
+    }
+
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
+
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause == true)
+        {
+            Save();
+        }
+        else
+        {
+            //Load();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

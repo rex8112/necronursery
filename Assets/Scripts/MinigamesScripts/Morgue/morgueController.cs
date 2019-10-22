@@ -9,7 +9,6 @@ public class morgueController : MonoBehaviour
     public GameObject trash; //Trash Prefab
     public GameObject bag;
     public RectTransform dumpster;
-    public Canvas mainCanvas;
     public GameObject[] allParts; //An array of all the bodyparts in the scene
     public List<SpriteRenderer> wantedParts; //List of the parts the player needs to find
     Image spriteSwitch; //The sprite that is getting set (for what the player needs to find)

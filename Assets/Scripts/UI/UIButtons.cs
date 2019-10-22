@@ -7,6 +7,7 @@ public class UIButtons : MonoBehaviour
 {
     [SerializeField]
     GameObject canvas;
+    [SerializeField] resourceManager rm;
     string openCanvas = "Open";
     string closeButton = "Close";
     string graveyardScene = "Graveyard";
@@ -32,6 +33,7 @@ public class UIButtons : MonoBehaviour
         }
         if (buttonName == graveyardScene)
         {
+            Save();
             SceneManager.LoadScene("Graveyard");
         }
         if (buttonName == startTimer)
@@ -41,11 +43,47 @@ public class UIButtons : MonoBehaviour
         }
         if (buttonName == morgueMinigame)
         {
+            Save();
             SceneManager.LoadScene("Morgue");
         }
         if (buttonName == marketPlace)
         {
+            Save();
             SceneManager.LoadScene("MarketPlace");
         }
     }
+
+    public void Activate(GameObject obj)
+    {
+        obj.SetActive(true);
+    }
+
+    public void Deactivate(GameObject obj)
+    {
+        obj.SetActive(false);
+    }
+
+    public void StartTimer(gameTimer timer)
+    {
+        timer.startTimer = true;
+    }
+
+    public void ChangeScene(string name)
+    {
+        Save();
+        SceneManager.LoadScene(name);
+    }
+
+    void Save()
+    {
+        if (SceneManager.GetActiveScene().name == "Graveyard")
+        {
+            gameObject.GetComponent<sceneController>().Save();
+        }
+        else
+        {
+            //I NEED THIS TO FIND THE SAVELOAD SCRIPTABLEOBJECT IN ALL INSTANCES OF THE SCRIPT
+        }
+    }
 }
+//thisscriptishell
