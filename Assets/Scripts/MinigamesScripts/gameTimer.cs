@@ -14,7 +14,7 @@ public class gameTimer : MonoBehaviour
     public bool win = false;
     bool winOver = false;
     public string resourceName;
-    public int resourceAmmount;
+    public int resourceAmount;
     public resourceManager.Resource changeResource;
     [SerializeField] resourceManager resourceManager;
 
@@ -43,7 +43,7 @@ public class gameTimer : MonoBehaviour
             startTimer = false;
             //Time.timeScale = 0;
             changeResource = resourceManager.resources.Find(name => name.name == resourceName);
-            changeResource.Add(resourceAmmount);
+            changeResource.Add(resourceAmount);
             playerWonScreen.SetActive(true);
             winOver = true;
         }

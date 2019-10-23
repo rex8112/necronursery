@@ -47,6 +47,7 @@ public class SaveLoad : ScriptableObject
         Debug.Log("Saving to Disk");
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/NNSave.save");
+        Debug.Log(Application.persistentDataPath);
         bf.Serialize(file, save);
         file.Close();
     }

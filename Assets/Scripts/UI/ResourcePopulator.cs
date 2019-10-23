@@ -10,9 +10,8 @@ public class ResourcePopulator : MonoBehaviour
 
     private void Awake()
     {
-        Populate();
+        Refresh();
     }
-
     public void Populate()
     {
         foreach (resourceManager.Resource res in rm.resources)
@@ -20,6 +19,7 @@ public class ResourcePopulator : MonoBehaviour
             GameObject r = Instantiate(prefab, transform);
             r.GetComponentInChildren<Text>().text = res.name + ": " + res.value;
             r.name = res.name;
+            Debug.Log("HELP IM GAY");
         }
     }
 
@@ -29,6 +29,7 @@ public class ResourcePopulator : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        Debug.Log("I am also gay");
     }
 
     public void UpdateValues()

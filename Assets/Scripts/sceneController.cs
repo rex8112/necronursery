@@ -118,7 +118,7 @@ public class sceneController : MonoBehaviour
     {
         Transform cam = Camera.main.transform;
 
-        Debug.Log(dir);
+        //Debug.Log(dir);
         cam.Translate(-dir);
     }
 
