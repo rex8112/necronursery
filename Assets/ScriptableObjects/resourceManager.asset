@@ -14,15 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resources:
   - name: Flesh
-    value: 300
+    value: 164
     teethValue: 5
   - name: Souls
-    value: 295
-    teethValue: 10
+    value: 115
+    teethValue: 5
   - name: Magic
-    value: 300
-    teethValue: 20
-  - name: Teeth
-    value: 300
-    teethValue: 1
+    value: 145
+    teethValue: 5
   SL: {fileID: 11400000, guid: f12a6d5fed3c47347a7c7bd2c0732b0a, type: 2}
