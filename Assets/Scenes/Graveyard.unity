@@ -3079,11 +3079,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 8339478656483624260, guid: b4fe9b60aee58ee4b91ade9711d3978b,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 519420031}
     - target: {fileID: 8339478655266651387, guid: b4fe9b60aee58ee4b91ade9711d3978b,
         type: 3}
       propertyPath: m_IsActive
@@ -3098,21 +3093,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8339478656483624259, guid: b4fe9b60aee58ee4b91ade9711d3978b,
-        type: 3}
-      propertyPath: m_ReferencePixelsPerUnit
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8339478656483624261, guid: b4fe9b60aee58ee4b91ade9711d3978b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.0015195312
-      objectReference: {fileID: 0}
-    - target: {fileID: 8339478656483624261, guid: b4fe9b60aee58ee4b91ade9711d3978b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.0017792969
       objectReference: {fileID: 0}
     - target: {fileID: 8339478655995645513, guid: b4fe9b60aee58ee4b91ade9711d3978b,
         type: 3}

@@ -167,10 +167,13 @@ public class sceneController : MonoBehaviour
                 graves[i].LoadResources(SaveLoad.gResources[i]);
             }
         }
-        resourceManager.resources.Clear(); //Resets all resources
-        foreach (resourceManager.Resource res in SaveLoad.resources) //Fills the resources back in, was the simplest way to do it that I could think of
+        if (SaveLoad.resources.Count > 0)
         {
-            resourceManager.resources.Add(res);
+            resourceManager.resources.Clear(); //Resets all resources
+            foreach (resourceManager.Resource res in SaveLoad.resources) //Fills the resources back in, was the simplest way to do it that I could think of
+            {
+                resourceManager.resources.Add(res);
+            }
         }
 
         OnLoad.Invoke();
