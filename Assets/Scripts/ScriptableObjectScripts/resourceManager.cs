@@ -6,6 +6,7 @@ using UnityEngine;
 public class resourceManager : ScriptableObject
 {
     public List<Resource> resources;
+    public List<Images> images;
     public SaveLoad SL;
     // Start is called before the first frame update
     void Start()
@@ -61,5 +62,12 @@ public class resourceManager : ScriptableObject
                 return change;
             }
         }
+    }
+
+    [System.Serializable]
+    public class Images
+    {
+        public string name;
+        public Sprite img;
     }
 }

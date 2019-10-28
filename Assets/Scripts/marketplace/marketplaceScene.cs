@@ -28,10 +28,10 @@ public class marketplaceScene : MonoBehaviour
 
     void updateUI()
     {
-        foreach (GameObject res in resourceUIs)
-        {
-            resourceManager.Resource resource = resources.resources.Find(name => name.name == res.name);
-            res.GetComponentInChildren<Text>().text = resource.value.ToString();
-        }
+        //foreach (GameObject res in resourceUIs)
+        //{
+        //    resourceManager.Resource resource = resources.resources.Find(name => name.name == res.name);
+        //    res.GetComponentInChildren<Text>().text = resource.value.ToString();
+        //}
     }
 }
