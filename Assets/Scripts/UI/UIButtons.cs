@@ -8,6 +8,7 @@ public class UIButtons : MonoBehaviour
     [SerializeField]
     GameObject canvas;
     [SerializeField] resourceManager rm;
+    [SerializeField] SaveLoad sl;
     string openCanvas = "Open";
     string closeButton = "Close";
     string graveyardScene = "Graveyard";
@@ -82,7 +83,12 @@ public class UIButtons : MonoBehaviour
         }
         else
         {
-            //I NEED THIS TO FIND THE SAVELOAD SCRIPTABLEOBJECT IN ALL INSTANCES OF THE SCRIPT
+            rm.resources.Clear();
+            foreach (resourceManager.Resource res in rm.resources)
+            {
+                rm.resources.Add(res);
+            }
+            sl.BuildSave();
         }
     }
 }

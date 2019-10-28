@@ -358,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   rm: {fileID: 11400000, guid: e435da9cf84180e42bde6c1982faacbf, type: 2}
+  sl: {fileID: 11400000, guid: f12a6d5fed3c47347a7c7bd2c0732b0a, type: 2}
 --- !u!4 &349313984
 Transform:
   m_ObjectHideFlags: 0
@@ -1282,6 +1283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 387864137}
   rm: {fileID: 0}
+  sl: {fileID: 0}
 --- !u!1 &1067284517
 GameObject:
   m_ObjectHideFlags: 0
