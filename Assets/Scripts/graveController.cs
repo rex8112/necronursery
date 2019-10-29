@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class graveController : MonoBehaviour
 {
-    [SerializeField] sceneController sc;
+    [SerializeField] Events sc;
     [SerializeField] resourceManager resourceManager;
     [SerializeField] plantManager plantManager;
     [Space(10)]
@@ -27,7 +27,7 @@ public class graveController : MonoBehaviour
 
     public void Awake()
     {
-        sc = GameObject.Find("sceneController").GetComponent<sceneController>();
+        sc = GameObject.Find("sceneController").GetComponent<Events>();
         sc.OnValueChange.AddListener(updateInfo);
     }
 

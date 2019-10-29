@@ -520,8 +520,9 @@ GameObject:
   m_Component:
   - component: {fileID: 748611172}
   - component: {fileID: 748611171}
+  - component: {fileID: 748611173}
   m_Layer: 0
-  m_Name: sceneManager
+  m_Name: sceneController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,12 +540,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae267368fb32e0847866970bb2e5f0e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceUIs:
-  - {fileID: 1055974178}
-  - {fileID: 0}
-  - {fileID: 0}
-  resources: {fileID: 11400000, guid: e435da9cf84180e42bde6c1982faacbf, type: 2}
-  purchase:
+  OnValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLoad:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSave:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &748611172
@@ -561,6 +563,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &748611173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748611170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63cdea5e390e0744a70eb30f8cff0a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  rm: {fileID: 11400000, guid: e435da9cf84180e42bde6c1982faacbf, type: 2}
+  sl: {fileID: 11400000, guid: f12a6d5fed3c47347a7c7bd2c0732b0a, type: 2}
 --- !u!1 &809869917
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,12 +626,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809869917}
   m_CullTransparentMesh: 0
---- !u!1 &1055974178 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7233252384072964522, guid: fab97b99f65a8d34ca25800e1e9824d0,
-    type: 3}
-  m_PrefabInstance: {fileID: 7233252384780745352}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1055974179 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7233252384072964523, guid: fab97b99f65a8d34ca25800e1e9824d0,
@@ -1376,7 +1387,6 @@ GameObject:
   - component: {fileID: 1663131809}
   - component: {fileID: 1663131808}
   - component: {fileID: 1663131807}
-  - component: {fileID: 1663131806}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -1403,18 +1413,6 @@ RectTransform:
   m_AnchoredPosition: {x: 73, y: -69}
   m_SizeDelta: {x: 89.599976, y: 87.20001}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1663131806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663131804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1a490385399c314b9ca53879a77fa49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1663131807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1458,8 +1456,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1663131806}
-        m_MethodName: changeSceneByName
+      - m_Target: {fileID: 748611173}
+        m_MethodName: ChangeScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

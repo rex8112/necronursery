@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class marketButton : MonoBehaviour
 {
 
-    [SerializeField] marketplaceScene sceneController;
+    [SerializeField] Events sceneController;
     [SerializeField] resourceManager resourceManager;
     public resourceManager.Resource sellResource;
     public int sellCount;
@@ -65,7 +65,7 @@ public class marketButton : MonoBehaviour
         if (sellResource.Remove(sellCount))
             buyResource.Add(buyCount);
 
-        sceneController.purchase.Invoke();
+        sceneController.OnValueChange.Invoke();
     }
 
     // Update is called once per frame

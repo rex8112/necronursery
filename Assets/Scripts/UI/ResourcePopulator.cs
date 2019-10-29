@@ -18,18 +18,8 @@ public class ResourcePopulator : MonoBehaviour
         foreach (resourceManager.Resource res in rm.resources)
         {
             GameObject r = Instantiate(prefab, transform);
-            resourceManager.Images s = rm.images.Find(e => e.name == res.name);
-            if (SceneManager.GetActiveScene().name == "Graveyard")
-            {
-                r.GetComponentInChildren<Image>().sprite = s.img;
-                r.GetComponentInChildren<Text>().text = res.name + ": " + res.value;
-            }
-            else
-            {
-                r.GetComponent<Image>().sprite = s.img;
-                r.GetComponentInChildren<Text>().text = res.value.ToString();
-            }
-            r.name = res.name;
+            r.transform.GetChild(0).name = res.name;
+            r.GetComponentInChildren<ResourceUpdater>().ChangeValue();
         }
     }
 
@@ -38,19 +28,6 @@ public class ResourcePopulator : MonoBehaviour
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
-        }
-    }
-
-    public void UpdateValues()
-    {
-        foreach (Transform child in transform)
-        {
-            string name = child.name;
-            resourceManager.Resource res = rm.resources.Find(r => r.name == name);
-            if (SceneManager.GetActiveScene().name == "Graveyard")
-                child.GetComponentInChildren<Text>().text = res.name + ": " + res.value;
-            else
-                child.GetComponentInChildren<Text>().text = res.value.ToString();
         }
     }
 

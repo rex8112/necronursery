@@ -23,11 +23,6 @@ public class sceneController : MonoBehaviour
     [Space(10)]
     [SerializeField] List<graveController> graves = new List<graveController>();
 
-    [Header("Events")]
-    public UnityEvent OnValueChange;
-    public UnityEvent OnLoad;
-    public UnityEvent OnSave;
-
     Vector3 touchPosWorld;
     TouchPhase touchPhase = TouchPhase.Ended;
 
@@ -147,7 +142,7 @@ public class sceneController : MonoBehaviour
         Debug.Log("Preparing Save");
         SaveLoad.BuildSave();
 
-        OnSave.Invoke();
+        GetComponent<Events>().OnSave.Invoke();
     }
 
     public void Load() //Loads the save file
@@ -177,7 +172,7 @@ public class sceneController : MonoBehaviour
             }
         }
 
-        OnLoad.Invoke();
+        GetComponent<Events>().OnLoad.Invoke();
     }
 
     public void Delete()
