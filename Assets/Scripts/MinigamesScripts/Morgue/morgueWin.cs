@@ -60,7 +60,7 @@ public class morgueWin : MonoBehaviour
     {
         if (currentAmount == winAmount)
         {
-            GameObject.Find("Main Camera").GetComponent<gameTimer>().resourceAmount = winAmount;
+            GameObject.Find("Main Camera").GetComponent<gameTimer>().resourceAmount = winAmount * 2;
             GameObject.Find("Main Camera").GetComponent<gameTimer>().resourceName = "Flesh";
             GameObject.Find("Main Camera").GetComponent<gameTimer>().win = true;
         }
