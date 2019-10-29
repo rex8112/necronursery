@@ -42,6 +42,15 @@ public class SaveLoad : ScriptableObject
         }
     }
 
+    public void DeleteSave()
+    {
+        File.Delete(Application.persistentDataPath + "/NNSave.save");
+        resources.Clear();
+        plants.Clear();
+        stageInts.Clear();
+        gResources.Clear();
+    }
+
     public void SaveToDisk(Save save) //Handles converting the Save class into binary and saving it to a file
     {
         Debug.Log("Saving to Disk");

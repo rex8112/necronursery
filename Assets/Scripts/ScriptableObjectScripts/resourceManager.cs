@@ -29,6 +29,7 @@ public class resourceManager : ScriptableObject
     {
         public string name;
         public int value;
+        public int defaultValue;
         public int teethValue;
 
         public bool Add(int change)

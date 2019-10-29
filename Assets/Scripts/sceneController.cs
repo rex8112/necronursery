@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class sceneController : MonoBehaviour
 {
@@ -177,5 +178,15 @@ public class sceneController : MonoBehaviour
         }
 
         OnLoad.Invoke();
+    }
+
+    public void Delete()
+    {
+        SaveLoad.DeleteSave();
+        foreach (resourceManager.Resource res in resourceManager.resources)
+        {
+            res.value = res.defaultValue;
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

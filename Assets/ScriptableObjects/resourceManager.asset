@@ -13,18 +13,22 @@ MonoBehaviour:
   m_Name: resourceManager
   m_EditorClassIdentifier: 
   resources:
-  - name: Teeth
-    value: 150
-    teethValue: 1
-  - name: Souls
-    value: 90
-    teethValue: 5
-  - name: Magic
-    value: 135
-    teethValue: 5
   - name: Flesh
-    value: 135
+    value: 239
+    defaultValue: 300
     teethValue: 5
+  - name: Souls
+    value: 265
+    defaultValue: 300
+    teethValue: 10
+  - name: Magic
+    value: 280
+    defaultValue: 300
+    teethValue: 20
+  - name: Teeth
+    value: 300
+    defaultValue: 300
+    teethValue: 1
   images:
   - name: Teeth
     img: {fileID: 21300000, guid: d67fc63cf9e30044aaccb05d0e901dcb, type: 3}
