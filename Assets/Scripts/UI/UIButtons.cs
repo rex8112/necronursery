@@ -71,7 +71,8 @@ public class UIButtons : MonoBehaviour
 
     public void ChangeScene(string name)
     {
-        Save();
+        if (sl != null)
+            Save();
         SceneManager.LoadScene(name);
     }
 

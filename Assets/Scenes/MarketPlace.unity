@@ -754,6 +754,26 @@ PrefabInstance:
       propertyPath: sceneController
       value: 
       objectReference: {fileID: 748611171}
+    - target: {fileID: 3336799949949674960, guid: b5bf28527baf0bf4cb9497e37a0a127c,
+        type: 3}
+      propertyPath: ev
+      value: 
+      objectReference: {fileID: 748611171}
+    - target: {fileID: 3336799949949674960, guid: b5bf28527baf0bf4cb9497e37a0a127c,
+        type: 3}
+      propertyPath: resource
+      value: Magic
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336799949949674960, guid: b5bf28527baf0bf4cb9497e37a0a127c,
+        type: 3}
+      propertyPath: minCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336799949949674960, guid: b5bf28527baf0bf4cb9497e37a0a127c,
+        type: 3}
+      propertyPath: maxCount
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3336799949949674974, guid: b5bf28527baf0bf4cb9497e37a0a127c,
         type: 3}
       propertyPath: m_Sprite
@@ -1125,6 +1145,26 @@ PrefabInstance:
       propertyPath: sceneController
       value: 
       objectReference: {fileID: 748611171}
+    - target: {fileID: 3336799949949674960, guid: b5bf28527baf0bf4cb9497e37a0a127c,
+        type: 3}
+      propertyPath: ev
+      value: 
+      objectReference: {fileID: 748611171}
+    - target: {fileID: 3336799949949674960, guid: b5bf28527baf0bf4cb9497e37a0a127c,
+        type: 3}
+      propertyPath: resource
+      value: Souls
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336799949949674960, guid: b5bf28527baf0bf4cb9497e37a0a127c,
+        type: 3}
+      propertyPath: minCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336799949949674960, guid: b5bf28527baf0bf4cb9497e37a0a127c,
+        type: 3}
+      propertyPath: maxCount
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3336799949949674974, guid: b5bf28527baf0bf4cb9497e37a0a127c,
         type: 3}
       propertyPath: m_Sprite
@@ -2113,6 +2153,26 @@ PrefabInstance:
       propertyPath: sceneController
       value: 
       objectReference: {fileID: 748611171}
+    - target: {fileID: 3336799949949674960, guid: b5bf28527baf0bf4cb9497e37a0a127c,
+        type: 3}
+      propertyPath: ev
+      value: 
+      objectReference: {fileID: 748611171}
+    - target: {fileID: 3336799949949674960, guid: b5bf28527baf0bf4cb9497e37a0a127c,
+        type: 3}
+      propertyPath: resource
+      value: Flesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336799949949674960, guid: b5bf28527baf0bf4cb9497e37a0a127c,
+        type: 3}
+      propertyPath: minCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336799949949674960, guid: b5bf28527baf0bf4cb9497e37a0a127c,
+        type: 3}
+      propertyPath: maxCount
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3336799949949674974, guid: b5bf28527baf0bf4cb9497e37a0a127c,
         type: 3}
       propertyPath: m_Sprite
