@@ -539,6 +539,7 @@ RectTransform:
   - {fileID: 1652378975}
   - {fileID: 409675575}
   - {fileID: 1129254713}
+  - {fileID: 1928355241}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -851,7 +852,7 @@ MonoBehaviour:
     type: 3}
   trash: {fileID: 8960548393756888740, guid: 656f9bf10ea32644cbb2cda42f9d9e13, type: 3}
   bag: {fileID: 1129254709}
-  dumpster: {fileID: 409675575}
+  dumpster: {fileID: 1928355241}
   allParts: []
   wantedParts: []
   bodyPartCount: 6
@@ -1200,7 +1201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.044422098, y: 0.8576524}
   m_AnchorMax: {x: 0.17030434, y: 0.93437046}
-  m_AnchoredPosition: {x: 1.2000008, y: -2.4}
+  m_AnchoredPosition: {x: 1.2000122, y: -2.399994}
   m_SizeDelta: {x: -1.9, y: 0.70000005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094692946
@@ -2042,8 +2043,52 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1928355240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1928355241}
+  - component: {fileID: 1928355242}
+  m_Layer: 5
+  m_Name: SpawnArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1928355241
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928355240}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 372830342}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.2681667, y: 0.18755558}
+  m_AnchorMax: {x: 0.851, y: 0.81959265}
+  m_AnchoredPosition: {x: 9.5, y: -22.5}
+  m_SizeDelta: {x: -271.8, y: -213.3}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1928355242
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928355240}
+  m_CullTransparentMesh: 0
 --- !u!1 &2012051078
 GameObject:
   m_ObjectHideFlags: 0
