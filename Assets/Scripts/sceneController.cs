@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class sceneController : MonoBehaviour
 {
@@ -22,11 +23,6 @@ public class sceneController : MonoBehaviour
     [Space(10)]
     [SerializeField] List<graveController> graves = new List<graveController>();
 
-    [Header("Events")]
-    public UnityEvent OnValueChange;
-    public UnityEvent OnLoad;
-    public UnityEvent OnSave;
-
     Vector3 touchPosWorld;
     TouchPhase touchPhase = TouchPhase.Ended;
 
@@ -34,6 +30,28 @@ public class sceneController : MonoBehaviour
     {
         initSize = Camera.main.orthographicSize;
         mainCam = Camera.main;
+    }
+
+    private void Start()
+    {
+        Load();
+    }
+
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
+
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause == true)
+        {
+            Save();
+        }
+        else
+        {
+            //Load();
+        }
     }
 
     // Update is called once per frame
@@ -96,7 +114,7 @@ public class sceneController : MonoBehaviour
     {
         Transform cam = Camera.main.transform;
 
-        Debug.Log(dir);
+        //Debug.Log(dir);
         cam.Translate(-dir);
     }
 
@@ -124,7 +142,7 @@ public class sceneController : MonoBehaviour
         Debug.Log("Preparing Save");
         SaveLoad.BuildSave();
 
-        OnSave.Invoke();
+        GetComponent<Events>().OnSave.Invoke();
     }
 
     public void Load() //Loads the save file
@@ -145,12 +163,25 @@ public class sceneController : MonoBehaviour
                 graves[i].LoadResources(SaveLoad.gResources[i]);
             }
         }
-        resourceManager.resources.Clear(); //Resets all resources
-        foreach (resourceManager.Resource res in SaveLoad.resources) //Fills the resources back in, was the simplest way to do it that I could think of
+        if (SaveLoad.resources.Count > 0)
         {
-            resourceManager.resources.Add(res);
+            resourceManager.resources.Clear(); //Resets all resources
+            foreach (resourceManager.Resource res in SaveLoad.resources) //Fills the resources back in, was the simplest way to do it that I could think of
+            {
+                resourceManager.resources.Add(res);
+            }
         }
 
-        OnLoad.Invoke();
+        GetComponent<Events>().OnLoad.Invoke();
+    }
+
+    public void Delete()
+    {
+        SaveLoad.DeleteSave();
+        foreach (resourceManager.Resource res in resourceManager.resources)
+        {
+            res.value = res.defaultValue;
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -69,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1195769793
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -96,16 +96,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   images:
-  - {fileID: 7886154905807412684, guid: 3bbed7dde763b87479b94924905da908, type: 3}
-  - {fileID: 8801971845485781973, guid: 3bbed7dde763b87479b94924905da908, type: 3}
-  - {fileID: 2354626658230211636, guid: 3bbed7dde763b87479b94924905da908, type: 3}
-  - {fileID: 8384967988059038933, guid: 3bbed7dde763b87479b94924905da908, type: 3}
-  - {fileID: 8384967988059038933, guid: 3bbed7dde763b87479b94924905da908, type: 3}
-  - {fileID: 2767418353236451497, guid: 3bbed7dde763b87479b94924905da908, type: 3}
-  - {fileID: -4540182482368715750, guid: 3bbed7dde763b87479b94924905da908, type: 3}
-  - {fileID: -1330126730333755445, guid: 3bbed7dde763b87479b94924905da908, type: 3}
-  - {fileID: -1724829058781615542, guid: 3bbed7dde763b87479b94924905da908, type: 3}
-  - {fileID: -5230395246226558502, guid: 3bbed7dde763b87479b94924905da908, type: 3}
+  - {fileID: 21300000, guid: 970603535d6d206438ef2d4a75371fd4, type: 3}
+  - {fileID: 21300000, guid: 6caf34d2a30f1554f9437bc46bbb6b68, type: 3}
+  - {fileID: 21300000, guid: cb011bed509b29049bb1c2955a90373e, type: 3}
+  - {fileID: 21300000, guid: bfba6a5668c65a54f9b557cb9f70f02d, type: 3}
+  - {fileID: 21300000, guid: d2b894c2c5e349d4f86aa0f0701080f9, type: 3}
+  - {fileID: 21300000, guid: acce7643eea5f484ebcd45889bafbf96, type: 3}
 --- !u!114 &5891255319899512911
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ResourcePopulator : MonoBehaviour
 {
@@ -10,16 +11,15 @@ public class ResourcePopulator : MonoBehaviour
 
     private void Awake()
     {
-        Populate();
+        Refresh();
     }
-
     public void Populate()
     {
         foreach (resourceManager.Resource res in rm.resources)
         {
             GameObject r = Instantiate(prefab, transform);
-            r.GetComponentInChildren<Text>().text = res.name + ": " + res.value;
-            r.name = res.name;
+            r.transform.GetChild(0).name = res.name;
+            r.GetComponentInChildren<ResourceUpdater>().ChangeValue();
         }
     }
 
@@ -28,16 +28,6 @@ public class ResourcePopulator : MonoBehaviour
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
-        }
-    }
-
-    public void UpdateValues()
-    {
-        foreach (Transform child in transform)
-        {
-            string name = child.name;
-            resourceManager.Resource res = rm.resources.Find(r => r.name == name);
-            child.GetComponentInChildren<Text>().text = res.name + ": " + res.value;
         }
     }
 

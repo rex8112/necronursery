@@ -7,6 +7,8 @@ public class UIButtons : MonoBehaviour
 {
     [SerializeField]
     GameObject canvas;
+    [SerializeField] resourceManager rm;
+    [SerializeField] SaveLoad sl;
     string openCanvas = "Open";
     string closeButton = "Close";
     string graveyardScene = "Graveyard";
@@ -32,6 +34,7 @@ public class UIButtons : MonoBehaviour
         }
         if (buttonName == graveyardScene)
         {
+            Save();
             SceneManager.LoadScene("Graveyard");
         }
         if (buttonName == startTimer)
@@ -41,11 +44,53 @@ public class UIButtons : MonoBehaviour
         }
         if (buttonName == morgueMinigame)
         {
+            Save();
             SceneManager.LoadScene("Morgue");
         }
         if (buttonName == marketPlace)
         {
+            Save();
             SceneManager.LoadScene("MarketPlace");
         }
     }
+
+    public void Activate(GameObject obj)
+    {
+        obj.SetActive(true);
+    }
+
+    public void Deactivate(GameObject obj)
+    {
+        obj.SetActive(false);
+    }
+
+    public void StartTimer(gameTimer timer)
+    {
+        timer.startTimer = true;
+    }
+
+    public void ChangeScene(string name)
+    {
+        if (sl != null)
+            Save();
+        SceneManager.LoadScene(name);
+    }
+
+    void Save()
+    {
+        if (SceneManager.GetActiveScene().name == "Graveyard")
+        {
+            gameObject.GetComponent<sceneController>().Save();
+        }
+        else
+        {
+            rm.resources.Clear();
+            foreach (resourceManager.Resource res in rm.resources)
+            {
+                rm.resources.Add(res);
+            }
+            sl.BuildSave();
+        }
+    }
 }
+//thisscriptishell

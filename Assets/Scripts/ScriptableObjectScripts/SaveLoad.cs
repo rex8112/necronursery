@@ -42,11 +42,21 @@ public class SaveLoad : ScriptableObject
         }
     }
 
+    public void DeleteSave()
+    {
+        File.Delete(Application.persistentDataPath + "/NNSave.save");
+        resources.Clear();
+        plants.Clear();
+        stageInts.Clear();
+        gResources.Clear();
+    }
+
     public void SaveToDisk(Save save) //Handles converting the Save class into binary and saving it to a file
     {
         Debug.Log("Saving to Disk");
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/NNSave.save");
+        Debug.Log(Application.persistentDataPath);
         bf.Serialize(file, save);
         file.Close();
     }

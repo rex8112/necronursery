@@ -15,13 +15,27 @@ MonoBehaviour:
   resources:
   - name: Flesh
     value: 300
+    defaultValue: 300
     teethValue: 5
   - name: Souls
-    value: 295
+    value: 300
+    defaultValue: 300
     teethValue: 10
   - name: Magic
     value: 300
+    defaultValue: 300
     teethValue: 20
   - name: Teeth
     value: 300
+    defaultValue: 300
     teethValue: 1
+  images:
+  - name: Teeth
+    img: {fileID: 21300000, guid: d67fc63cf9e30044aaccb05d0e901dcb, type: 3}
+  - name: Souls
+    img: {fileID: 21300000, guid: 84faff707d7174a4da2a85152e66e145, type: 3}
+  - name: Magic
+    img: {fileID: 21300000, guid: 84faff707d7174a4da2a85152e66e145, type: 3}
+  - name: Flesh
+    img: {fileID: 21300000, guid: 6ef3a74eccf743e498a2af19eb48d57f, type: 3}
+  SL: {fileID: 11400000, guid: f12a6d5fed3c47347a7c7bd2c0732b0a, type: 2}

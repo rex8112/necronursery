@@ -5,13 +5,24 @@ using UnityEngine.UI;
 
 public class marketButton : MonoBehaviour
 {
+    [Header("Controls")]
+    [SerializeField] string resource;
+    [SerializeField] bool sell;
+    [SerializeField] int minCount = 1;
+    [SerializeField] int maxCount = 10;
+    [SerializeField] bool randomResource;
+    [SerializeField] List<string> randomResources;
 
-    [SerializeField] marketplaceScene sceneController;
+    [Header("Scripts")]
+    [SerializeField] Events ev;
     [SerializeField] resourceManager resourceManager;
-    public resourceManager.Resource sellResource;
-    public int sellCount;
-    public resourceManager.Resource buyResource;
-    public int buyCount;
+
+    [Header("Debug Variables")]
+    [SerializeField] resourceManager.Resource sellResource;
+    [SerializeField] int sellCount;
+    [SerializeField] resourceManager.Resource buyResource;
+    [SerializeField] int buyCount;
+
     Text buttonText;
 
     private void Awake()
@@ -26,34 +37,54 @@ public class marketButton : MonoBehaviour
 
     public resourceManager.Resource randomize()
     {
+        string res;
         resourceManager.Resource ran;
-        int max = resourceManager.resources.Count;
-        ran = resourceManager.resources[Random.Range(0, max)];
+        int max = randomResources.Count;
+        res = randomResources[Random.Range(0, max)];
+        ran = resourceManager.resources.Find(e => e.name == res);
 
         return ran;
     }
 
     public void initializeButton()
     {
-        buyResource = randomize();
-
-        if (buyResource.name == "Teeth") // If resource to buy is teeth, thus selling material for teeth.
+        if (randomResource == true)
         {
-            do
+            if (sell == true)
             {
                 sellResource = randomize();
-            } while (sellResource.name == "Teeth");
+                sellCount = Random.Range(minCount, maxCount + 1);
 
-            buyCount = sellResource.teethValue;
-            sellCount = Random.Range(1, 10);
-            buyCount = sellCount * buyCount;
+                buyResource = resourceManager.resources.Find(e => e.name == "Teeth");
+                buyCount = sellCount * sellResource.teethValue;
+            }
+            else
+            {
+                buyResource = randomize();
+                buyCount = Random.Range(minCount, maxCount + 1);
+
+                sellResource = resourceManager.resources.Find(e => e.name == "Teeth");
+                sellCount = buyCount * buyResource.teethValue;
+            }
         }
-        else // Else buy material with teeth
+        else
         {
-            sellResource = resourceManager.resources.Find(name => name.name == "Teeth");
-            sellCount = buyResource.teethValue;
-            buyCount = Random.Range(1, 10);
-            sellCount = buyCount * sellCount;
+            if (sell == true)
+            {
+                buyResource = resourceManager.resources.Find(e => e.name == "Teeth");
+                buyCount = sellCount * buyResource.teethValue;
+
+                sellResource = resourceManager.resources.Find(e => e.name == resource);
+                sellCount = Random.Range(minCount, maxCount + 1);
+            }
+            else
+            {
+                buyResource = resourceManager.resources.Find(e => e.name == resource);
+                buyCount = Random.Range(minCount, maxCount + 1);
+
+                sellResource = resourceManager.resources.Find(e => e.name == "Teeth");
+                sellCount = buyCount * buyResource.teethValue;
+            }
         }
 
         buttonText.text = "Trade " + sellCount + " " + sellResource.name + " for " + buyCount + " " + buyResource.name;
@@ -65,7 +96,7 @@ public class marketButton : MonoBehaviour
         if (sellResource.Remove(sellCount))
             buyResource.Add(buyCount);
 
-        sceneController.purchase.Invoke();
+        ev.OnValueChange.Invoke();
     }
 
     // Update is called once per frame
