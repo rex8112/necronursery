@@ -123,6 +123,7 @@ public class sceneController : MonoBehaviour
         SaveLoad.plants.Clear(); //Clears the current save info to be repopulated with the new info
         SaveLoad.resources.Clear();
         SaveLoad.stageInts.Clear();
+        SaveLoad.gResources.Clear();
         foreach (graveController grave in graves) //Saves all the graves
         {
             List<graveController.graveResource> gResources = new List<graveController.graveResource>();
@@ -142,6 +143,7 @@ public class sceneController : MonoBehaviour
         Debug.Log("Preparing Save");
         SaveLoad.BuildSave();
 
+
         GetComponent<Events>().OnSave.Invoke();
     }
 
@@ -159,7 +161,6 @@ public class sceneController : MonoBehaviour
                     graves[i].stage = SaveLoad.stageInts[i] - 1; //Due to how nextStage() works, we have to remove one from the current stage to get to the intended one
                     graves[i].nextStage();
                 }
-
                 graves[i].LoadResources(SaveLoad.gResources[i]);
             }
         }

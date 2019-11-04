@@ -60,7 +60,10 @@ public class graveController : MonoBehaviour
     {
         requiredResources.Clear();
         foreach (graveResource res in gResources)
+        {
             requiredResources.Add(res);
+            Debug.Log(res.name + ": " + res.current + " / " + res.needed);
+        }
         sc.OnValueChange.Invoke();
     }
 
