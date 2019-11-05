@@ -19,6 +19,7 @@ public class sceneController : MonoBehaviour
     float initSize;
     [SerializeField] float tranSpeed = 6f;
     [SerializeField] float sizeSpeed = 1f;
+    [SerializeField] GameObject AudioController;
 
     [Space(10)]
     [SerializeField] List<graveController> graves = new List<graveController>();
@@ -116,6 +117,13 @@ public class sceneController : MonoBehaviour
 
         //Debug.Log(dir);
         cam.Translate(-dir);
+    }
+
+    public void ChangeAudio()
+    {
+        AudioSource[] audio = AudioController.GetComponents<AudioSource>();
+        audio[1].Stop();
+        audio[0].Play();
     }
 
     public void Save() //Load important resources into the SaveLoad object and save
