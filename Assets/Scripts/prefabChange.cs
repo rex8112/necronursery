@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class prefabChange : MonoBehaviour
 {
-    public Sprite first, second, third;
+    public GameObject first, second, third;
 
     //public GameObject plant;
 
@@ -34,13 +34,19 @@ public class prefabChange : MonoBehaviour
         switch (stage)
         {
             case 1:
-                gameObject.GetComponent<Image>().sprite = first;
+                first.SetActive(true);
+                second.SetActive(false);
+                third.SetActive(false);
                 break;
             case 2:
-                gameObject.GetComponent<Image>().sprite = second;
+                first.SetActive(false);
+                second.SetActive(true);
+                third.SetActive(false);
                 break;
             case 3:
-                gameObject.GetComponent<Image>().sprite = third;
+                first.SetActive(false);
+                second.SetActive(false);
+                third.SetActive(true);
                 break;
             default:
                 break;
