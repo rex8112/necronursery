@@ -15,22 +15,6 @@ public class CamController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //currentCameraIndex = 0;
-
-        ////turn all cameras off but the first one
-        //for(int i =1; i < cameras.Length; i++)
-        //{
-        //    cameras[i].gameObject.SetActive(false);
-        //}
-
-        ////if any cameras added, enable first one
-
-        //if(cameras.Length > 0)
-        //{
-        //    cameras[0].gameObject.SetActive(true);
-        //    Debug.Log("Camera is now activated");
-        //}
-
         
     }
 
