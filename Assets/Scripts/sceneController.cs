@@ -157,27 +157,36 @@ public class sceneController : MonoBehaviour
 
     public void Load() //Loads the save file
     {
-        SaveLoad.UnbuildSave();
-        for (int i = 0; i < SaveLoad.stageInts.Count; i++)
+        if (SaveLoad.UnbuildSave())
         {
-            if (SaveLoad.stageInts[i] > 0) //Checks if the stage exists, allows remembering grave positions
+            for (int i = 0; i < SaveLoad.stageInts.Count; i++)
             {
-                graves[i].plant(SaveLoad.plants[i]); //Passes the name of the plant and lets graveController handle getting the further details
-
-                if (SaveLoad.stageInts[i] > 1) //If stage is larger than 1, then update grave to that point.
+                if (SaveLoad.stageInts[i] > 0) //Checks if the stage exists, allows remembering grave positions
                 {
-                    graves[i].stage = SaveLoad.stageInts[i] - 1; //Due to how nextStage() works, we have to remove one from the current stage to get to the intended one
-                    graves[i].nextStage();
+                    graves[i].plant(SaveLoad.plants[i]); //Passes the name of the plant and lets graveController handle getting the further details
+
+                    if (SaveLoad.stageInts[i] > 1) //If stage is larger than 1, then update grave to that point.
+                    {
+                        graves[i].stage = SaveLoad.stageInts[i] - 1; //Due to how nextStage() works, we have to remove one from the current stage to get to the intended one
+                        graves[i].nextStage();
+                    }
+                    graves[i].LoadResources(SaveLoad.gResources[i]);
                 }
-                graves[i].LoadResources(SaveLoad.gResources[i]);
+            }
+            if (SaveLoad.resources.Count > 0)
+            {
+                resourceManager.resources.Clear(); //Resets all resources
+                foreach (resourceManager.Resource res in SaveLoad.resources) //Fills the resources back in, was the simplest way to do it that I could think of
+                {
+                    resourceManager.resources.Add(res);
+                }
             }
         }
-        if (SaveLoad.resources.Count > 0)
+        else
         {
-            resourceManager.resources.Clear(); //Resets all resources
-            foreach (resourceManager.Resource res in SaveLoad.resources) //Fills the resources back in, was the simplest way to do it that I could think of
+            foreach (resourceManager.Resource res in resourceManager.resources)
             {
-                resourceManager.resources.Add(res);
+                res.value = res.defaultValue;
             }
         }
 

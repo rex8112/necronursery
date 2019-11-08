@@ -23,7 +23,7 @@ public class SaveLoad : ScriptableObject
         SaveToDisk(mainSave);
     }
 
-    public void UnbuildSave() //Takes the loaded Save and populates the Scriptable Object's values
+    public bool UnbuildSave() //Takes the loaded Save and populates the Scriptable Object's values
     {
         mainSave = LoadFromDisk();
         if (mainSave.stageInts.Count >= 1) //Checks if the returned save has content
@@ -32,6 +32,7 @@ public class SaveLoad : ScriptableObject
             plants = mainSave.plants;
             stageInts = mainSave.stageInts;
             gResources = mainSave.gResources;
+            return true;
         }
         else //Clears everything otherwise so it doesn't get loaded
         {
@@ -39,6 +40,7 @@ public class SaveLoad : ScriptableObject
             plants.Clear();
             stageInts.Clear();
             gResources.Clear();
+            return false;
         }
     }
 
