@@ -19,6 +19,7 @@ public class sceneController : MonoBehaviour
     float initSize;
     [SerializeField] float tranSpeed = 6f;
     [SerializeField] float sizeSpeed = 1f;
+    [SerializeField] GameObject AudioController;
 
     [Space(10)]
     [SerializeField] List<graveController> graves = new List<graveController>();
@@ -118,11 +119,19 @@ public class sceneController : MonoBehaviour
         cam.Translate(-dir);
     }
 
+    public void ChangeAudio()
+    {
+        AudioSource[] audio = AudioController.GetComponents<AudioSource>();
+        audio[1].Stop();
+        audio[0].Play();
+    }
+
     public void Save() //Load important resources into the SaveLoad object and save
     {
         SaveLoad.plants.Clear(); //Clears the current save info to be repopulated with the new info
         SaveLoad.resources.Clear();
         SaveLoad.stageInts.Clear();
+        SaveLoad.gResources.Clear();
         foreach (graveController grave in graves) //Saves all the graves
         {
             List<graveController.graveResource> gResources = new List<graveController.graveResource>();
@@ -142,33 +151,42 @@ public class sceneController : MonoBehaviour
         Debug.Log("Preparing Save");
         SaveLoad.BuildSave();
 
+
         GetComponent<Events>().OnSave.Invoke();
     }
 
     public void Load() //Loads the save file
     {
-        SaveLoad.UnbuildSave();
-        for (int i = 0; i < SaveLoad.stageInts.Count; i++)
+        if (SaveLoad.UnbuildSave())
         {
-            if (SaveLoad.stageInts[i] > 0) //Checks if the stage exists, allows remembering grave positions
+            for (int i = 0; i < SaveLoad.stageInts.Count; i++)
             {
-                graves[i].plant(SaveLoad.plants[i]); //Passes the name of the plant and lets graveController handle getting the further details
-
-                if (SaveLoad.stageInts[i] > 1) //If stage is larger than 1, then update grave to that point.
+                if (SaveLoad.stageInts[i] > 0) //Checks if the stage exists, allows remembering grave positions
                 {
-                    graves[i].stage = SaveLoad.stageInts[i] - 1; //Due to how nextStage() works, we have to remove one from the current stage to get to the intended one
-                    graves[i].nextStage();
-                }
+                    graves[i].plant(SaveLoad.plants[i]); //Passes the name of the plant and lets graveController handle getting the further details
 
-                graves[i].LoadResources(SaveLoad.gResources[i]);
+                    if (SaveLoad.stageInts[i] > 1) //If stage is larger than 1, then update grave to that point.
+                    {
+                        graves[i].stage = SaveLoad.stageInts[i] - 1; //Due to how nextStage() works, we have to remove one from the current stage to get to the intended one
+                        graves[i].nextStage();
+                    }
+                    graves[i].LoadResources(SaveLoad.gResources[i]);
+                }
+            }
+            if (SaveLoad.resources.Count > 0)
+            {
+                resourceManager.resources.Clear(); //Resets all resources
+                foreach (resourceManager.Resource res in SaveLoad.resources) //Fills the resources back in, was the simplest way to do it that I could think of
+                {
+                    resourceManager.resources.Add(res);
+                }
             }
         }
-        if (SaveLoad.resources.Count > 0)
+        else
         {
-            resourceManager.resources.Clear(); //Resets all resources
-            foreach (resourceManager.Resource res in SaveLoad.resources) //Fills the resources back in, was the simplest way to do it that I could think of
+            foreach (resourceManager.Resource res in resourceManager.resources)
             {
-                resourceManager.resources.Add(res);
+                res.value = res.defaultValue;
             }
         }
 
