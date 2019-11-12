@@ -53,25 +53,21 @@ public class morgueController : MonoBehaviour
 
     void WantedBodyParts() //Makes a list of bodyParts that the player needs to find
     {
-        randomAmount = Random.Range(1, 3);
+        randomAmount = Random.Range(1, 4);
         for (int r = 0; r < randomAmount; r++)
         {
             partNumber = Random.Range(0, allParts.Length);
 
-            if (allParts[partNumber] == null) //if the bodypart[partnumber] has already been used pick another
+            while (allParts[partNumber] == null) //if the bodypart[partnumber] has already been used pick another
             {
                 partNumber = Random.Range(0, allParts.Length);
             }
-
-            else //else add the bodyPart[partNumber] to the list
-            {
-                wantedParts.Add(allParts[partNumber].GetComponent<SpriteRenderer>());
-                chosenOne = wantedParts[r];
-                spriteSwitch = GameObject.Find("Object" + r).GetComponent<Image>();
-                spriteSwitch.sprite = chosenOne.sprite;
-                spriteSwitch.color = new Color(1, 1, 1, 1);
-                allParts[partNumber] = null; //setting the location to NULL so it won't be picked twice
-            }
+            wantedParts.Add(allParts[partNumber].GetComponent<SpriteRenderer>());
+            chosenOne = wantedParts[r];
+            spriteSwitch = GameObject.Find("Object" + r).GetComponent<Image>();
+            spriteSwitch.sprite = chosenOne.sprite;
+            spriteSwitch.color = new Color(1, 1, 1, 1);
+            allParts[partNumber] = null; //setting the location to NULL so it won't be picked twice
         }
         bag.GetComponent<morgueWin>().wantedPartsList = wantedParts;
         bag.GetComponent<morgueWin>().winAmount = randomAmount;
