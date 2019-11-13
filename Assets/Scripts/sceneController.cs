@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class sceneController : MonoBehaviour
@@ -20,6 +21,7 @@ public class sceneController : MonoBehaviour
     [SerializeField] float tranSpeed = 6f;
     [SerializeField] float sizeSpeed = 1f;
     [SerializeField] GameObject AudioController;
+    [SerializeField] GameObject tap;
 
     [Space(10)]
     [SerializeField] List<graveController> graves = new List<graveController>();
@@ -36,11 +38,19 @@ public class sceneController : MonoBehaviour
     private void Start()
     {
         Load();
+        if (SaveLoad.tapToStart == false)
+        {
+            tap.SetActive(false);
+            gameObject.GetComponent<CamController>().HardTransition();
+        }
+        else
+            SaveLoad.tapToStart = false;
     }
 
     private void OnApplicationQuit()
     {
         Save();
+        SaveLoad.tapToStart = true;
     }
 
     private void OnApplicationPause(bool pause)
