@@ -185,10 +185,11 @@ public class sceneController : MonoBehaviour
             }
             if (SaveLoad.resources.Count > 0)
             {
-                resourceManager.resources.Clear(); //Resets all resources
                 foreach (resourceManager.Resource res in SaveLoad.resources) //Fills the resources back in, was the simplest way to do it that I could think of
                 {
-                    resourceManager.resources.Add(res);
+                    resourceManager.Resource r = resourceManager.resources.Find(resource => resource.name == res.name);
+                    if (r != null)
+                        r.value = res.value;
                 }
             }
         }
