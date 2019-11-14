@@ -22,6 +22,20 @@ public class tutorialDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(textActive && Input.GetKeyDown(KeyCode.Space))
+        {
+            tutBox.SetActive(false);
+            textActive = false;
+
+        }
+    }
+
+    public void ShowBox(string dialogue)
+    {
+        textActive = true;
+        tutBox.SetActive(true);
+        tutText.text = dialogue;
+
+
     }
 }
