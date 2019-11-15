@@ -17,7 +17,19 @@ public class BrewingController : MonoBehaviour
         foreach (Transform c in cover.transform)
             children.Add(c.gameObject);
 
-        StartCoroutine("TileFlip");
+        //StartCoroutine("TileFlip");
+    }
+
+    private void RandomMainIngredient()
+    {
+        int indx = Random.Range(0, ingredients.Count);
+        Sprite old = mainIngredient.sprite;
+
+        while (mainIngredient.sprite == old)
+        {
+            indx = Random.Range(0, ingredients.Count);
+            mainIngredient.sprite = ingredients[indx];
+        }
     }
 
     IEnumerator TileFlip()
