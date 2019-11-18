@@ -230,6 +230,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 37274896dd02be34294c76189bbfdcc4, type: 3}
   - {fileID: 21300000, guid: 82cfe88b1d55fe646abdb502970056a0, type: 3}
   - {fileID: 21300000, guid: 3efdb1437ce6fd1478031710febc59a3, type: 3}
+  touchPosWorld: {x: 0, y: 0, z: 0}
+  ingredient: {fileID: 0}
 --- !u!4 &26985149
 Transform:
   m_ObjectHideFlags: 0
@@ -364,7 +366,7 @@ GameObject:
   - component: {fileID: 169539407}
   m_Layer: 0
   m_Name: Lizard
-  m_TagString: Untagged
+  m_TagString: ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -617,7 +619,7 @@ GameObject:
   - component: {fileID: 723118891}
   m_Layer: 0
   m_Name: NO ONE EXPECTS THE SPANISH INQUISITION
-  m_TagString: Untagged
+  m_TagString: ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -797,7 +799,7 @@ GameObject:
   - component: {fileID: 830378296}
   m_Layer: 0
   m_Name: Alcamohal
-  m_TagString: Untagged
+  m_TagString: ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1295,7 +1297,7 @@ GameObject:
   - component: {fileID: 1232748329}
   m_Layer: 0
   m_Name: Flour
-  m_TagString: Untagged
+  m_TagString: ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

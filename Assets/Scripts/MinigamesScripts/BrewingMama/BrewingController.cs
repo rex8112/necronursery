@@ -10,6 +10,9 @@ public class BrewingController : MonoBehaviour
     [SerializeField] GameObject cover;
     [SerializeField] List<Sprite> ingredients;
 
+    [SerializeField] private Vector3 touchPosWorld;
+    [SerializeField] private GameObject ingredient;
+
     private List<GameObject> children = new List<GameObject>();
 
     private void Start()
@@ -17,7 +20,40 @@ public class BrewingController : MonoBehaviour
         foreach (Transform c in cover.transform)
             children.Add(c.gameObject);
 
-        //StartCoroutine("TileFlip");
+        StartCoroutine("TileFlip");
+    }
+
+    private void Update()
+    {
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            Vector2 touchPosWorld2D;
+
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    touchPosWorld = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+                    touchPosWorld2D = new Vector2(touchPosWorld.x, touchPosWorld.y);
+                    RaycastHit2D hit = Physics2D.Raycast(touchPosWorld2D, Camera.main.transform.forward);
+                    if (hit.collider.CompareTag("ingredient"))
+                    {
+                        ingredient = Instantiate(hit.collider.gameObject);
+                        ingredient.transform.position = touchPosWorld2D;
+                    }
+                    break;
+                case TouchPhase.Moved:
+                    touchPosWorld = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+                    touchPosWorld2D = new Vector2(touchPosWorld.x, touchPosWorld.y);
+                    ingredient.transform.position = touchPosWorld2D;
+                    break;
+                case TouchPhase.Ended:
+                    if (ingredient)
+                        Destroy(ingredient);
+                    ingredient = null;
+                    break;
+            }
+        }
     }
 
     private void RandomMainIngredient()

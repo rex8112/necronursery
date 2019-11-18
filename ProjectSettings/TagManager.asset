@@ -8,6 +8,7 @@ TagManager:
   - spirit
   - bodypart
   - trash
+  - ingredient
   layers:
   - Default
   - TransparentFX
