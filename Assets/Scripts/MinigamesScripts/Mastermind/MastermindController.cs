@@ -1,4 +1,17 @@
-﻿using System.Collections;
+﻿/*
+Game things
+- if the rune is moved over a POI (point of interest) then change the sprite on the POI to that of the rune
+- if POI has a rune image when clicked, then clear the POI
+- a function to make a random code
+- a function to check players code (via button)
+    -if correct spot/color lit candle
+    -if correct color, wrong spot smoking candle
+-counter for number of tries (12)
+-list of prev guesses with outcome
+-Win function
+
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,5 +59,7 @@ public class MastermindController : MonoBehaviour
                     break;
             }
         }
+
+        
     }
 }

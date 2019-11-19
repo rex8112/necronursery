@@ -9,6 +9,7 @@ TagManager:
   - bodypart
   - trash
   - Runes
+  - POI
   layers:
   - Default
   - TransparentFX
