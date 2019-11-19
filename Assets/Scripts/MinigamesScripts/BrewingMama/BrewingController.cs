@@ -10,6 +10,8 @@ public class BrewingController : MonoBehaviour
     [SerializeField] GameObject cover;
     [SerializeField] List<Sprite> ingredients;
 
+    [Header("Debug Variables")]
+    [SerializeField] private int correctCount = 0;
     [SerializeField] private Vector3 touchPosWorld;
     [SerializeField] private GameObject ingredient;
 
@@ -45,7 +47,8 @@ public class BrewingController : MonoBehaviour
                 case TouchPhase.Moved:
                     touchPosWorld = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
                     touchPosWorld2D = new Vector2(touchPosWorld.x, touchPosWorld.y);
-                    ingredient.transform.position = touchPosWorld2D;
+                    if (ingredient != null)
+                        ingredient.transform.position = touchPosWorld2D;
                     break;
                 case TouchPhase.Ended:
                     if (ingredient)
@@ -58,18 +61,21 @@ public class BrewingController : MonoBehaviour
 
     public void MatchingImages()
     {
-        int correctCount = 0;
-
-        if(ingredient != mainIngredient)
+        Debug.Log("Matching");
+        if(ingredient.GetComponent<SpriteRenderer>().sprite != mainIngredient.sprite)
         {
+            Debug.Log("Not Same");
             correctCount -= 1;
+            Destroy(ingredient);
+            ingredient = null;
         }
         else
         {
+            Debug.Log("Same");
             correctCount += 1;
+            Destroy(ingredient);
+            ingredient = null;
             RandomMainIngredient();
-
-
         }
     }
 
