@@ -8,6 +8,7 @@ TagManager:
   - spirit
   - bodypart
   - trash
+  - Runes
   layers:
   - Default
   - TransparentFX
