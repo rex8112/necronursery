@@ -56,6 +56,23 @@ public class BrewingController : MonoBehaviour
         }
     }
 
+    public void MatchingImages()
+    {
+        int correctCount = 0;
+
+        if(ingredient != mainIngredient)
+        {
+            correctCount -= 1;
+        }
+        else
+        {
+            correctCount += 1;
+            RandomMainIngredient();
+
+
+        }
+    }
+
     private void RandomMainIngredient()
     {
         int indx = Random.Range(0, ingredients.Count);
