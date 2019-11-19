@@ -9,9 +9,11 @@ public class BrewingController : MonoBehaviour
     [SerializeField] Image mainIngredient;
     [SerializeField] GameObject cover;
     [SerializeField] List<Sprite> ingredients;
+    [SerializeField] GameObject loseCanvas;
 
     [Header("Debug Variables")]
     [SerializeField] private int correctCount = 0;
+    [SerializeField] private int inCorrectCount = 0;
     [SerializeField] private Vector3 touchPosWorld;
     [SerializeField] private GameObject ingredient;
 
@@ -65,9 +67,15 @@ public class BrewingController : MonoBehaviour
         if(ingredient.GetComponent<SpriteRenderer>().sprite != mainIngredient.sprite)
         {
             Debug.Log("Not Same");
-            correctCount -= 1;
+            inCorrectCount += 1;
             Destroy(ingredient);
             ingredient = null;
+
+            if(inCorrectCount >= 2)
+            {
+                StopCoroutine("TileFlip");
+                loseCanvas.SetActive(true);
+            }
         }
         else
         {
