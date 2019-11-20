@@ -8,7 +8,8 @@ public class BrewingController : MonoBehaviour
     [SerializeField] GameObject cauldron;
     [SerializeField] Image mainIngredient;
     [SerializeField] GameObject cover;
-    [SerializeField] List<Sprite> ingredients;
+    [SerializeField] List<GameObject> templates;
+    [SerializeField] List<Sprite> allIngredients;
     [SerializeField] GameObject loseCanvas;
 
     [Header("Debug Variables")]
@@ -16,14 +17,31 @@ public class BrewingController : MonoBehaviour
     [SerializeField] private int inCorrectCount = 0;
     [SerializeField] private Vector3 touchPosWorld;
     [SerializeField] private GameObject ingredient;
+    [SerializeField] private List<Sprite> ingredients;
 
     private List<GameObject> children = new List<GameObject>();
+
+    private void Awake()
+    {
+        List<Sprite> tmp = new List<Sprite>();
+        foreach (Sprite s in allIngredients)
+            tmp.Add(s);
+
+        for (int i = 0; i < 4; i++)
+        {
+            int indx = Random.Range(0, tmp.Count);
+
+            ingredients.Add(tmp[indx]);
+            tmp.RemoveAt(indx);
+        }
+    }
 
     private void Start()
     {
         foreach (Transform c in cover.transform)
             children.Add(c.gameObject);
 
+        GenerateNew();
         StartCoroutine("TileFlip");
     }
 
@@ -61,12 +79,22 @@ public class BrewingController : MonoBehaviour
         }
     }
 
+    public void GenerateNew()
+    {
+        int count = 0;
+        foreach (GameObject t in templates)
+        {
+            t.GetComponent<SpriteRenderer>().sprite = ingredients[count];
+            count++;
+        }
+
+        RandomMainIngredient();
+    }
+
     public void MatchingImages()
     {
-        Debug.Log("Matching");
         if(ingredient.GetComponent<SpriteRenderer>().sprite != mainIngredient.sprite)
         {
-            Debug.Log("Not Same");
             inCorrectCount += 1;
             Destroy(ingredient);
             ingredient = null;
@@ -79,7 +107,6 @@ public class BrewingController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Same");
             correctCount += 1;
             Destroy(ingredient);
             ingredient = null;
