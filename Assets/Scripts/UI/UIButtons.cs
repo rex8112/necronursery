@@ -84,10 +84,10 @@ public class UIButtons : MonoBehaviour
         }
         else
         {
-            rm.resources.Clear();
+            sl.resources.Clear();
             foreach (resourceManager.Resource res in rm.resources)
             {
-                rm.resources.Add(res);
+                sl.resources.Add(res);
             }
             sl.BuildSave();
         }
