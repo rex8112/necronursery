@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class BrewingController : MonoBehaviour
 {
+    [SerializeField] resourceManager rm;
     [SerializeField] GameObject cauldron;
     [SerializeField] Image mainIngredient;
     [SerializeField] GameObject cover;
     [SerializeField] List<GameObject> templates;
     [SerializeField] List<Sprite> allIngredients;
     [SerializeField] GameObject loseCanvas;
+    [SerializeField] GameObject winCanvas;
 
     [Header("Debug Variables")]
     [SerializeField] private int correctCount = 0;
@@ -101,8 +103,7 @@ public class BrewingController : MonoBehaviour
 
             if(inCorrectCount >= 2)
             {
-                StopCoroutine("TileFlip");
-                loseCanvas.SetActive(true);
+                Loser();
             }
         }
         else
@@ -111,7 +112,36 @@ public class BrewingController : MonoBehaviour
             Destroy(ingredient);
             ingredient = null;
             RandomMainIngredient();
+
+            if(correctCount >= 4)
+            {
+                Winner();
+            }
+
         }
+    }
+
+    public void Loser()
+    {
+        StopCoroutine("TileFlip");
+        loseCanvas.SetActive(true);
+        gameObject.GetComponent<UIButtons>().ChangeScene("Graveyard");
+    }
+
+    public void Winner()
+    {
+        int magic, teeth;
+        StopCoroutine("TileFlip");
+        winCanvas.SetActive(true);
+
+        magic = Random.Range(2, 7);
+        teeth = Random.Range(4, 11);
+
+        rm.resources.Find(r => r.name == "Magic").Add(magic);
+        rm.resources.Find(r => r.name == "Teeth").Add(teeth);
+
+        gameObject.GetComponent<UIButtons>().ChangeScene("Graveyard");
+
     }
 
     private void RandomMainIngredient()
