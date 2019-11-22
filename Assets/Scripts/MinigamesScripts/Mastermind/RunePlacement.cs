@@ -15,13 +15,21 @@ public class RunePlacement : MonoBehaviour
     void Start()
     {
         gameObject.GetComponent<SpriteRenderer>().color = tempDefaultColor;
-       // gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
+        // gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
         defaultImage = true;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+
+    // Update is called once per frame
+    void Update()
     {
-        
-        if (collision.gameObject.CompareTag("Runes"))
+
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("Runes") && Input.GetMouseButtonUp(0))
         {
 
             //spriteHolder = collision.gameObject.GetComponent<SpriteRenderer>().sprite;
@@ -29,19 +37,17 @@ public class RunePlacement : MonoBehaviour
             tempcolorholder = collision.gameObject.GetComponent<SpriteRenderer>().color;
             gameObject.GetComponent<SpriteRenderer>().color = tempcolorholder;
             defaultImage = false;
-        }   
+        }
     }
-
-
-    // Update is called once per frame
-    void Update()
+    
+    void OnMouseDown()
     {
-        if (!defaultImage && Input.GetMouseButtonUp(0))
+        if (!defaultImage)
         {
             gameObject.GetComponent<SpriteRenderer>().color = tempDefaultColor;
             //gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
             defaultImage = true;
         }
-
     }
+
 }
