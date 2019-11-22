@@ -8,34 +8,40 @@ public class RunePlacement : MonoBehaviour
     public bool defaultImage;
     public Sprite spriteHolder;
     public Color tempcolorholder;
+    Color tempDefaultColor = Color.white;
+    public Sprite defaultSprite;
 
     // Start is called before the first frame update
     void Start()
     {
-        defaultImage = true;   
+        gameObject.GetComponent<SpriteRenderer>().color = tempDefaultColor;
+       // gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
+        defaultImage = true;
     }
-
-
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("he hit me");
+        
         if (collision.gameObject.CompareTag("Runes"))
         {
+
             //spriteHolder = collision.gameObject.GetComponent<SpriteRenderer>().sprite;
             //gameObject.GetComponent<SpriteRenderer>().sprite = spriteHolder;
             tempcolorholder = collision.gameObject.GetComponent<SpriteRenderer>().color;
-            Debug.Log("Color got");
             gameObject.GetComponent<SpriteRenderer>().color = tempcolorholder;
-            Debug.Log("i changed colors");
             defaultImage = false;
         }   
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (!defaultImage && Input.GetMouseButtonUp(0))
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = tempDefaultColor;
+            //gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
+            defaultImage = true;
+        }
+
     }
 }
