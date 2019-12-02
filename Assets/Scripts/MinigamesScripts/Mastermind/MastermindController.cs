@@ -1,12 +1,10 @@
 ﻿/*
 Game things
-- if the rune is moved over a POI (point of interest) then change the sprite on the POI to that of the rune
-- if POI has a rune image when clicked, then clear the POI
-- a function to make a random code
 - a function to check players code (via button)
     -if correct spot/color lit candle
     -if correct color, wrong spot smoking candle
 -counter for number of tries (12)
+    -maybe have a slider of some sort that shows a strength meter of connection to the other side???????????????????????????????????????????????
 -list of prev guesses with outcome
 -Win function
 
@@ -18,13 +16,14 @@ using UnityEngine;
 public class MastermindController : MonoBehaviour
 {
     [SerializeField] private Vector3 touchPosWorld;
+    public List<Sprite> PossibleRunes;
     [SerializeField] List<Sprite> CorrectCode;
     [SerializeField] private GameObject runes;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        GenerateCode();
     }
 
     private void Update()
@@ -61,5 +60,14 @@ public class MastermindController : MonoBehaviour
         }
 
         
+    }
+
+    private void GenerateCode()
+    {
+         for (int i = 0; i < 4; i++)
+        {
+            int randomRune = Random.Range(0, 6);
+            CorrectCode[i] = PossibleRunes[randomRune];
+        }
     }
 }
