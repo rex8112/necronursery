@@ -111,12 +111,13 @@ public class BrewingController : MonoBehaviour
             correctCount += 1;
             Destroy(ingredient);
             ingredient = null;
-            RandomMainIngredient();
 
             if(correctCount >= 4)
             {
                 Winner();
             }
+            else
+                RandomMainIngredient();
 
         }
     }
@@ -139,15 +140,13 @@ public class BrewingController : MonoBehaviour
 
         rm.resources.Find(r => r.name == "Magic").Add(magic);
         rm.resources.Find(r => r.name == "Teeth").Add(teeth);
-
-        gameObject.GetComponent<UIButtons>().ChangeScene("Graveyard");
-
     }
 
     private void RandomMainIngredient()
     {
         int indx = Random.Range(0, ingredients.Count);
         Sprite old = mainIngredient.sprite;
+        ingredients.Remove(old);
 
         while (mainIngredient.sprite == old)
         {
