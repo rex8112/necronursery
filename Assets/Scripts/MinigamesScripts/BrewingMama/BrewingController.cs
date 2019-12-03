@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class BrewingController : MonoBehaviour
@@ -11,10 +12,12 @@ public class BrewingController : MonoBehaviour
     [SerializeField] GameObject cover;
     [SerializeField] List<GameObject> templates;
     [SerializeField] List<Sprite> allIngredients;
+    [SerializeField] List<GameObject> progressObjects;
     [SerializeField] GameObject loseCanvas;
     [SerializeField] GameObject winCanvas;
 
     [Header("Debug Variables")]
+    [SerializeField] private int progressCount = 0;
     [SerializeField] private int correctCount = 0;
     [SerializeField] private int inCorrectCount = 0;
     [SerializeField] private Vector3 touchPosWorld;
@@ -98,6 +101,7 @@ public class BrewingController : MonoBehaviour
         if(ingredient.GetComponent<SpriteRenderer>().sprite != mainIngredient.sprite)
         {
             inCorrectCount += 1;
+            Progress(false);
             Destroy(ingredient);
             ingredient = null;
 
@@ -109,6 +113,7 @@ public class BrewingController : MonoBehaviour
         else
         {
             correctCount += 1;
+            Progress(true);
             Destroy(ingredient);
             ingredient = null;
 
@@ -122,11 +127,27 @@ public class BrewingController : MonoBehaviour
         }
     }
 
+    public void Progress(bool success)
+    {
+        GameObject obj = progressObjects[progressCount];
+        GameObject child;
+        if (success)
+        {
+            child = obj.transform.GetChild(0).gameObject;
+            child.SetActive(true);
+        }
+        else
+        {
+            child = obj.transform.GetChild(1).gameObject;
+            child.SetActive(true);
+        }
+        progressCount++;
+    }
+
     public void Loser()
     {
         StopCoroutine("TileFlip");
         loseCanvas.SetActive(true);
-        gameObject.GetComponent<UIButtons>().ChangeScene("Graveyard");
     }
 
     public void Winner()
