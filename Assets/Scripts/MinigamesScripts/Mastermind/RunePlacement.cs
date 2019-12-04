@@ -14,8 +14,8 @@ public class RunePlacement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = tempDefaultColor;
-        // gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
+        //gameObject.GetComponent<SpriteRenderer>().color = tempDefaultColor;
+        gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
         defaultImage = true;
     }
 
@@ -32,10 +32,10 @@ public class RunePlacement : MonoBehaviour
         if (collision.gameObject.CompareTag("Runes") && Input.GetMouseButtonUp(0))
         {
 
-            //spriteHolder = collision.gameObject.GetComponent<SpriteRenderer>().sprite;
-            //gameObject.GetComponent<SpriteRenderer>().sprite = spriteHolder;
-            tempcolorholder = collision.gameObject.GetComponent<SpriteRenderer>().color;
-            gameObject.GetComponent<SpriteRenderer>().color = tempcolorholder;
+            spriteHolder = collision.gameObject.GetComponent<SpriteRenderer>().sprite;
+            gameObject.GetComponent<SpriteRenderer>().sprite = spriteHolder;
+            //tempcolorholder = collision.gameObject.GetComponent<SpriteRenderer>().color;
+            //gameObject.GetComponent<SpriteRenderer>().color = tempcolorholder;
             defaultImage = false;
         }
     }
@@ -44,8 +44,8 @@ public class RunePlacement : MonoBehaviour
     {
         if (!defaultImage)
         {
-            gameObject.GetComponent<SpriteRenderer>().color = tempDefaultColor;
-            //gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
+            //gameObject.GetComponent<SpriteRenderer>().color = tempDefaultColor;
+            gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
             defaultImage = true;
         }
     }

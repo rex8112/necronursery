@@ -78,7 +78,7 @@ public class MastermindController : MonoBehaviour
     {
         for(int i = 0; i < 4; i++)
         {
-            PlayerCode[i + 1] = GameObject.Find("POI_" + i).GetComponent<SpriteRenderer>().sprite;
+            PlayerCode[i] = GameObject.Find("POI_" +(i + 1)).GetComponent<SpriteRenderer>().sprite;
         }
     }
 
