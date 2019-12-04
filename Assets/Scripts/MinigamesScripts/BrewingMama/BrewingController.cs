@@ -188,14 +188,14 @@ public class BrewingController : MonoBehaviour
                 Color t = tmp.color;
                 t.a -= 0.1f;
                 tmp.color = t;
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.016f);
             }
             while (tmp.color.a < 1)
             {
                 Color t = tmp.color;
                 t.a += 0.1f;
                 tmp.color = t;
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.016f);
             }
             yield return new WaitForSeconds(.1f);
         }
