@@ -18,11 +18,14 @@ public class MastermindController : MonoBehaviour
     [SerializeField] private Vector3 touchPosWorld;
     public List<Sprite> PossibleRunes;
     [SerializeField] List<Sprite> CorrectCode;
+    [SerializeField] List<Sprite> PlayerCode;
+    private int candleSignal = 0;
     [SerializeField] private GameObject runes;
 
     // Start is called before the first frame update
     void Start()
     {
+        candleSignal = 0;
         GenerateCode();
     }
 
@@ -68,6 +71,22 @@ public class MastermindController : MonoBehaviour
         {
             int randomRune = Random.Range(0, 6);
             CorrectCode[i] = PossibleRunes[randomRune];
+        }
+    }
+
+    private void GetPlayerCode()
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            PlayerCode[i + 1] = GameObject.Find("POI_" + i).GetComponent<SpriteRenderer>().sprite;
+        }
+    }
+
+    public void CodeChecker(bool Submited)
+    {
+        if(Submited)
+        {
+            GetPlayerCode();
         }
     }
 }
