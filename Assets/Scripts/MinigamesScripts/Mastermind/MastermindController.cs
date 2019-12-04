@@ -19,13 +19,22 @@ public class MastermindController : MonoBehaviour
     public List<Sprite> PossibleRunes;
     [SerializeField] List<Sprite> CorrectCode;
     [SerializeField] List<Sprite> PlayerCode;
-    private int candleSignal = 0;
+    private int candleSignal = 1;
     [SerializeField] private GameObject runes;
+    private GameObject Candle;
+    public Sprite defaultSprite;
 
     // Start is called before the first frame update
     void Start()
     {
-        candleSignal = 0;
+        for(int i = 1; i < 5; i++)
+        {
+            Candle = GameObject.Find("Flame" + i);
+            Hide(Candle);
+            Candle = GameObject.Find("Smoke" + i);
+            Hide(Candle);
+        }
+        candleSignal = 1;
         GenerateCode();
     }
 
@@ -82,11 +91,53 @@ public class MastermindController : MonoBehaviour
         }
     }
 
-    public void CodeChecker(bool Submited)
+    public void CodeChecker(bool Submited) //this needs to be tested------------------------------------------------------
     {
         if(Submited)
         {
+            for (int i = 1; i < 5; i++)
+            {
+                Candle = GameObject.Find("Flame" + i);
+                Hide(Candle);
+                Candle = GameObject.Find("Smoke" + i);
+                Hide(Candle);
+                candleSignal = 0;
+                GameObject.Find("POI_" + i).GetComponent<SpriteRenderer>().sprite = defaultSprite;
+            }
+
             GetPlayerCode();
+            for(int n = 0; n < 4; n++)
+            {
+                for(int pp = 0; pp < 4; pp++) 
+                {
+                    if(PlayerCode[n] == CorrectCode[pp] && n == pp)
+                    {
+                        Candle = GameObject.Find("Flame" + candleSignal);
+                        Show(Candle);
+                        candleSignal++;
+                    }
+                    else if (PlayerCode[n] == CorrectCode[pp] && n != pp)
+                    {
+                        Candle = GameObject.Find("Smoke" + candleSignal);
+                        Show(Candle);
+                        candleSignal++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                  
+            }
         }
+    }
+    public void Show(GameObject TheObject)
+    {
+        TheObject.SetActive(true);
+    }
+
+    public void Hide(GameObject TheObject)
+    {
+        TheObject.SetActive(false);
     }
 }
