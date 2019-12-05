@@ -19,22 +19,26 @@ public class MastermindController : MonoBehaviour
     public List<Sprite> PossibleRunes;
     [SerializeField] List<Sprite> CorrectCode;
     [SerializeField] List<Sprite> PlayerCode;
-    private int candleSignal = 1;
+    private int candleSignal = 0;
     [SerializeField] private GameObject runes;
     private GameObject Candle;
     public Sprite defaultSprite;
+    //[SerializeField] bool firstTime;
+    public List<GameObject> flames;
+    public List<GameObject> smoke;
 
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 1; i < 5; i++)
+        //firstTime = true;
+        for(int i = 0; i < 4; i++)
         {
-            Candle = GameObject.Find("Flame" + i);
+            Candle = flames[i];
             Hide(Candle);
-            Candle = GameObject.Find("Smoke" + i);
+            Candle = smoke[i];
             Hide(Candle);
         }
-        candleSignal = 1;
+        candleSignal = 0;
         GenerateCode();
     }
 
@@ -95,15 +99,23 @@ public class MastermindController : MonoBehaviour
     {
         if(Submited)
         {
-            for (int i = 1; i < 5; i++)
-            {
-                Candle = GameObject.Find("Flame" + i);
-                Hide(Candle);
-                Candle = GameObject.Find("Smoke" + i);
-                Hide(Candle);
-                candleSignal = 0;
-                GameObject.Find("POI_" + i).GetComponent<SpriteRenderer>().sprite = defaultSprite;
-            }
+            //if (firstTime)
+            //{
+            //    firstTime = false;
+            //    return;
+            //}
+            //else
+            //{
+                for (int i = 0; i < 4; i++)
+                {
+                    Candle = flames[i];
+                    Hide(Candle);
+                    Candle = smoke[i];
+                    Hide(Candle);
+                    candleSignal = 0;
+//                    GameObject.Find("POI_" + (i+1)).GetComponent<SpriteRenderer>().sprite = defaultSprite;
+                }
+            //}
 
             GetPlayerCode();
             for(int n = 0; n < 4; n++)
@@ -112,13 +124,13 @@ public class MastermindController : MonoBehaviour
                 {
                     if(PlayerCode[n] == CorrectCode[pp] && n == pp)
                     {
-                        Candle = GameObject.Find("Flame" + candleSignal);
+                        Candle = flames[candleSignal];
                         Show(Candle);
                         candleSignal++;
                     }
                     else if (PlayerCode[n] == CorrectCode[pp] && n != pp)
                     {
-                        Candle = GameObject.Find("Smoke" + candleSignal);
+                        Candle = smoke[candleSignal];
                         Show(Candle);
                         candleSignal++;
                     }

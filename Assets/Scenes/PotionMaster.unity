@@ -2808,6 +2808,17 @@ MonoBehaviour:
   - {fileID: 0}
   runes: {fileID: 0}
   defaultSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  firstTime: 0
+  flames:
+  - {fileID: 2025054744}
+  - {fileID: 847175210}
+  - {fileID: 256630085}
+  - {fileID: 58148095}
+  smoke:
+  - {fileID: 727090812}
+  - {fileID: 1152759064}
+  - {fileID: 1813387341}
+  - {fileID: 1308255682}
 --- !u!1 &2025054744
 GameObject:
   m_ObjectHideFlags: 0
