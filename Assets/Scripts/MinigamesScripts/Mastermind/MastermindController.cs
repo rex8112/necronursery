@@ -17,6 +17,7 @@ public class MastermindController : MonoBehaviour
 {
     [SerializeField] private Vector3 touchPosWorld;
     public List<Sprite> PossibleRunes;
+    public List<int> ColorCount = new List<int>();
     [SerializeField] List<Sprite> CorrectCode;
     [SerializeField] List<Sprite> PlayerCode;
     private int candleSignal = 0;
@@ -85,6 +86,7 @@ public class MastermindController : MonoBehaviour
             int randomRune = Random.Range(0, 6);
             CorrectCode[i] = PossibleRunes[randomRune];
         }
+        GetColorCount();
     }
 
     private void GetPlayerCode()
@@ -92,6 +94,20 @@ public class MastermindController : MonoBehaviour
         for(int i = 0; i < 4; i++)
         {
             PlayerCode[i] = GameObject.Find("POI_" +(i + 1)).GetComponent<SpriteRenderer>().sprite;
+        }
+    }
+
+    private void GetColorCount()
+    {
+        for (int i = 0; i < PossibleRunes.Count; i++)
+        {
+            int count = 0;
+            for (int c = 0; c < CorrectCode.Count; c++)
+            {
+                if (PossibleRunes[i] == CorrectCode[c])
+                    count++;
+            }
+            ColorCount.Add(count);
         }
     }
 
