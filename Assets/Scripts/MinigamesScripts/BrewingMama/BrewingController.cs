@@ -15,6 +15,7 @@ public class BrewingController : MonoBehaviour
     [SerializeField] List<GameObject> progressObjects;
     [SerializeField] GameObject loseCanvas;
     [SerializeField] GameObject winCanvas;
+    [SerializeField] AudioSource audioSource;
 
     [Header("Debug Variables")]
     [SerializeField] private int progressCount = 0;
@@ -178,6 +179,8 @@ public class BrewingController : MonoBehaviour
 
     IEnumerator TileFlip()
     {
+        yield return new WaitForSeconds(1f);
+        audioSource.Play();
         while (true)
         {
             int indx = Random.Range(0, children.Count);
@@ -188,16 +191,17 @@ public class BrewingController : MonoBehaviour
                 Color t = tmp.color;
                 t.a -= 0.1f;
                 tmp.color = t;
-                yield return new WaitForSeconds(0.016f);
+                yield return new WaitForSeconds(0.01f); //Times by ten for how long this will take
             }
+            yield return new WaitForSeconds(.325f);
             while (tmp.color.a < 1)
             {
                 Color t = tmp.color;
                 t.a += 0.1f;
                 tmp.color = t;
-                yield return new WaitForSeconds(0.016f);
+                yield return new WaitForSeconds(0.01f); //Times by ten for how long this will take
             }
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(.325f);
         }
     }
 }
