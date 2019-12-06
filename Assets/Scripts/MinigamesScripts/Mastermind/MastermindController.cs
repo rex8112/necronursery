@@ -86,7 +86,6 @@ public class MastermindController : MonoBehaviour
             int randomRune = Random.Range(0, 6);
             CorrectCode[i] = PossibleRunes[randomRune];
         }
-        GetColorCount();
     }
 
     private void GetPlayerCode()
@@ -99,6 +98,7 @@ public class MastermindController : MonoBehaviour
 
     private void GetColorCount()
     {
+        ColorCount.Clear();
         for (int i = 0; i < PossibleRunes.Count; i++)
         {
             int count = 0;
@@ -109,6 +109,13 @@ public class MastermindController : MonoBehaviour
             }
             ColorCount.Add(count);
         }
+    }
+
+    private void RemoveColor(Sprite color)
+    {
+        string name = color.name;
+        int index = PossibleRunes.FindIndex(e => e.name == name);
+        ColorCount[index]--;
     }
 
     public void CodeChecker(bool Submited) //this needs to be tested------------------------------------------------------
@@ -122,7 +129,7 @@ public class MastermindController : MonoBehaviour
             //}
             //else
             //{
-                for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
                 {
                     Candle = flames[i];
                     Hide(Candle);
@@ -133,27 +140,36 @@ public class MastermindController : MonoBehaviour
                 }
             //}
 
+            GetColorCount();
             GetPlayerCode();
+            Debug.Log("Test 1");
             for(int n = 0; n < 4; n++)
             {
-                for(int pp = 0; pp < 4; pp++) 
+                Debug.Log("Test 2");
+                for (int pp = 0; pp < 4; pp++) 
                 {
-                    if(PlayerCode[n] == CorrectCode[pp] && n == pp)
+                    Debug.Log("Test 3");
+                    if (PlayerCode[n].name == CorrectCode[pp].name && n == pp && ColorCount[PossibleRunes.FindIndex(e => e.name == PlayerCode[n].name)] > 0)
                     {
                         Candle = flames[candleSignal];
                         Show(Candle);
                         candleSignal++;
+                        RemoveColor(PlayerCode[n]);
+                        break;
                     }
-                    else if (PlayerCode[n] == CorrectCode[pp] && n != pp)
+                    else if (PlayerCode[n].name == CorrectCode[pp].name && n != pp && ColorCount[PossibleRunes.FindIndex(e => e.name == PlayerCode[n].name)] > 0)
                     {
                         Candle = smoke[candleSignal];
                         Show(Candle);
                         candleSignal++;
-                    }
-                    else
-                    {
+                        RemoveColor(PlayerCode[n]);
                         break;
                     }
+                    //else
+                    //{
+                    //    Debug.Log("REEE");
+                    //    break;
+                    //}
                 }
                   
             }
