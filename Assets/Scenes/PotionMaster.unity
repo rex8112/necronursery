@@ -711,7 +711,7 @@ GameObject:
   - component: {fileID: 534089045}
   m_Layer: 0
   m_Name: POI_3
-  m_TagString: Untagged
+  m_TagString: POI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1121,7 +1121,7 @@ GameObject:
   - component: {fileID: 800823275}
   m_Layer: 0
   m_Name: POI_4
-  m_TagString: Untagged
+  m_TagString: POI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2485,7 +2485,7 @@ GameObject:
   - component: {fileID: 1762064135}
   m_Layer: 0
   m_Name: POI_1
-  m_TagString: Untagged
+  m_TagString: POI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3123,7 +3123,7 @@ GameObject:
   - component: {fileID: 2046553581}
   m_Layer: 0
   m_Name: POI_2
-  m_TagString: Untagged
+  m_TagString: POI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
