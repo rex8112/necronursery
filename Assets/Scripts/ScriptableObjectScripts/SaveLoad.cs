@@ -8,6 +8,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "Save", menuName = "ScriptableObjects/SpawnSave", order = 1)]
 public class SaveLoad : ScriptableObject
 {
+    public bool tapToStart = true;
     public List<resourceManager.Resource> resources = new List<resourceManager.Resource>();
     public List<string> plants = new List<string>();
     public List<int> stageInts = new List<int>();

@@ -19,7 +19,16 @@ public class CamController : MonoBehaviour
     }
 
     public void moveCam(bool status)
-    { move = status; }
+    {
+        move = status;
+    }
+
+    public void HardTransition()
+    {
+        move = false;
+        menuCam.gameObject.SetActive(false);
+        sc.ChangeAudio();
+    }
 
     // Update is called once per frame
     void Update()

@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Morgue.unity
     guid: 6dbabf71b09101f43b938cec8f7374b3
+  - enabled: 1
+    path: Assets/Scenes/BrewingMama.unity
+    guid: 64bb93a85ef76a442a2f9602624352c5
+  - enabled: 1
+    path: Assets/Scenes/PotionMaster.unity
+    guid: 3aee83fe92332eb4c8e55a09193e1a3e
   m_configObjects: {}

@@ -35,7 +35,7 @@ public class UIButtons : MonoBehaviour
         if (buttonName == graveyardScene)
         {
             Save();
-            SceneManager.LoadScene("Graveyard");
+            SceneManager.LoadSceneAsync("Graveyard");
         }
         if (buttonName == startTimer)
         {
@@ -45,12 +45,12 @@ public class UIButtons : MonoBehaviour
         if (buttonName == morgueMinigame)
         {
             Save();
-            SceneManager.LoadScene("Morgue");
+            SceneManager.LoadSceneAsync("Morgue");
         }
         if (buttonName == marketPlace)
         {
             Save();
-            SceneManager.LoadScene("MarketPlace");
+            SceneManager.LoadSceneAsync("MarketPlace");
         }
     }
 
@@ -73,7 +73,7 @@ public class UIButtons : MonoBehaviour
     {
         if (sl != null)
             Save();
-        SceneManager.LoadScene(name);
+        SceneManager.LoadSceneAsync(name);
     }
 
     void Save()
@@ -84,10 +84,10 @@ public class UIButtons : MonoBehaviour
         }
         else
         {
-            rm.resources.Clear();
+            sl.resources.Clear();
             foreach (resourceManager.Resource res in rm.resources)
             {
-                rm.resources.Add(res);
+                sl.resources.Add(res);
             }
             sl.BuildSave();
         }

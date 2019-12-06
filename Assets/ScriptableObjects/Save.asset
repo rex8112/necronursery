@@ -12,6 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf31174903f83f4cb67a4177eb23651, type: 3}
   m_Name: Save
   m_EditorClassIdentifier: 
-  resources: []
-  plants: []
-  stageInts: 
+  tapToStart: 1
+  resources:
+  - name: Flesh
+    value: 300
+    defaultValue: 0
+    teethValue: 5
+  - name: Souls
+    value: 295
+    defaultValue: 0
+    teethValue: 10
+  - name: Magic
+    value: 300
+    defaultValue: 0
+    teethValue: 20
+  - name: Teeth
+    value: 300
+    defaultValue: 0
+    teethValue: 1
+  plants:
+  - Zombie
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  stageInts: 01000000000000000000000000000000000000000000000000000000000000000000000000000000

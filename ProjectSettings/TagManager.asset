@@ -8,6 +8,9 @@ TagManager:
   - spirit
   - bodypart
   - trash
+  - ingredient
+  - Runes
+  - POI
   layers:
   - Default
   - TransparentFX
