@@ -821,7 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb528f1e19da3924a8a3c853ba50ceeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remainingTime: 50.17
+  remainingTime: 10
   timer: {fileID: 1094692946}
   playerLostScreen: {fileID: 1691823881}
   playerWonScreen: {fileID: 78756447}
