@@ -15,6 +15,7 @@ MonoBehaviour:
   plants:
   - name: Zombie
     type: Flesh
+    level: 1
     stage1:
     - name: Flesh
       required: 10
@@ -28,6 +29,7 @@ MonoBehaviour:
       type: 3}
   - name: Wendigo
     type: Flesh
+    level: 2
     stage1:
     - name: Flesh
       required: 10
