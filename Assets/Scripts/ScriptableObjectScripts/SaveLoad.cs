@@ -10,6 +10,7 @@ public class SaveLoad : ScriptableObject
 {
     public bool tapToStart = true;
     public List<resourceManager.Resource> resources = new List<resourceManager.Resource>();
+    public List<resourceManager.Seed> seeds = new List<resourceManager.Seed>();
     public List<string> plants = new List<string>();
     public List<int> stageInts = new List<int>();
     public List<List<graveController.graveResource>> gResources = new List<List<graveController.graveResource>>();
@@ -18,6 +19,7 @@ public class SaveLoad : ScriptableObject
     {
         Debug.Log("Building Save");
         mainSave.resources = resources;
+        mainSave.seeds = seeds;
         mainSave.plants = plants;
         mainSave.stageInts = stageInts;
         mainSave.gResources = gResources;
@@ -30,6 +32,7 @@ public class SaveLoad : ScriptableObject
         if (mainSave.stageInts.Count >= 1) //Checks if the returned save has content
         {
             resources = mainSave.resources;
+            seeds = mainSave.seeds;
             plants = mainSave.plants;
             stageInts = mainSave.stageInts;
             gResources = mainSave.gResources;
@@ -38,6 +41,7 @@ public class SaveLoad : ScriptableObject
         else //Clears everything otherwise so it doesn't get loaded
         {
             resources.Clear();
+            seeds.Clear();
             plants.Clear();
             stageInts.Clear();
             gResources.Clear();
@@ -49,6 +53,7 @@ public class SaveLoad : ScriptableObject
     {
         File.Delete(Application.persistentDataPath + "/NNSave.save");
         resources.Clear();
+        seeds.Clear();
         plants.Clear();
         stageInts.Clear();
         gResources.Clear();
@@ -84,6 +89,7 @@ public class SaveLoad : ScriptableObject
 public class Save
 {
     public List<resourceManager.Resource> resources = new List<resourceManager.Resource>();
+    public List<resourceManager.Seed> seeds = new List<resourceManager.Seed>();
     public List<string> plants = new List<string>();
     public List<int> stageInts = new List<int>();
     public List<List<graveController.graveResource>> gResources = new List<List<graveController.graveResource>>();

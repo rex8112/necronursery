@@ -145,7 +145,7 @@ public class sceneController : MonoBehaviour
         foreach (graveController grave in graves) //Saves all the graves
         {
             List<graveController.graveResource> gResources = new List<graveController.graveResource>();
-            SaveLoad.plants.Add(grave.seed.name);
+            SaveLoad.plants.Add(grave.plant.name);
             SaveLoad.stageInts.Add(grave.stage);
             foreach (graveController.graveResource res in grave.requiredResources)
             {
@@ -173,7 +173,7 @@ public class sceneController : MonoBehaviour
             {
                 if (SaveLoad.stageInts[i] > 0) //Checks if the stage exists, allows remembering grave positions
                 {
-                    graves[i].plant(SaveLoad.plants[i]); //Passes the name of the plant and lets graveController handle getting the further details
+                    graves[i].Plant(SaveLoad.plants[i]); //Passes the name of the plant and lets graveController handle getting the further details
 
                     if (SaveLoad.stageInts[i] > 1) //If stage is larger than 1, then update grave to that point.
                     {

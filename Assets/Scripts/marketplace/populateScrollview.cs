@@ -28,7 +28,7 @@ public class populateScrollview : MonoBehaviour
             Text text = button.GetComponentInChildren<Text>();
             text.text = plant.name;
 
-            button.GetComponent<Button>().onClick.AddListener(delegate{gc.plant(plant.name);});
+            button.GetComponent<Button>().onClick.AddListener(delegate{gc.Plant(plant.name);});
         }
     }
 

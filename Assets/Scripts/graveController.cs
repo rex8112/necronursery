@@ -11,7 +11,8 @@ public class graveController : MonoBehaviour
     [SerializeField] plantManager plantManager;
     [Space(10)]
     [Header("Grave Information")]
-    public plantManager.plant seed;
+    public plantManager.plant plant;
+    public resourceManager.Seed seed;
     public int stage;
     public List<graveResource> requiredResources = new List<graveResource>();
     GameObject stages;
@@ -67,33 +68,41 @@ public class graveController : MonoBehaviour
         sc.OnValueChange.Invoke();
     }
 
-    public void plant(string name)
+    public void Plant(string name)
     {
         if (stage == 0)
         {
-            seed = plantManager.plants.Find(seed => seed.name == name);
-            foreach (plantManager.resource plant in seed.stage1)
+            seed = resourceManager.seeds.Find(s => s.plantName == name);
+            plant = plantManager.plants.Find(p => p.name == name);
+            if (seed.Remove(1))
             {
-                graveResource gr = new graveResource();
-                gr.name = plant.name;
-                gr.needed = plant.required;
+                foreach (plantManager.resource p in plant.stage1)
+                {
+                    graveResource gr = new graveResource
+                    {
+                        name = p.name,
+                        needed = p.required
+                    };
 
 
-                requiredResources.Add(gr);
+                    requiredResources.Add(gr);
+                }
+                stages = plant.stages;
+                stages = Instantiate(stages, graveImageCanvas.transform);
+
+                stage = 1;
+
+                sc.OnValueChange.Invoke();
+                deactivate(seedView);
+                deactivate(plantButton);
+                activate(infoGroup);
             }
-            stages = seed.stages;
-            stages = Instantiate(stages, graveImageCanvas.transform);
-
-            stage = 1;
+            else
+            {
+                seed = new resourceManager.Seed();
+                plant = new plantManager.plant();
+            }
         }
-
-        
-
-
-        sc.OnValueChange.Invoke();
-        deactivate(seedView);
-        deactivate(plantButton);
-        activate(infoGroup);
     }
 
     public void give()
@@ -125,7 +134,7 @@ public class graveController : MonoBehaviour
         Text reqResources = infoGroup.transform.Find("ReqResources").Find("Text").GetComponent<Text>();
         Text curResources = infoGroup.transform.Find("CurResources").Find("Text").GetComponentInChildren<Text>();
 
-        plantName.text = seed.name;
+        plantName.text = plant.name;
         reqResources.text = "";
         curResources.text = "";
         foreach (graveResource res in requiredResources)
@@ -140,7 +149,7 @@ public class graveController : MonoBehaviour
         if (stage == 1)
         {
             requiredResources.Clear();
-            foreach (plantManager.resource plant in seed.stage2)
+            foreach (plantManager.resource plant in plant.stage2)
             {
                 graveResource gr = new graveResource();
                 gr.name = plant.name;
@@ -155,7 +164,7 @@ public class graveController : MonoBehaviour
         else if (stage == 2)
         {
             requiredResources.Clear();
-            foreach (plantManager.resource plant in seed.stage3)
+            foreach (plantManager.resource plant in plant.stage3)
             {
                 graveResource gr = new graveResource();
                 gr.name = plant.name;
