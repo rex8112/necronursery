@@ -173,7 +173,7 @@ public class sceneController : MonoBehaviour
             {
                 if (SaveLoad.stageInts[i] > 0) //Checks if the stage exists, allows remembering grave positions
                 {
-                    graves[i].Plant(SaveLoad.plants[i]); //Passes the name of the plant and lets graveController handle getting the further details
+                    graves[i].Plant(SaveLoad.plants[i], 0); //Passes the name of the plant and lets graveController handle getting the further details
 
                     if (SaveLoad.stageInts[i] > 1) //If stage is larger than 1, then update grave to that point.
                     {
@@ -210,6 +210,10 @@ public class sceneController : MonoBehaviour
         foreach (resourceManager.Resource res in resourceManager.resources)
         {
             res.value = res.defaultValue;
+        }
+        foreach (resourceManager.Seed seed in resourceManager.seeds)
+        {
+            seed.value = seed.defaultValue;
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

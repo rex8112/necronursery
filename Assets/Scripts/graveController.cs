@@ -68,13 +68,13 @@ public class graveController : MonoBehaviour
         sc.OnValueChange.Invoke();
     }
 
-    public void Plant(string name)
+    public void Plant(string name, int seedCost)
     {
         if (stage == 0)
         {
-            seed = resourceManager.seeds.Find(s => s.plantName == name);
             plant = plantManager.plants.Find(p => p.name == name);
-            if (seed.Remove(1))
+            seed = resourceManager.seeds.Find(s => s.plantName == name);
+            if (seed.Remove(seedCost))
             {
                 foreach (plantManager.resource p in plant.stage1)
                 {
