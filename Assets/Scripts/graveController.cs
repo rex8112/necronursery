@@ -9,6 +9,7 @@ public class graveController : MonoBehaviour
     [SerializeField] Events sc;
     [SerializeField] resourceManager resourceManager;
     [SerializeField] plantManager plantManager;
+    [SerializeField] SaveLoad saveLoad;
     [Space(10)]
     [Header("Grave Information")]
     public plantManager.plant plant;
@@ -178,6 +179,7 @@ public class graveController : MonoBehaviour
         }
         else if (stage == 3)
         {
+            saveLoad.AddXP(plant.xpToGive);
             requiredResources.Clear();
             Destroy(stages);
             deactivate(infoGroup);

@@ -669,6 +669,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8339478656843145312}
+        m_MethodName: UpdateScrollview
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8339478655685787012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,7 +1561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc3779f8b22e454fbfc861b693c5d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantManager: {fileID: 11400000, guid: 9648723e9bd176d4da0472a3f2458f6a, type: 2}
+  resourceManager: {fileID: 11400000, guid: e435da9cf84180e42bde6c1982faacbf, type: 2}
   gc: {fileID: 0}
   content: {fileID: 8339478655314144039}
   buttonPrefab: {fileID: 513749605236809434, guid: 20ada90848b30ac4f81d5c3b82aa4a27,
@@ -1819,13 +1830,22 @@ MonoBehaviour:
   sc: {fileID: 0}
   resourceManager: {fileID: 11400000, guid: e435da9cf84180e42bde6c1982faacbf, type: 2}
   plantManager: {fileID: 11400000, guid: 9648723e9bd176d4da0472a3f2458f6a, type: 2}
-  seed:
+  saveLoad: {fileID: 11400000, guid: f12a6d5fed3c47347a7c7bd2c0732b0a, type: 2}
+  plant:
     name: 
     type: 
+    level: 1
+    xpToGive: 0
     stage1: []
     stage2: []
     stage3: []
     stages: {fileID: 0}
+  seed:
+    name: 
+    plantName: 
+    value: 0
+    defaultValue: 0
+    teethValue: 0
   stage: 0
   requiredResources: []
   graveImageCanvas: {fileID: 8339478656483624257}

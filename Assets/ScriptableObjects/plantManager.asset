@@ -16,6 +16,7 @@ MonoBehaviour:
   - name: Zombie
     type: Flesh
     level: 1
+    xpToGive: 40
     stage1:
     - name: Flesh
       required: 10
@@ -30,6 +31,7 @@ MonoBehaviour:
   - name: Wendigo
     type: Flesh
     level: 2
+    xpToGive: 60
     stage1:
     - name: Flesh
       required: 10

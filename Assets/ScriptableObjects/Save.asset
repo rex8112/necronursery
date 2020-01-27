@@ -13,25 +13,27 @@ MonoBehaviour:
   m_Name: Save
   m_EditorClassIdentifier: 
   tapToStart: 1
+  level: 1
+  xp: 0
   resources:
-  - name: Flesh
-    value: 300
-    defaultValue: 0
-    teethValue: 5
-  - name: Souls
-    value: 295
-    defaultValue: 0
-    teethValue: 10
-  - name: Magic
-    value: 300
-    defaultValue: 0
-    teethValue: 20
   - name: Teeth
-    value: 300
+    value: 0
     defaultValue: 0
     teethValue: 1
+  - name: Flesh
+    value: 100
+    defaultValue: 100
+    teethValue: 2
+  - name: Magic
+    value: 100
+    defaultValue: 100
+    teethValue: 5
+  - name: Souls
+    value: 100
+    defaultValue: 100
+    teethValue: 10
+  seeds: []
   plants:
-  - Zombie
   - 
   - 
   - 
@@ -41,4 +43,5 @@ MonoBehaviour:
   - 
   - 
   - 
-  stageInts: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - 
+  stageInts: 00000000000000000000000000000000000000000000000000000000000000000000000000000000

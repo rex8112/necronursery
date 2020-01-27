@@ -9,15 +9,37 @@ using UnityEngine.UI;
 public class SaveLoad : ScriptableObject
 {
     public bool tapToStart = true;
+    public int level = 1;
+    public float xp = 0.0f;
     public List<resourceManager.Resource> resources = new List<resourceManager.Resource>();
     public List<resourceManager.Seed> seeds = new List<resourceManager.Seed>();
     public List<string> plants = new List<string>();
     public List<int> stageInts = new List<int>();
     public List<List<graveController.graveResource>> gResources = new List<List<graveController.graveResource>>();
     Save mainSave = new Save();
+
+    public void AddXP(float toAdd)
+    {
+        xp += toAdd;
+        LevelUp();
+    }
+
+    public void LevelUp()
+    {
+        float XPToLevel = 100 + (level - 1) * 40;
+        if (xp >= XPToLevel)
+        {
+            xp -= XPToLevel;
+            level++;
+        }
+    }
+
+
     public void BuildSave() //Takes the variables above and loads them into the Save object to then be saved to the disk
     {
         Debug.Log("Building Save");
+        mainSave.xp = xp;
+        mainSave.level = level;
         mainSave.resources = resources;
         mainSave.seeds = seeds;
         mainSave.plants = plants;
@@ -31,6 +53,8 @@ public class SaveLoad : ScriptableObject
         mainSave = LoadFromDisk();
         if (mainSave.stageInts.Count >= 1) //Checks if the returned save has content
         {
+            xp = mainSave.xp;
+            level = mainSave.level;
             resources = mainSave.resources;
             seeds = mainSave.seeds;
             plants = mainSave.plants;
@@ -52,6 +76,8 @@ public class SaveLoad : ScriptableObject
     public void DeleteSave()
     {
         File.Delete(Application.persistentDataPath + "/NNSave.save");
+        level = 1;
+        xp = 0f;
         resources.Clear();
         seeds.Clear();
         plants.Clear();
@@ -88,6 +114,8 @@ public class SaveLoad : ScriptableObject
 [System.Serializable]
 public class Save
 {
+    public float xp;
+    public int level;
     public List<resourceManager.Resource> resources = new List<resourceManager.Resource>();
     public List<resourceManager.Seed> seeds = new List<resourceManager.Seed>();
     public List<string> plants = new List<string>();

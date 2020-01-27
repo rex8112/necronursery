@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class populateScrollview : MonoBehaviour
 {
-    [SerializeField] plantManager plantManager;
+    [SerializeField] resourceManager resourceManager;
     [SerializeField] graveController gc;
     public GameObject content;
     [SerializeField] GameObject buttonPrefab;
@@ -18,17 +18,24 @@ public class populateScrollview : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    public void UpdateScrollview()
     {
         int count = 0;
-        foreach (plantManager.plant plant in plantManager.plants)
+        foreach (Transform child in content.transform)
         {
-            count += 1;
-            GameObject button = Instantiate(buttonPrefab, content.transform);
-            Text text = button.GetComponentInChildren<Text>();
-            text.text = plant.name;
+            Destroy(child.gameObject);
+        }
+        foreach (resourceManager.Seed seed in resourceManager.seeds)
+        {
+            if (seed.value > 0)
+            {
+                count += 1;
+                GameObject button = Instantiate(buttonPrefab, content.transform);
+                Text text = button.GetComponentInChildren<Text>();
+                text.text = seed.name;
 
-            button.GetComponent<Button>().onClick.AddListener(delegate{gc.Plant(plant.name, 1);});
+                button.GetComponent<Button>().onClick.AddListener(delegate { gc.Plant(seed.plantName, 1); });
+            }
         }
     }
 
