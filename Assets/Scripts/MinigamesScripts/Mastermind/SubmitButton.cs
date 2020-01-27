@@ -13,11 +13,11 @@ public class SubmitButton : MonoBehaviour
         triesLeft = 12;
 
     }
-    public void OnMouseDown()
+    public void TriesLeft()
     {
  //       GameObject.Find("Main Camera").GetComponent<MastermindController>().CodeChecker(true);
-        triesLeft -= 1;
-        onScreenNumber.text = (triesLeft).ToString("0");
+        triesLeft--;
+        onScreenNumber.text = (triesLeft).ToString("00");
     }
 
 

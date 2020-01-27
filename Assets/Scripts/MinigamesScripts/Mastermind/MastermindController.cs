@@ -27,6 +27,7 @@ public class MastermindController : MonoBehaviour
     //[SerializeField] bool firstTime;
     public List<GameObject> flames;
     public List<GameObject> smoke;
+    [SerializeField] GameObject endScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -173,6 +174,14 @@ public class MastermindController : MonoBehaviour
                 }
                   
             }
+        }
+    }
+
+    public void EndGame(bool playerFailed)
+    {
+        if (playerFailed)
+        {
+            endScreen.SetActive(true);
         }
     }
     public void Show(GameObject TheObject)
