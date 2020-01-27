@@ -15,7 +15,10 @@ public class SubmitButton : MonoBehaviour
     }
     public void TriesLeft()
     {
- //       GameObject.Find("Main Camera").GetComponent<MastermindController>().CodeChecker(true);
+        if (triesLeft <= 0)
+        {
+            GameObject.Find("Main Camera").GetComponent<>(MastermindController).
+        }
         triesLeft--;
         onScreenNumber.text = (triesLeft).ToString("00");
     }
