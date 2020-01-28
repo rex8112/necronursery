@@ -10,6 +10,7 @@ public class SaveLoad : ScriptableObject
 {
     public bool tapToStart = true;
     public int level = 1;
+    public float xpToLevel = 100;
     public float xp = 0.0f;
     public List<resourceManager.Resource> resources = new List<resourceManager.Resource>();
     public List<resourceManager.Seed> seeds = new List<resourceManager.Seed>();
@@ -17,6 +18,7 @@ public class SaveLoad : ScriptableObject
     public List<int> stageInts = new List<int>();
     public List<List<graveController.graveResource>> gResources = new List<List<graveController.graveResource>>();
     Save mainSave = new Save();
+    float xpPerLevel = 40;
 
     public void AddXP(float toAdd)
     {
@@ -26,11 +28,11 @@ public class SaveLoad : ScriptableObject
 
     public void LevelUp()
     {
-        float XPToLevel = 100 + (level - 1) * 40;
-        if (xp >= XPToLevel)
+        if (xp >= xpToLevel)
         {
-            xp -= XPToLevel;
+            xp -= xpToLevel;
             level++;
+            xpToLevel = 100 + (level - 1) * 40;
         }
     }
 
@@ -60,6 +62,7 @@ public class SaveLoad : ScriptableObject
             plants = mainSave.plants;
             stageInts = mainSave.stageInts;
             gResources = mainSave.gResources;
+            xpToLevel = 100 + (level - 1) * xpPerLevel;
             return true;
         }
         else //Clears everything otherwise so it doesn't get loaded
@@ -69,6 +72,7 @@ public class SaveLoad : ScriptableObject
             plants.Clear();
             stageInts.Clear();
             gResources.Clear();
+            xpToLevel = 100 + (level - 1) * xpPerLevel;
             return false;
         }
     }
