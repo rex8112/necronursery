@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class graveController : MonoBehaviour
 {
-    [SerializeField] Events sc;
-    [SerializeField] resourceManager resourceManager;
-    [SerializeField] plantManager plantManager;
-    [SerializeField] SaveLoad saveLoad;
+    public Events sc;
+    public resourceManager resourceManager;
+    public plantManager plantManager;
+    public SaveLoad saveLoad;
     [Space(10)]
     [Header("Grave Information")]
     public plantManager.plant plant;
@@ -20,7 +20,7 @@ public class graveController : MonoBehaviour
     [Space(10)]
     [Header("UI Information")]
     [SerializeField] GameObject graveImageCanvas;
-    [SerializeField] GameObject resourceInformation;
+    public GameObject resourceInformation;
     [SerializeField] GameObject seedView;
     [SerializeField] GameObject plantButton;
     [SerializeField] GameObject infoGroup;
