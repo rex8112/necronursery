@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "plantManager", menuName = "ScriptableObjects/SpawnPlantManager", order = 1)]
 public class plantManager : ScriptableObject
 {
+    public resourceManager resourceManager;
     public List<plant> plants = new List<plant>();
 
     [System.Serializable]

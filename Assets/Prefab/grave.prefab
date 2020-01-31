@@ -1712,9 +1712,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8339478657168756764}
+  - component: {fileID: 8339478657168756761}
   - component: {fileID: 8339478657168756763}
   - component: {fileID: 8339478657168756762}
-  - component: {fileID: 8339478657168756761}
   m_Layer: 0
   m_Name: grave
   m_TagString: grave
@@ -1740,6 +1740,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8339478657168756761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8339478657168756760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5630867933a7efb4e89df6023d68c09e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sc: {fileID: 0}
+  resourceManager: {fileID: 11400000, guid: e435da9cf84180e42bde6c1982faacbf, type: 2}
+  plantManager: {fileID: 11400000, guid: 9648723e9bd176d4da0472a3f2458f6a, type: 2}
+  saveLoad: {fileID: 11400000, guid: f12a6d5fed3c47347a7c7bd2c0732b0a, type: 2}
+  plant:
+    name: 
+    type: 
+    level: 1
+    xpToGive: 0
+    stage1: []
+    stage2: []
+    stage3: []
+    stages: {fileID: 0}
+  seed:
+    name: 
+    plantName: 
+    value: 0
+    defaultValue: 0
+    teethValue: 0
+  stage: 0
+  requiredResources: []
+  graveImageCanvas: {fileID: 8339478656483624257}
+  resourceInformation: {fileID: 8339478655266651387}
+  seedView: {fileID: 8339478656843145307}
+  plantButton: {fileID: 8339478655433942247}
+  infoGroup: {fileID: 8339478655413445582}
+  giveButton: {fileID: 8339478656069384694}
 --- !u!61 &8339478657168756763
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1815,45 +1854,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8339478657168756761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8339478657168756760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5630867933a7efb4e89df6023d68c09e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sc: {fileID: 0}
-  resourceManager: {fileID: 11400000, guid: e435da9cf84180e42bde6c1982faacbf, type: 2}
-  plantManager: {fileID: 11400000, guid: 9648723e9bd176d4da0472a3f2458f6a, type: 2}
-  saveLoad: {fileID: 11400000, guid: f12a6d5fed3c47347a7c7bd2c0732b0a, type: 2}
-  plant:
-    name: 
-    type: 
-    level: 1
-    xpToGive: 0
-    stage1: []
-    stage2: []
-    stage3: []
-    stages: {fileID: 0}
-  seed:
-    name: 
-    plantName: 
-    value: 0
-    defaultValue: 0
-    teethValue: 0
-  stage: 0
-  requiredResources: []
-  graveImageCanvas: {fileID: 8339478656483624257}
-  resourceInformation: {fileID: 8339478655266651387}
-  seedView: {fileID: 8339478656843145307}
-  plantButton: {fileID: 8339478655433942247}
-  infoGroup: {fileID: 8339478655413445582}
-  giveButton: {fileID: 8339478656069384694}
 --- !u!1 &8339478657222748832
 GameObject:
   m_ObjectHideFlags: 0
