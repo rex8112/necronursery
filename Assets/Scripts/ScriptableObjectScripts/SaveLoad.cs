@@ -9,16 +9,18 @@ using UnityEngine.UI;
 public class SaveLoad : ScriptableObject
 {
     public bool tapToStart = true;
-    public int level = 1;
-    public float xpToLevel = 100;
-    public float xp = 0.0f;
     public List<resourceManager.Resource> resources = new List<resourceManager.Resource>();
     public List<resourceManager.Seed> seeds = new List<resourceManager.Seed>();
     public List<string> plants = new List<string>();
     public List<int> stageInts = new List<int>();
     public List<List<graveController.graveResource>> gResources = new List<List<graveController.graveResource>>();
     Save mainSave = new Save();
-    float xpPerLevel = 40;
+    public int level = 1;
+    public float xp = 0.0f;
+    public float xpPerLevel = 40;
+
+    public float xpToLevel
+    { get { return 100 + (level - 1) * xpPerLevel; } }
 
     public void AddXP(float toAdd)
     {
@@ -32,7 +34,6 @@ public class SaveLoad : ScriptableObject
         {
             xp -= xpToLevel;
             level++;
-            xpToLevel = 100 + (level - 1) * 40;
         }
     }
 
@@ -62,7 +63,6 @@ public class SaveLoad : ScriptableObject
             plants = mainSave.plants;
             stageInts = mainSave.stageInts;
             gResources = mainSave.gResources;
-            xpToLevel = 100 + (level - 1) * xpPerLevel;
             return true;
         }
         else //Clears everything otherwise so it doesn't get loaded
@@ -72,7 +72,6 @@ public class SaveLoad : ScriptableObject
             plants.Clear();
             stageInts.Clear();
             gResources.Clear();
-            xpToLevel = 100 + (level - 1) * xpPerLevel;
             return false;
         }
     }
