@@ -71,6 +71,7 @@ public class resourceManager : ScriptableObject
     {
         public string name;
         public string plantName;
+        public int level;
         public int value;
         public int defaultValue;
         public int teethValue;

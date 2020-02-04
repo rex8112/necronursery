@@ -53,6 +53,7 @@ public class plantManagerEditor : Editor
                     {
                         name = newPlant + " Seed",
                         plantName = newPlant,
+                        level = 1,
                         defaultValue = 0,
                         teethValue = 10
                     };
@@ -69,7 +70,6 @@ public class plantManagerEditor : Editor
                 EditorGUILayout.BeginVertical("Box");
                 EditorGUILayout.LabelField("Name: ", plant.name);
                 plant.type = EditorGUILayout.TextField("Type: ", plant.type);
-                plant.level = EditorGUILayout.IntField("Level: ", plant.level);
                 plant.xpToGive = EditorGUILayout.FloatField("XP To Give: ", plant.xpToGive);
 
                 string path = "plants.Array.data[" + current.ToString() + "].stage1";

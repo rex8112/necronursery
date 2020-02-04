@@ -26,11 +26,13 @@ public class resourceManagerEditor : Editor
                 EditorGUILayout.BeginVertical("Box");
                 seed.name = EditorGUILayout.TextField("Seed Name:", seed.name);
                 EditorGUILayout.LabelField("Plant Name:", seed.plantName);
+                seed.level = EditorGUILayout.IntField("Level: ", seed.level);
                 seed.value = EditorGUILayout.IntField("Value:", seed.value);
                 seed.defaultValue = EditorGUILayout.IntField("Default Value:", seed.defaultValue);
                 seed.teethValue = EditorGUILayout.IntField("Teeth Value:", seed.teethValue);
                 EditorGUILayout.EndVertical();
             }
         }
+        serializedObject.ApplyModifiedProperties();
     }
 }
