@@ -180,14 +180,20 @@ public class graveController : MonoBehaviour
         else if (stage == 3)
         {
             saveLoad.AddXP(plant.xpToGive);
-            requiredResources.Clear();
-            Destroy(stages);
-            deactivate(infoGroup);
-            activate(plantButton);
-            stage = 0;
+            DestroyPlant();
         }
 
         sc.OnValueChange.Invoke();
+    }
+
+    public void DestroyPlant()
+    {
+        requiredResources.Clear();
+        plant = new plantManager.plant();
+        Destroy(stages);
+        deactivate(infoGroup);
+        activate(plantButton);
+        stage = 0;
     }
 
     [System.Serializable]

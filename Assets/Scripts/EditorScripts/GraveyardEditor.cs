@@ -6,6 +6,7 @@ using UnityEditor;
 [CustomEditor(typeof(graveController))]
 public class GraveyardEditor : Editor
 {
+    int index = 0;
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
@@ -16,20 +17,27 @@ public class GraveyardEditor : Editor
         {
             gc.toggle(gc.resourceInformation);
         }
-        int index = 0;
         List<string> plantStrings = new List<string>();
         foreach (plantManager.plant plant in gc.plantManager.plants)
         {
             plantStrings.Add(plant.name);
         }
         string[] plants = plantStrings.ToArray();
-        Rect r = EditorGUILayout.BeginHorizontal();
-        if (GUILayout.Button("Force Plant"))
+        if (gc.plant.name == "")
         {
-            gc.Plant(plantStrings[index], 0);
+            EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button("Force Plant"))
+            {
+                gc.Plant(plantStrings[index], 0);
+            }
+            index = EditorGUILayout.Popup(index, plants);
+            EditorGUILayout.EndHorizontal();
         }
-        index = EditorGUILayout.Popup(index, plants);
-        EditorGUILayout.EndHorizontal();
+        else
+        {
+            if (GUILayout.Button("Destroy Plant"))
+                gc.DestroyPlant();
+        }
 
     }
 }

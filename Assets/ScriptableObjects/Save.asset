@@ -13,15 +13,13 @@ MonoBehaviour:
   m_Name: Save
   m_EditorClassIdentifier: 
   tapToStart: 1
-  level: 1
-  xp: 0
   resources:
   - name: Teeth
     value: 0
     defaultValue: 0
     teethValue: 1
   - name: Flesh
-    value: 100
+    value: 50
     defaultValue: 100
     teethValue: 2
   - name: Magic
@@ -32,8 +30,21 @@ MonoBehaviour:
     value: 100
     defaultValue: 100
     teethValue: 10
-  seeds: []
+  seeds:
+  - name: Zombie Seed
+    plantName: Zombie
+    level: 1
+    value: 2
+    defaultValue: 1
+    teethValue: 10
+  - name: Wendigo Seed
+    plantName: Wendigo
+    level: 2
+    value: 1
+    defaultValue: 0
+    teethValue: 20
   plants:
+  - Zombie
   - 
   - 
   - 
@@ -43,5 +54,7 @@ MonoBehaviour:
   - 
   - 
   - 
-  - 
-  stageInts: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  stageInts: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
+  level: 1
+  xp: 60
+  xpPerLevel: 40
