@@ -140,6 +140,7 @@ public class sceneController : MonoBehaviour
     {
         SaveLoad.plants.Clear(); //Clears the current save info to be repopulated with the new info
         SaveLoad.resources.Clear();
+        SaveLoad.seeds.Clear();
         SaveLoad.stageInts.Clear();
         SaveLoad.gResources.Clear();
         foreach (graveController grave in graves) //Saves all the graves
@@ -156,6 +157,10 @@ public class sceneController : MonoBehaviour
         foreach (resourceManager.Resource res in resourceManager.resources) //Saves all the resources
         {
             SaveLoad.resources.Add(res);
+        }
+        foreach (resourceManager.Seed seed in resourceManager.seeds)
+        {
+            SaveLoad.seeds.Add(seed);
         }
 
         Debug.Log("Preparing Save");
@@ -192,12 +197,25 @@ public class sceneController : MonoBehaviour
                         r.value = res.value;
                 }
             }
+            if (SaveLoad.resources.Count > 0)
+            {
+                foreach (resourceManager.Seed seed in SaveLoad.seeds)
+                {
+                    resourceManager.Seed s = resourceManager.seeds.Find(se => se.name == seed.name);
+                    if (s != null)
+                        s.value = seed.value;
+                }
+            }
         }
         else
         {
             foreach (resourceManager.Resource res in resourceManager.resources)
             {
                 res.value = res.defaultValue;
+            }
+            foreach (resourceManager.Seed seed in resourceManager.seeds)
+            {
+                seed.value = seed.defaultValue;
             }
         }
 
