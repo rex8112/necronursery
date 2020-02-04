@@ -7,15 +7,11 @@ public class populateScrollview : MonoBehaviour
 {
     [SerializeField] resourceManager resourceManager;
     [SerializeField] graveController gc;
+    [SerializeField] SaveLoad saveLoad;
     public GameObject content;
     [SerializeField] GameObject buttonPrefab;
 
     public float buffer = 5;
-
-    void Awake()
-    {
-        gc = transform.GetComponentInParent<graveController>();
-    }
 
     // Start is called before the first frame update
     public void UpdateScrollview()
@@ -35,6 +31,8 @@ public class populateScrollview : MonoBehaviour
                 text.text = seed.name;
 
                 button.GetComponent<Button>().onClick.AddListener(delegate { gc.Plant(seed.plantName, 1); });
+                if (seed.level > saveLoad.level)
+                    button.GetComponent<Button>().interactable = false;
             }
         }
     }

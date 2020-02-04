@@ -1562,7 +1562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceManager: {fileID: 11400000, guid: e435da9cf84180e42bde6c1982faacbf, type: 2}
-  gc: {fileID: 0}
+  gc: {fileID: 8339478657168756761}
+  saveLoad: {fileID: 11400000, guid: f12a6d5fed3c47347a7c7bd2c0732b0a, type: 2}
   content: {fileID: 8339478655314144039}
   buttonPrefab: {fileID: 513749605236809434, guid: 20ada90848b30ac4f81d5c3b82aa4a27,
     type: 3}
@@ -1759,7 +1760,6 @@ MonoBehaviour:
   plant:
     name: 
     type: 
-    level: 1
     xpToGive: 0
     stage1: []
     stage2: []
@@ -1768,6 +1768,7 @@ MonoBehaviour:
   seed:
     name: 
     plantName: 
+    level: 1
     value: 0
     defaultValue: 0
     teethValue: 0

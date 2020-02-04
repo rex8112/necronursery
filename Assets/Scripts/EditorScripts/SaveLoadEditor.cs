@@ -31,5 +31,7 @@ public class SaveLoadEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty(path), true);
         EditorGUI.indentLevel--;
         EditorGUILayout.EndVertical();
+
+        serializedObject.ApplyModifiedProperties();
     }
 }
