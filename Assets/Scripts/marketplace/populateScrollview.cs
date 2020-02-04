@@ -28,7 +28,7 @@ public class populateScrollview : MonoBehaviour
                 count += 1;
                 GameObject button = Instantiate(buttonPrefab, content.transform);
                 Text text = button.GetComponentInChildren<Text>();
-                text.text = seed.name;
+                text.text = seed.name + "   Level: " + seed.level.ToString();
 
                 button.GetComponent<Button>().onClick.AddListener(delegate { gc.Plant(seed.plantName, 1); });
                 if (seed.level > saveLoad.level)
