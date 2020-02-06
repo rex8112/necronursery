@@ -28,6 +28,20 @@ public class MastermindController : MonoBehaviour
     public List<GameObject> flames;
     public List<GameObject> smoke;
     [SerializeField] GameObject endScreen;
+    [SerializeField] GameObject winScreen;
+    [SerializeField] bool playerCodeCorrect;
+
+    //add resources if gaem won
+    public string resourceName;
+    public int resourceAmount;
+    public resourceManager.Resource changeResource;
+    [SerializeField] resourceManager resourceManager;
+
+    //setting the guesses list / canvas
+    [SerializeField] int spriteListLocation = 0;
+    [SerializeField] List<List<Sprite>> completeEntryList;
+    [SerializeField] List<Sprite> currentSubmittedSpriteList;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +56,9 @@ public class MastermindController : MonoBehaviour
         }
         candleSignal = 0;
         GenerateCode();
+        playerCodeCorrect = false;
+
+        resourceName = "Souls";
     }
 
     private void Update()
@@ -137,19 +154,16 @@ public class MastermindController : MonoBehaviour
                     Candle = smoke[i];
                     Hide(Candle);
                     candleSignal = 0;
-//                    GameObject.Find("POI_" + (i+1)).GetComponent<SpriteRenderer>().sprite = defaultSprite;
+//                  GameObject.Find("POI_" + (i+1)).GetComponent<SpriteRenderer>().sprite = defaultSprite;
                 }
             //}
 
             GetColorCount();
             GetPlayerCode();
-            Debug.Log("Test 1");
             for(int n = 0; n < 4; n++)
             {
-                Debug.Log("Test 2");
                 for (int pp = 0; pp < 4; pp++) 
                 {
-                    Debug.Log("Test 3");
                     if (PlayerCode[n].name == CorrectCode[pp].name && n == pp && ColorCount[PossibleRunes.FindIndex(e => e.name == PlayerCode[n].name)] > 0)
                     {
                         Candle = flames[candleSignal];
@@ -158,6 +172,7 @@ public class MastermindController : MonoBehaviour
                         RemoveColor(PlayerCode[n]);
                         break;
                     }
+
                     else if (PlayerCode[n].name == CorrectCode[pp].name && n != pp && ColorCount[PossibleRunes.FindIndex(e => e.name == PlayerCode[n].name)] > 0)
                     {
                         Candle = smoke[candleSignal];
@@ -166,20 +181,22 @@ public class MastermindController : MonoBehaviour
                         RemoveColor(PlayerCode[n]);
                         break;
                     }
-                    //else
-                    //{
-                    //    Debug.Log("REEE");
-                    //    break;
-                    //}
+
                 }
                   
             }
+        }
+        if (PlayerCode == CorrectCode)
+        {
+            Show(winScreen);
+            changeResource = resourceManager.resources.Find(name => name.name == resourceName);
+            changeResource.Add(resourceAmount);
         }
     }
 
     public void EndGame(bool playerFailed)
     {
-        if (playerFailed)
+        if (playerFailed && !playerCodeCorrect)
         {
             endScreen.SetActive(true);
         }

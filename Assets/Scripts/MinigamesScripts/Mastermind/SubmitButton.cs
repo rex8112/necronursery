@@ -11,16 +11,18 @@ public class SubmitButton : MonoBehaviour
     private void Start()
     {
         triesLeft = 12;
-
     }
+
     public void TriesLeft()
     {
         if (triesLeft <= 0)
         {
-            GameObject.Find("Main Camera").GetComponent<>(MastermindController).
+            GameObject.Find("Main Camera").GetComponent<MastermindController>().EndGame(true);
         }
+
         triesLeft--;
         onScreenNumber.text = (triesLeft).ToString("00");
+        GameObject.Find("Main Camera").GetComponent<MastermindController>().resourceAmount = triesLeft + 1;
     }
 
 
