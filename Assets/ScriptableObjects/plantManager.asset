@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6478e77578a28bb4b845078f100f288c, type: 3}
   m_Name: plantManager
   m_EditorClassIdentifier: 
+  resourceManager: {fileID: 11400000, guid: e435da9cf84180e42bde6c1982faacbf, type: 2}
   plants:
   - name: Zombie
     type: Flesh
+    level: 1
+    xpToGive: 40
     stage1:
     - name: Flesh
       required: 10
@@ -28,6 +31,8 @@ MonoBehaviour:
       type: 3}
   - name: Wendigo
     type: Flesh
+    level: 2
+    xpToGive: 60
     stage1:
     - name: Flesh
       required: 10
