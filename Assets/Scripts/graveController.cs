@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class graveController : MonoBehaviour
@@ -16,6 +14,7 @@ public class graveController : MonoBehaviour
     public resourceManager.Seed seed;
     public int stage;
     public List<graveResource> requiredResources = new List<graveResource>();
+    public List<graveResource> currentResources = new List<graveResource>();
     GameObject stages;
     [Space(10)]
     [Header("UI Information")]
@@ -25,12 +24,16 @@ public class graveController : MonoBehaviour
     [SerializeField] GameObject plantButton;
     [SerializeField] GameObject infoGroup;
     [SerializeField] GameObject giveButton;
+    [SerializeField] GameObject resourcePanel;
+    [SerializeField] GameObject resourceGiver;
+    List<GameObject> resourceGivers = new List<GameObject>();
 
 
     public void Awake()
     {
         sc = GameObject.Find("sceneController").GetComponent<Events>();
         sc.OnValueChange.AddListener(updateInfo);
+        sc.OnValueChange.AddListener(UpdateResourcePanel);
     }
 
     public void activateRI()
@@ -64,7 +67,7 @@ public class graveController : MonoBehaviour
         foreach (graveResource res in gResources)
         {
             requiredResources.Add(res);
-            Debug.Log(res.name + ": " + res.current + " / " + res.needed);
+            Debug.Log(res.name + ": " + res.value);
         }
         sc.OnValueChange.Invoke();
     }
@@ -82,7 +85,7 @@ public class graveController : MonoBehaviour
                     graveResource gr = new graveResource
                     {
                         name = p.name,
-                        needed = p.required
+                        value = p.required
                     };
 
 
@@ -108,23 +111,23 @@ public class graveController : MonoBehaviour
 
     public void give()
     {
-        int full = 0;
-        foreach (graveResource resource in requiredResources)
-        {
-            resourceManager.Resource giveResource = resourceManager.resources.Find(r => r.name == resource.name);
-            resource.current += giveResource.RemoveForce(resource.needed - resource.current);
+        //int full = 0;
+        //foreach (graveResource resource in requiredResources)
+        //{
+        //    resourceManager.Resource giveResource = resourceManager.resources.Find(r => r.name == resource.name);
+        //    resource.current += giveResource.RemoveForce(resource.value - resource.current);
 
-            if (resource.current >= resource.needed)
-            {
-                full += 1;
-            }
-        }
+        //    if (resource.current >= resource.value)
+        //    {
+        //        full += 1;
+        //    }
+        //}
 
-        //Debug.Log(full + " Full " + requiredResources.Count + " Capacity");
-        if (full >= requiredResources.Count)
-        {
-            nextStage();
-        }
+        ////Debug.Log(full + " Full " + requiredResources.Count + " Capacity");
+        //if (full >= requiredResources.Count)
+        //{
+        //    nextStage();
+        //}
 
         sc.OnValueChange.Invoke();
     }
@@ -133,15 +136,30 @@ public class graveController : MonoBehaviour
     {
         Text plantName = infoGroup.transform.Find("PlantName").GetComponent<Text>();
         Text reqResources = infoGroup.transform.Find("ReqResources").Find("Text").GetComponent<Text>();
-        Text curResources = infoGroup.transform.Find("CurResources").Find("Text").GetComponentInChildren<Text>();
 
         plantName.text = plant.name;
         reqResources.text = "";
-        curResources.text = "";
         foreach (graveResource res in requiredResources)
         {
-            reqResources.text += (res.name + ": " + res.needed + "\n");
-            curResources.text += (res.name + ": " + res.current + "\n");
+            string nameString = res.name;
+            if (res.known == false)
+                nameString = "Unknown";
+            reqResources.text += (res.name + ": " + res.value + "\n");
+        }
+    }
+
+    public void UpdateResourcePanel()
+    {
+        foreach (Transform child in resourcePanel.transform)
+        {
+            Destroy(child);
+        }
+        foreach (resourceManager.Resource resource in resourceManager.resources)
+        {
+            GameObject r = Instantiate(resourceGiver, resourcePanel.transform);
+            r.name = resource.name;
+            r.transform.GetChild(0).GetComponent<Image>().sprite = resourceManager.images.Find(x => x.name == resource.name).img;
+            resourceGivers.Add(r);
         }
     }
 
@@ -154,7 +172,7 @@ public class graveController : MonoBehaviour
             {
                 graveResource gr = new graveResource();
                 gr.name = plant.name;
-                gr.needed = plant.required;
+                gr.value = plant.required;
 
 
                 requiredResources.Add(gr);
@@ -165,11 +183,12 @@ public class graveController : MonoBehaviour
         else if (stage == 2)
         {
             requiredResources.Clear();
+            currentResources.Clear();
             foreach (plantManager.resource plant in plant.stage3)
             {
                 graveResource gr = new graveResource();
                 gr.name = plant.name;
-                gr.needed = plant.required;
+                gr.value = plant.required;
 
 
                 requiredResources.Add(gr);
@@ -189,7 +208,9 @@ public class graveController : MonoBehaviour
     public void DestroyPlant()
     {
         requiredResources.Clear();
+        currentResources.Clear();
         plant = new plantManager.plant();
+        seed = new resourceManager.Seed();
         Destroy(stages);
         deactivate(infoGroup);
         activate(plantButton);
@@ -200,7 +221,7 @@ public class graveController : MonoBehaviour
     public class graveResource
     {
         public string name;
-        public int current;
-        public int needed;
+        public int value;
+        public bool known = true;
     }
 }
