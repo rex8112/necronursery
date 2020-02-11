@@ -18,14 +18,24 @@ public class ResourceGiver : MonoBehaviour
     public GameObject decrease;
     public GameObject increase;
     public Text valueText;
+    [HideInInspector]
+    public graveController graveController;
 
     public void Increase(int amt)
     {
-        Value += amt;
+        if (graveController.SelectedTotal < graveController.RequiredTotal - graveController.CurrentTotal)
+        {
+            graveController.SelectedTotal += amt;
+            Value += amt;
+        }
     }
 
     public void Decrease(int amt)
     {
-        Value -= amt;
+        if (m_value > 0)
+        {
+            graveController.SelectedTotal -= amt;
+            Value -= amt;
+        }
     }
 }

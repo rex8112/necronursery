@@ -1724,8 +1724,9 @@ MonoBehaviour:
   plantButton: {fileID: 8339478655433942247}
   infoGroup: {fileID: 8339478655413445582}
   giveButton: {fileID: 8339478656069384694}
-  resourcePanel: {fileID: 0}
-  resourceGiver: {fileID: 0}
+  resourcePanel: {fileID: 1741674702419092954}
+  resourceGiver: {fileID: 7389930487016346042, guid: cb5df6e92e26a0f4d8eb13c4176992af,
+    type: 3}
 --- !u!61 &8339478657168756763
 BoxCollider2D:
   m_ObjectHideFlags: 0

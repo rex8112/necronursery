@@ -27,6 +27,31 @@ public class graveController : MonoBehaviour
     [SerializeField] GameObject resourcePanel;
     [SerializeField] GameObject resourceGiver;
     List<GameObject> resourceGivers = new List<GameObject>();
+    int m_selectedTotal = 0;
+    public int SelectedTotal
+    {
+        get { return m_selectedTotal;  }
+        set { m_selectedTotal = value; }
+    }
+    public int RequiredTotal
+    { get
+        {
+            int tmp = 0;
+            foreach (graveResource resource in requiredResources)
+                tmp += resource.value;
+            return tmp;
+        } }
+
+    public int CurrentTotal
+    {
+        get
+        {
+            int tmp = 0;
+            foreach (graveResource resource in currentResources)
+                tmp += resource.value;
+            return tmp;
+        }
+    }
 
 
     public void Awake()
@@ -111,23 +136,31 @@ public class graveController : MonoBehaviour
 
     public void give()
     {
-        //int full = 0;
-        //foreach (graveResource resource in requiredResources)
-        //{
-        //    resourceManager.Resource giveResource = resourceManager.resources.Find(r => r.name == resource.name);
-        //    resource.current += giveResource.RemoveForce(resource.value - resource.current);
+        foreach (Transform child in resourcePanel.transform)
+        {
+            resourceManager.Resource resource = resourceManager.resources.Find(x => x.name == child.name);
+            int value = child.GetComponent<ResourceGiver>().Value;
+            int changedValue = resource.RemoveForce(value);
 
-        //    if (resource.current >= resource.value)
-        //    {
-        //        full += 1;
-        //    }
-        //}
+            if (changedValue > 0)
+            {
+                graveResource resourceChanged = currentResources.Find(x => x.name == child.name);
+                if (resourceChanged == null)
+                {
+                    var tmp = new graveResource
+                    {
+                        name = child.name,
+                        value = changedValue,
+                        known = true
+                    };
+                    currentResources.Add(tmp);
+                }
+                else
+                    resourceChanged.value += changedValue;
+            }
+        }
 
-        ////Debug.Log(full + " Full " + requiredResources.Count + " Capacity");
-        //if (full >= requiredResources.Count)
-        //{
-        //    nextStage();
-        //}
+
 
         sc.OnValueChange.Invoke();
     }
@@ -144,20 +177,22 @@ public class graveController : MonoBehaviour
             string nameString = res.name;
             if (res.known == false)
                 nameString = "Unknown";
-            reqResources.text += (res.name + ": " + res.value + "\n");
+            reqResources.text += (nameString + ": " + res.value + "\n");
         }
     }
 
     public void UpdateResourcePanel()
     {
+        m_selectedTotal = 0;
         foreach (Transform child in resourcePanel.transform)
         {
-            Destroy(child);
+            Destroy(child.gameObject);
         }
         foreach (resourceManager.Resource resource in resourceManager.resources)
         {
             GameObject r = Instantiate(resourceGiver, resourcePanel.transform);
             r.name = resource.name;
+            r.GetComponent<ResourceGiver>().graveController = this;
             r.transform.GetChild(0).GetComponent<Image>().sprite = resourceManager.images.Find(x => x.name == resource.name).img;
             resourceGivers.Add(r);
         }
