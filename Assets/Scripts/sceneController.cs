@@ -143,9 +143,11 @@ public class sceneController : MonoBehaviour
         SaveLoad.seeds.Clear();
         SaveLoad.stageInts.Clear();
         SaveLoad.gResources.Clear();
+        SaveLoad.currentResources.Clear();
         foreach (graveController grave in graves) //Saves all the graves
         {
             List<graveController.graveResource> gResources = new List<graveController.graveResource>();
+            List<graveController.graveResource> currentResources = new List<graveController.graveResource>();
             SaveLoad.plants.Add(grave.plant.name);
             SaveLoad.stageInts.Add(grave.stage);
             foreach (graveController.graveResource res in grave.requiredResources)
@@ -153,6 +155,11 @@ public class sceneController : MonoBehaviour
                 gResources.Add(res);
             }
             SaveLoad.gResources.Add(gResources);
+            foreach (graveController.graveResource res in grave.currentResources)
+            {
+                currentResources.Add(res);
+            }
+            SaveLoad.currentResources.Add(currentResources);
         }
         foreach (resourceManager.Resource res in resourceManager.resources) //Saves all the resources
         {
@@ -185,7 +192,7 @@ public class sceneController : MonoBehaviour
                         graves[i].stage = SaveLoad.stageInts[i] - 1; //Due to how nextStage() works, we have to remove one from the current stage to get to the intended one
                         graves[i].nextStage();
                     }
-                    graves[i].LoadResources(SaveLoad.gResources[i]);
+                    graves[i].LoadResources(SaveLoad.gResources[i], SaveLoad.currentResources[i]);
                 }
             }
             if (SaveLoad.resources.Count > 0)

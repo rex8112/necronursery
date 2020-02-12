@@ -14,6 +14,7 @@ public class SaveLoad : ScriptableObject
     public List<string> plants = new List<string>();
     public List<int> stageInts = new List<int>();
     public List<List<graveController.graveResource>> gResources = new List<List<graveController.graveResource>>();
+    public List<List<graveController.graveResource>> currentResources = new List<List<graveController.graveResource>>();
     Save mainSave = new Save();
     public int level = 1;
     public float xp = 0.0f;
@@ -48,6 +49,7 @@ public class SaveLoad : ScriptableObject
         mainSave.plants = plants;
         mainSave.stageInts = stageInts;
         mainSave.gResources = gResources;
+        mainSave.currentResources = currentResources;
         SaveToDisk(mainSave);
     }
 
@@ -63,6 +65,7 @@ public class SaveLoad : ScriptableObject
             plants = mainSave.plants;
             stageInts = mainSave.stageInts;
             gResources = mainSave.gResources;
+            currentResources = mainSave.currentResources;
             return true;
         }
         else //Clears everything otherwise so it doesn't get loaded
@@ -72,6 +75,7 @@ public class SaveLoad : ScriptableObject
             plants.Clear();
             stageInts.Clear();
             gResources.Clear();
+            currentResources.Clear();
             return false;
         }
     }
@@ -86,6 +90,7 @@ public class SaveLoad : ScriptableObject
         plants.Clear();
         stageInts.Clear();
         gResources.Clear();
+        currentResources.Clear();
     }
 
     public void SaveToDisk(Save save) //Handles converting the Save class into binary and saving it to a file
@@ -124,4 +129,5 @@ public class Save
     public List<string> plants = new List<string>();
     public List<int> stageInts = new List<int>();
     public List<List<graveController.graveResource>> gResources = new List<List<graveController.graveResource>>();
+    public List<List<graveController.graveResource>> currentResources = new List<List<graveController.graveResource>>();
 }

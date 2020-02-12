@@ -23,7 +23,6 @@ public class graveController : MonoBehaviour
     [SerializeField] GameObject seedView;
     [SerializeField] GameObject plantButton;
     [SerializeField] GameObject infoGroup;
-    [SerializeField] GameObject giveButton;
     [SerializeField] GameObject resourcePanel;
     [SerializeField] GameObject resourceGiver;
     List<GameObject> resourceGivers = new List<GameObject>();
@@ -86,13 +85,18 @@ public class graveController : MonoBehaviour
             activate(ui);
     }
 
-    public void LoadResources(List<graveResource> gResources)
+    public void LoadResources(List<graveResource> gResources, List<graveResource> cResources)
     {
         requiredResources.Clear();
+        currentResources.Clear();
         foreach (graveResource res in gResources)
         {
             requiredResources.Add(res);
             Debug.Log(res.name + ": " + res.value);
+        }
+        foreach (graveResource res in cResources)
+        {
+            currentResources.Add(res);
         }
         sc.OnValueChange.Invoke();
     }
@@ -169,15 +173,22 @@ public class graveController : MonoBehaviour
     {
         Text plantName = infoGroup.transform.Find("PlantName").GetComponent<Text>();
         Text reqResources = infoGroup.transform.Find("ReqResources").Find("Text").GetComponent<Text>();
+        Text addResources = infoGroup.transform.Find("AddResources").Find("Text").GetComponent<Text>();
 
         plantName.text = plant.name;
         reqResources.text = "";
+        addResources.text = "";
         foreach (graveResource res in requiredResources)
         {
             string nameString = res.name;
             if (res.known == false)
                 nameString = "Unknown";
             reqResources.text += (nameString + ": " + res.value + "\n");
+        }
+        foreach (graveResource res in currentResources)
+        {
+            string nameString = res.name;
+            addResources.text += (nameString + ": " + res.value + "\n");
         }
     }
 
@@ -190,11 +201,14 @@ public class graveController : MonoBehaviour
         }
         foreach (resourceManager.Resource resource in resourceManager.resources)
         {
-            GameObject r = Instantiate(resourceGiver, resourcePanel.transform);
-            r.name = resource.name;
-            r.GetComponent<ResourceGiver>().graveController = this;
-            r.transform.GetChild(0).GetComponent<Image>().sprite = resourceManager.images.Find(x => x.name == resource.name).img;
-            resourceGivers.Add(r);
+            if (resource.value > 0 && resource.name != "Teeth")
+            {
+                GameObject r = Instantiate(resourceGiver, resourcePanel.transform);
+                r.name = resource.name;
+                r.GetComponent<ResourceGiver>().graveController = this;
+                r.transform.GetChild(0).GetComponent<Image>().sprite = resourceManager.images.Find(x => x.name == resource.name).img;
+                resourceGivers.Add(r);
+            }
         }
     }
 
