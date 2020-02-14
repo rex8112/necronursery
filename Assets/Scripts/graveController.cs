@@ -164,6 +164,15 @@ public class graveController : MonoBehaviour
             }
         }
 
+        if (RequiredTotal <= CurrentTotal) // Unfinished
+        {
+            bool correct = true;
+            foreach (graveResource res in requiredResources)
+            {
+                graveResource curRes = currentResources.Find(x => x.name == res.name);
+            }
+        }
+
 
 
         sc.OnValueChange.Invoke();
@@ -217,6 +226,7 @@ public class graveController : MonoBehaviour
         if (stage == 1)
         {
             requiredResources.Clear();
+            currentResources.Clear();
             foreach (plantManager.resource plant in plant.stage2)
             {
                 graveResource gr = new graveResource();

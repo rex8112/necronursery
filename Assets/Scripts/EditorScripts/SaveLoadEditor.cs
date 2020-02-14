@@ -9,6 +9,8 @@ public class SaveLoadEditor : Editor
     public override void OnInspectorGUI()
     {
         SaveLoad saveLoad = (SaveLoad)target;
+        string path = "plantManager";
+        EditorGUILayout.PropertyField(serializedObject.FindProperty(path), true);
         saveLoad.tapToStart = EditorGUILayout.Toggle("Tap To Start", saveLoad.tapToStart);
         EditorGUILayout.BeginVertical("Box");
         EditorGUILayout.LabelField("Player Variables", EditorStyles.boldLabel);
@@ -16,12 +18,29 @@ public class SaveLoadEditor : Editor
         saveLoad.level = EditorGUILayout.IntField("Level", saveLoad.level);
         saveLoad.xp = EditorGUILayout.FloatField("XP", saveLoad.xp);
         saveLoad.xpPerLevel = EditorGUILayout.FloatField("XP Per Level", saveLoad.xpPerLevel);
+        EditorGUI.indentLevel++;
+        path = "knowledge";
+        EditorGUILayout.PropertyField(serializedObject.FindProperty(path), true);
+        EditorGUI.indentLevel--;
+
+        if (GUILayout.Button("Refresh Knowledge"))
+        {
+            saveLoad.knowledge.Clear();
+            foreach (plantManager.plant plant in saveLoad.plantManager.plants)
+            {
+                Knowledge knowledge = new Knowledge
+                {
+                    name = plant.name,
+                };
+            }
+        }
+
         EditorGUILayout.EndVertical();
 
         EditorGUILayout.BeginVertical("Box");
         EditorGUI.indentLevel++;
         EditorGUILayout.LabelField("Save Variables", EditorStyles.boldLabel);
-        string path = "resources";
+        path = "resources";
         EditorGUILayout.PropertyField(serializedObject.FindProperty(path), true);
         path = "seeds";
         EditorGUILayout.PropertyField(serializedObject.FindProperty(path), true);

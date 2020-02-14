@@ -9,11 +9,6 @@ public class resourceManager : ScriptableObject
     public List<Seed> seeds;
     public List<Images> images;
     public SaveLoad SL;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     public void Save()
     {
