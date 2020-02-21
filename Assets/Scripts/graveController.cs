@@ -170,6 +170,24 @@ public class graveController : MonoBehaviour
             foreach (graveResource res in requiredResources)
             {
                 graveResource curRes = currentResources.Find(x => x.name == res.name);
+                if (curRes != null)
+                {
+                    if (curRes.value != res.value)
+                        correct = false;
+                }
+                else
+                {
+                    correct = false;
+                }
+            }
+
+            if (correct)
+            {
+                nextStage();
+            }
+            else
+            {
+                // Bad. You Suck. Reset Plant.
             }
         }
 

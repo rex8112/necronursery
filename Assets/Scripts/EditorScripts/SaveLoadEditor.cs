@@ -32,6 +32,37 @@ public class SaveLoadEditor : Editor
                 {
                     name = plant.name,
                 };
+                knowledge.stage1.Clear();
+                foreach (plantManager.resource res in plant.stage1)
+                {
+                    KnowledgeResource knowledgeResource = new KnowledgeResource
+                    {
+                        name = res.name,
+                        known = false
+                    };
+                    knowledge.stage1.Add(knowledgeResource);
+                }
+                knowledge.stage2.Clear();
+                foreach (plantManager.resource res in plant.stage2)
+                {
+                    KnowledgeResource knowledgeResource = new KnowledgeResource
+                    {
+                        name = res.name,
+                        known = false
+                    };
+                    knowledge.stage2.Add(knowledgeResource);
+                }
+                knowledge.stage3.Clear();
+                foreach (plantManager.resource res in plant.stage3)
+                {
+                    KnowledgeResource knowledgeResource = new KnowledgeResource
+                    {
+                        name = res.name,
+                        known = false
+                    };
+                    knowledge.stage3.Add(knowledgeResource);
+                }
+                saveLoad.knowledge.Add(knowledge);
             }
         }
 
