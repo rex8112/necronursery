@@ -8,12 +8,17 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "Save", menuName = "ScriptableObjects/SpawnSave", order = 1)]
 public class SaveLoad : ScriptableObject
 {
+    public plantManager plantManager;
+
     public bool tapToStart = true;
+    public List<Knowledge> knowledge = new List<Knowledge>();
     public List<resourceManager.Resource> resources = new List<resourceManager.Resource>();
     public List<resourceManager.Seed> seeds = new List<resourceManager.Seed>();
     public List<string> plants = new List<string>();
     public List<int> stageInts = new List<int>();
     public List<List<graveController.graveResource>> gResources = new List<List<graveController.graveResource>>();
+    public List<List<graveController.graveResource>> currentResources = new List<List<graveController.graveResource>>();
+
     Save mainSave = new Save();
     public int level = 1;
     public float xp = 0.0f;
@@ -48,6 +53,7 @@ public class SaveLoad : ScriptableObject
         mainSave.plants = plants;
         mainSave.stageInts = stageInts;
         mainSave.gResources = gResources;
+        mainSave.currentResources = currentResources;
         SaveToDisk(mainSave);
     }
 
@@ -63,6 +69,7 @@ public class SaveLoad : ScriptableObject
             plants = mainSave.plants;
             stageInts = mainSave.stageInts;
             gResources = mainSave.gResources;
+            currentResources = mainSave.currentResources;
             return true;
         }
         else //Clears everything otherwise so it doesn't get loaded
@@ -72,6 +79,7 @@ public class SaveLoad : ScriptableObject
             plants.Clear();
             stageInts.Clear();
             gResources.Clear();
+            currentResources.Clear();
             return false;
         }
     }
@@ -86,6 +94,7 @@ public class SaveLoad : ScriptableObject
         plants.Clear();
         stageInts.Clear();
         gResources.Clear();
+        currentResources.Clear();
     }
 
     public void SaveToDisk(Save save) //Handles converting the Save class into binary and saving it to a file
@@ -124,4 +133,22 @@ public class Save
     public List<string> plants = new List<string>();
     public List<int> stageInts = new List<int>();
     public List<List<graveController.graveResource>> gResources = new List<List<graveController.graveResource>>();
+    public List<List<graveController.graveResource>> currentResources = new List<List<graveController.graveResource>>();
+}
+
+[System.Serializable]
+public class Knowledge
+{
+    public string name;
+    public plantManager.plant plant;
+    public List<KnowledgeResource> stage1;
+    public List<KnowledgeResource> stage2;
+    public List<KnowledgeResource> stage3;
+}
+
+[System.Serializable]
+public class KnowledgeResource
+{
+    public string name;
+    public bool known;
 }

@@ -16,7 +16,6 @@ MonoBehaviour:
   plants:
   - name: Zombie
     type: Flesh
-    level: 1
     xpToGive: 40
     stage1:
     - name: Flesh
@@ -31,7 +30,6 @@ MonoBehaviour:
       type: 3}
   - name: Wendigo
     type: Flesh
-    level: 2
     xpToGive: 60
     stage1:
     - name: Flesh

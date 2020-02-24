@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf31174903f83f4cb67a4177eb23651, type: 3}
   m_Name: Save
   m_EditorClassIdentifier: 
+  plantManager: {fileID: 11400000, guid: 9648723e9bd176d4da0472a3f2458f6a, type: 2}
   tapToStart: 1
+  knowledge: []
   resources:
   - name: Teeth
     value: 0
