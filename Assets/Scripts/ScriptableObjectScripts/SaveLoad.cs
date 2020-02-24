@@ -128,6 +128,7 @@ public class Save
 {
     public float xp;
     public int level;
+    public List<Knowledge> knowledge = new List<Knowledge>();
     public List<resourceManager.Resource> resources = new List<resourceManager.Resource>();
     public List<resourceManager.Seed> seeds = new List<resourceManager.Seed>();
     public List<string> plants = new List<string>();
@@ -141,9 +142,9 @@ public class Knowledge
 {
     public string name;
     public plantManager.plant plant;
-    public List<KnowledgeResource> stage1;
-    public List<KnowledgeResource> stage2;
-    public List<KnowledgeResource> stage3;
+    public List<KnowledgeResource> stage1 = new List<KnowledgeResource>();
+    public List<KnowledgeResource> stage2 = new List<KnowledgeResource>();
+    public List<KnowledgeResource> stage3 = new List<KnowledgeResource>();
 }
 
 [System.Serializable]

@@ -114,7 +114,8 @@ public class graveController : MonoBehaviour
                     graveResource gr = new graveResource
                     {
                         name = p.name,
-                        value = p.required
+                        value = p.required,
+                        known = GetKnowledge(plant.name, p.name, 1)
                     };
 
 
@@ -174,6 +175,10 @@ public class graveController : MonoBehaviour
                 {
                     if (curRes.value != res.value)
                         correct = false;
+                    else
+                    {
+                        ChangeKnowledge(plant.name, res.name, stage, true);
+                    }
                 }
                 else
                 {
@@ -187,13 +192,51 @@ public class graveController : MonoBehaviour
             }
             else
             {
-                // Bad. You Suck. Reset Plant.
+                DestroyPlant();
             }
         }
 
-
-
         sc.OnValueChange.Invoke();
+    }
+
+    void ChangeKnowledge(string plantName, string resourceName, int stage, bool result)
+    {
+        var knowledge = saveLoad.knowledge.Find(x => x.name == plantName);
+        if (stage == 1)
+        {
+            var resource = knowledge.stage1.Find(x => x.name == resourceName);
+            resource.known = result;
+        }
+        else if (stage == 2)
+        {
+            var resource = knowledge.stage2.Find(x => x.name == resourceName);
+            resource.known = result;
+        }
+        else
+        {
+            var resource = knowledge.stage3.Find(x => x.name == resourceName);
+            resource.known = result;
+        }
+    }
+
+    bool GetKnowledge(string plantName, string resourceName, int stage)
+    {
+        var knowledge = saveLoad.knowledge.Find(x => x.name == plantName);
+        if (stage == 1)
+        {
+            var resource = knowledge.stage1.Find(x => x.name == resourceName);
+            return resource.known;
+        }
+        else if (stage == 2)
+        {
+            var resource = knowledge.stage2.Find(x => x.name == resourceName);
+            return resource.known;
+        }
+        else
+        {
+            var resource = knowledge.stage3.Find(x => x.name == resourceName);
+            return resource.known;
+        }
     }
 
     public void updateInfo()
@@ -245,11 +288,12 @@ public class graveController : MonoBehaviour
         {
             requiredResources.Clear();
             currentResources.Clear();
-            foreach (plantManager.resource plant in plant.stage2)
+            foreach (plantManager.resource res in plant.stage2)
             {
                 graveResource gr = new graveResource();
-                gr.name = plant.name;
-                gr.value = plant.required;
+                gr.name = res.name;
+                gr.value = res.required;
+                gr.known = GetKnowledge(plant.name, res.name, 2);
 
 
                 requiredResources.Add(gr);
@@ -261,11 +305,12 @@ public class graveController : MonoBehaviour
         {
             requiredResources.Clear();
             currentResources.Clear();
-            foreach (plantManager.resource plant in plant.stage3)
+            foreach (plantManager.resource res in plant.stage3)
             {
                 graveResource gr = new graveResource();
-                gr.name = plant.name;
-                gr.value = plant.required;
+                gr.name = res.name;
+                gr.value = res.required;
+                gr.known = GetKnowledge(plant.name, res.name, 3);
 
 
                 requiredResources.Add(gr);
