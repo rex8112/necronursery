@@ -32,6 +32,7 @@ public class SaveLoadEditor : Editor
                 {
                     name = plant.name,
                 };
+                knowledge.plant = saveLoad.plantManager.plants.Find(x => x.name == plant.name);
                 knowledge.stage1.Clear();
                 foreach (plantManager.resource res in plant.stage1)
                 {
