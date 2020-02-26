@@ -9,7 +9,6 @@ public class DialogueScript : MonoBehaviour
     public Text dialogueText;
     public GameObject buttonPanel;
     public GameObject buttonPrefab;
-    int stepCounter = 0;
     public string startText;
     public List<Dialogue> allOptions = new List<Dialogue>();
     private Dialogue currentDialogue = null;
@@ -20,15 +19,6 @@ public class DialogueScript : MonoBehaviour
     {
         ShowBox(startText);
     }
-
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if (textActive && Input.GetKeyDown(KeyCode.Space))
-    //    {
-    //        nextDialogue();
-    //    }
-    //}
 
     public void ShowBox(string dialogue)
     {
