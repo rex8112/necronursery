@@ -1698,6 +1698,7 @@ MonoBehaviour:
   tutBox: {fileID: 286344984}
   tutText: {fileID: 927220845}
   textActive: 0
+  allOptions: []
 --- !u!1 &405198970
 GameObject:
   m_ObjectHideFlags: 0

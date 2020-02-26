@@ -10,7 +10,8 @@ public class tutorialDialogue : MonoBehaviour
 
     public bool textActive;
     int stepCounter = 0;
-
+    public List<Dialogue> allOptions = new List<Dialogue>();
+    private Dialogue currentDialogue;
 
 
     // Start is called before the first frame update
@@ -69,4 +70,36 @@ public class tutorialDialogue : MonoBehaviour
 
     }
 
+    [System.Serializable]
+    public class Dialogue
+    {
+        public string option;
+        public string response;
+        public List<Dialogue> options = new List<Dialogue>();
+    }
+
 }
+
+
+//public void UpdateResourcePanel()
+//{
+//    m_selectedTotal = 0;
+//    foreach (Transform child in resourcePanel.transform)
+//    {
+//        Destroy(child.gameObject);
+//    }
+//    foreach (resourceManager.Resource resource in resourceManager.resources)
+//    {
+//        if (resource.value > 0 && resource.name != "Teeth")
+//        {
+//            GameObject r = Instantiate(resourceGiver, resourcePanel.transform);
+//            r.name = resource.name;
+//            r.GetComponent<ResourceGiver>().graveController = this;
+//            r.transform.GetChild(0).GetComponent<Image>().sprite = resourceManager.images.Find(x => x.name == resource.name).img;
+//            resourceGivers.Add(r);
+//        }
+//    }
+//}
+
+//button.GetComponent<Button>().onClick.AddListener(delegate { gc.Plant(seed.plantName, 1); });
+//Make function to replace gc.Plant that checks string to determine next option
