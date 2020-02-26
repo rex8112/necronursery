@@ -725,7 +725,7 @@ SpriteRenderer:
   m_SortingLayerID: 1629788067
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 238a5b580364cd94fabd28a96d043387, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4651e4e6f6bb2c43aa6566e7ecc40d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -767,7 +767,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.92, y: 1.8866667}
+    oldSize: {x: 2.1, y: 2.1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1013,7 +1013,7 @@ GameObject:
   - component: {fileID: 661602294}
   - component: {fileID: 661602295}
   m_Layer: 0
-  m_Name: Teal Rune
+  m_Name: Cyan Rune
   m_TagString: Runes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1057,7 +1057,7 @@ SpriteRenderer:
   m_SortingLayerID: 1629788067
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c8fccffcf258054e84ebe00154a9b5e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d9c54b4000bba2a49bafb7e02fb1b078, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1099,7 +1099,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.92, y: 1.8866667}
+    oldSize: {x: 2.1, y: 2.1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1620,7 +1620,7 @@ SpriteRenderer:
   m_SortingLayerID: 1629788067
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3cd9387596a6ea2439e7a4cc6dec130a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 30d6357fbff89e64ca8ebed55d1457d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1662,7 +1662,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.92, y: 1.8866667}
+    oldSize: {x: 2.1, y: 2.1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2427,7 +2427,7 @@ SpriteRenderer:
   m_SortingLayerID: 1629788067
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e54df03360f758546a761e8da4a832e0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1ed066607fe186142b64da5d2b67cbee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2469,7 +2469,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.92, y: 1.8866667}
+    oldSize: {x: 2.1, y: 2.1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2865,7 +2865,7 @@ SpriteRenderer:
   m_SortingLayerID: 1629788067
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e64c04afd8fab7341b6ae4b4dc5823b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1d1f7148083576149bdd3d3394d34cb6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2907,7 +2907,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.92, y: 1.8866667}
+    oldSize: {x: 2.1, y: 2.1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3492,7 +3492,7 @@ SpriteRenderer:
   m_SortingLayerID: 1629788067
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2ac4f9e6b3777ee4b9726a2bb1efa83e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 31966425f2962554e8bbf241ba9f9817, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3534,7 +3534,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.92, y: 1.8866667}
+    oldSize: {x: 2.1, y: 2.1}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3782,6 +3782,8 @@ MonoBehaviour:
     defaultValue: 0
     teethValue: 0
   resourceManager: {fileID: 0}
+  spriteListLocation: 0
+  currentSubmittedSpriteList: []
 --- !u!114 &2008219145
 MonoBehaviour:
   m_ObjectHideFlags: 0
