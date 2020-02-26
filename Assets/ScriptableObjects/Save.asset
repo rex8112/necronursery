@@ -12,24 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf31174903f83f4cb67a4177eb23651, type: 3}
   m_Name: Save
   m_EditorClassIdentifier: 
+  plantManager: {fileID: 11400000, guid: 9648723e9bd176d4da0472a3f2458f6a, type: 2}
   tapToStart: 1
+  knowledge: []
   resources:
-  - name: Flesh
-    value: 300
-    defaultValue: 0
-    teethValue: 5
-  - name: Souls
-    value: 295
-    defaultValue: 0
-    teethValue: 10
-  - name: Magic
-    value: 300
-    defaultValue: 0
-    teethValue: 20
   - name: Teeth
-    value: 300
+    value: 0
     defaultValue: 0
     teethValue: 1
+  - name: Flesh
+    value: 50
+    defaultValue: 100
+    teethValue: 2
+  - name: Magic
+    value: 100
+    defaultValue: 100
+    teethValue: 5
+  - name: Souls
+    value: 100
+    defaultValue: 100
+    teethValue: 10
+  seeds:
+  - name: Zombie Seed
+    plantName: Zombie
+    level: 1
+    value: 2
+    defaultValue: 1
+    teethValue: 10
+  - name: Wendigo Seed
+    plantName: Wendigo
+    level: 2
+    value: 1
+    defaultValue: 0
+    teethValue: 20
   plants:
   - Zombie
   - 
@@ -42,3 +57,6 @@ MonoBehaviour:
   - 
   - 
   stageInts: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
+  level: 1
+  xp: 60
+  xpPerLevel: 40

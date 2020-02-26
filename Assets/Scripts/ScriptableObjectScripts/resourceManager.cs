@@ -6,13 +6,9 @@ using UnityEngine;
 public class resourceManager : ScriptableObject
 {
     public List<Resource> resources;
+    public List<Seed> seeds;
     public List<Images> images;
     public SaveLoad SL;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     public void Save()
     {
@@ -62,6 +58,34 @@ public class resourceManager : ScriptableObject
                 value -= change;
                 return change;
             }
+        }
+    }
+
+    [System.Serializable]
+    public class Seed
+    {
+        public string name;
+        public string plantName;
+        public int level;
+        public int value;
+        public int defaultValue;
+        public int teethValue;
+
+        public bool Add(int change)
+        {
+            defaultValue += change;
+            return true;
+        }
+
+        public bool Remove(int change)
+        {
+            if (value - change >= 0)
+            {
+                value -= change;
+                return true;
+            }
+            else
+                return false;
         }
     }
 

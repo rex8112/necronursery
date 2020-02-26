@@ -18,7 +18,7 @@ MonoBehaviour:
     defaultValue: 0
     teethValue: 1
   - name: Flesh
-    value: 100
+    value: 50
     defaultValue: 100
     teethValue: 2
   - name: Magic
@@ -29,6 +29,19 @@ MonoBehaviour:
     value: 100
     defaultValue: 100
     teethValue: 10
+  seeds:
+  - name: Zombie Seed
+    plantName: Zombie
+    level: 1
+    value: 2
+    defaultValue: 1
+    teethValue: 10
+  - name: Wendigo Seed
+    plantName: Wendigo
+    level: 2
+    value: 1
+    defaultValue: 0
+    teethValue: 20
   images:
   - name: Teeth
     img: {fileID: 21300000, guid: d67fc63cf9e30044aaccb05d0e901dcb, type: 3}
@@ -37,5 +50,9 @@ MonoBehaviour:
   - name: Magic
     img: {fileID: 21300000, guid: 120a58dfc0161e44aabf88e66a5becbe, type: 3}
   - name: Flesh
+    img: {fileID: 21300000, guid: cafa0ea30b5817a4b95b043e6d26a031, type: 3}
+  - name: Zombie Seed
+    img: {fileID: 21300000, guid: cafa0ea30b5817a4b95b043e6d26a031, type: 3}
+  - name: Wendigo Seed
     img: {fileID: 21300000, guid: cafa0ea30b5817a4b95b043e6d26a031, type: 3}
   SL: {fileID: 11400000, guid: f12a6d5fed3c47347a7c7bd2c0732b0a, type: 2}

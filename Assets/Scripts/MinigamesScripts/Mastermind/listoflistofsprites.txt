@@ -1,0 +1,22 @@
+sumbit 
+
+populate sprite list with the runes and candles sprites after each submit.
+
+Clone prefab and replace placer images
+
+
+0-4 runes
+5-7 candels
+		-canvas
+
+		-close button
+
+		-game object to hold prefabs/ use unity function for auto spacing
+
+
+	-each check
+
+		-prefab (x) 
+			sprites 0-7
+		-prefab (x)
+			sprites 0-7

@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "plantManager", menuName = "ScriptableObjects/SpawnPlantManager", order = 1)]
 public class plantManager : ScriptableObject
 {
+    public resourceManager resourceManager;
     public List<plant> plants = new List<plant>();
 
     [System.Serializable]
@@ -12,7 +13,7 @@ public class plantManager : ScriptableObject
     {
         public string name;
         public string type;
-        public int level = 1;
+        public float xpToGive = 0.0f;
         public List<resource> stage1 = new List<resource>();
         public List<resource> stage2 = new List<resource>();
         public List<resource> stage3 = new List<resource>();

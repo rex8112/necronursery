@@ -140,22 +140,34 @@ public class sceneController : MonoBehaviour
     {
         SaveLoad.plants.Clear(); //Clears the current save info to be repopulated with the new info
         SaveLoad.resources.Clear();
+        SaveLoad.seeds.Clear();
         SaveLoad.stageInts.Clear();
         SaveLoad.gResources.Clear();
+        SaveLoad.currentResources.Clear();
         foreach (graveController grave in graves) //Saves all the graves
         {
             List<graveController.graveResource> gResources = new List<graveController.graveResource>();
-            SaveLoad.plants.Add(grave.seed.name);
+            List<graveController.graveResource> currentResources = new List<graveController.graveResource>();
+            SaveLoad.plants.Add(grave.plant.name);
             SaveLoad.stageInts.Add(grave.stage);
             foreach (graveController.graveResource res in grave.requiredResources)
             {
                 gResources.Add(res);
             }
             SaveLoad.gResources.Add(gResources);
+            foreach (graveController.graveResource res in grave.currentResources)
+            {
+                currentResources.Add(res);
+            }
+            SaveLoad.currentResources.Add(currentResources);
         }
         foreach (resourceManager.Resource res in resourceManager.resources) //Saves all the resources
         {
             SaveLoad.resources.Add(res);
+        }
+        foreach (resourceManager.Seed seed in resourceManager.seeds)
+        {
+            SaveLoad.seeds.Add(seed);
         }
 
         Debug.Log("Preparing Save");
@@ -173,14 +185,14 @@ public class sceneController : MonoBehaviour
             {
                 if (SaveLoad.stageInts[i] > 0) //Checks if the stage exists, allows remembering grave positions
                 {
-                    graves[i].plant(SaveLoad.plants[i]); //Passes the name of the plant and lets graveController handle getting the further details
+                    graves[i].Plant(SaveLoad.plants[i], 0); //Passes the name of the plant and lets graveController handle getting the further details
 
                     if (SaveLoad.stageInts[i] > 1) //If stage is larger than 1, then update grave to that point.
                     {
                         graves[i].stage = SaveLoad.stageInts[i] - 1; //Due to how nextStage() works, we have to remove one from the current stage to get to the intended one
                         graves[i].nextStage();
                     }
-                    graves[i].LoadResources(SaveLoad.gResources[i]);
+                    graves[i].LoadResources(SaveLoad.gResources[i], SaveLoad.currentResources[i]);
                 }
             }
             if (SaveLoad.resources.Count > 0)
@@ -192,12 +204,25 @@ public class sceneController : MonoBehaviour
                         r.value = res.value;
                 }
             }
+            if (SaveLoad.resources.Count > 0)
+            {
+                foreach (resourceManager.Seed seed in SaveLoad.seeds)
+                {
+                    resourceManager.Seed s = resourceManager.seeds.Find(se => se.name == seed.name);
+                    if (s != null)
+                        s.value = seed.value;
+                }
+            }
         }
         else
         {
             foreach (resourceManager.Resource res in resourceManager.resources)
             {
                 res.value = res.defaultValue;
+            }
+            foreach (resourceManager.Seed seed in resourceManager.seeds)
+            {
+                seed.value = seed.defaultValue;
             }
         }
 
@@ -210,6 +235,10 @@ public class sceneController : MonoBehaviour
         foreach (resourceManager.Resource res in resourceManager.resources)
         {
             res.value = res.defaultValue;
+        }
+        foreach (resourceManager.Seed seed in resourceManager.seeds)
+        {
+            seed.value = seed.defaultValue;
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
