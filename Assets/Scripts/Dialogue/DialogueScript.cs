@@ -6,24 +6,33 @@ using UnityEngine;
 public class DialogueScript : MonoBehaviour
 {
     public GameObject dialogueBox;
+    public GameObject characterSprite;
     public Text dialogueText;
     public GameObject buttonPanel;
     public GameObject buttonPrefab;
+    [TextArea]
     public string startText;
     public List<Dialogue> allOptions = new List<Dialogue>();
     private Dialogue currentDialogue = null;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        ShowBox(startText);
+        if (dialogueBox.activeInHierarchy)
+        {
+            ShowBox();
+        }
     }
 
-    public void ShowBox(string dialogue)
+    public void ShowBox()
     {
         dialogueBox.SetActive(true);
-        dialogueText.text = dialogue;
+        characterSprite.SetActive(true);
+        dialogueText.text = startText;
+        currentDialogue = new Dialogue
+        {
+            response = startText,
+            options = allOptions
+        };
         RefreshButtons();
     }
 
@@ -46,7 +55,7 @@ public class DialogueScript : MonoBehaviour
     {
         foreach (Transform child in buttonPanel.transform)
         {
-            Destroy(child);
+            Destroy(child.gameObject);
         }
 
         if (currentDialogue.options.Count > 0)
@@ -54,14 +63,14 @@ public class DialogueScript : MonoBehaviour
             foreach (Dialogue option in currentDialogue.options)
             {
                 GameObject button = Instantiate(buttonPrefab, buttonPanel.transform);
-                button.GetComponent<Text>().text = option.option;
+                button.GetComponentInChildren<Text>().text = option.option;
                 button.GetComponent<Button>().onClick.AddListener(delegate { NextDialogue(option.option); });
             }
         }
         else
         {
             GameObject button = Instantiate(buttonPrefab, buttonPanel.transform);
-            button.GetComponent<Text>().text = "Close";
+            button.GetComponentInChildren<Text>().text = "Close";
             button.GetComponent<Button>().onClick.AddListener(CloseDialogue);
         }
     }
@@ -69,12 +78,15 @@ public class DialogueScript : MonoBehaviour
     public void CloseDialogue()
     {
         dialogueBox.SetActive(false);
+        characterSprite.SetActive(false);
     }
 
     [System.Serializable]
     public class Dialogue
     {
+        [TextArea]
         public string option;
+        [TextArea]
         public string response;
         public List<Dialogue> options = new List<Dialogue>();
     }
