@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class DialogueScript : MonoBehaviour
 {
+    public string identifier;
+    [Space(5)]
     public GameObject dialogueBox;
     public GameObject characterSprite;
     public Text dialogueText;
