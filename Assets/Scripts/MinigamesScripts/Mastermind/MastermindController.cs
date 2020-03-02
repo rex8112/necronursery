@@ -7,6 +7,7 @@ Game things
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MastermindController : MonoBehaviour
 {
@@ -36,6 +37,9 @@ public class MastermindController : MonoBehaviour
     [SerializeField] int spriteListLocation = 0;
     [SerializeField] List<List<Sprite>> completeEntryList;
     [SerializeField] List<Sprite> currentSubmittedSpriteList;
+
+    [SerializeField] GameObject PreviousGuessesCanvas;
+    [SerializeField] GameObject EntryPrefab;
 
 
     // Start is called before the first frame update
@@ -155,9 +159,10 @@ public class MastermindController : MonoBehaviour
 
             GetColorCount();
             GetPlayerCode();
+            List<int> candles = new List<int>();
             for(int n = 0; n < 4; n++)
             {
-                for (int pp = 0; pp < 4; pp++) 
+                for (int pp = 0; pp < 4; pp++)
                 {
                     if (PlayerCode[n].name == CorrectCode[pp].name && n == pp && ColorCount[PossibleRunes.FindIndex(e => e.name == PlayerCode[n].name)] > 0)
                     {
@@ -165,20 +170,49 @@ public class MastermindController : MonoBehaviour
                         Show(Candle);
                         candleSignal++;
                         RemoveColor(PlayerCode[n]);
+                        candles.Add(2);
                         break;
                     }
-
                     else if (PlayerCode[n].name == CorrectCode[pp].name && n != pp && ColorCount[PossibleRunes.FindIndex(e => e.name == PlayerCode[n].name)] > 0)
                     {
                         Candle = smoke[candleSignal];
                         Show(Candle);
                         candleSignal++;
                         RemoveColor(PlayerCode[n]);
+                        candles.Add(1);
                         break;
                     }
+                    else
+                        candles.Add(0);
 
                 }
                   
+            }
+
+            var guesses = PreviousGuessesCanvas.transform.Find("List of guesses");
+            var r = Instantiate(EntryPrefab, guesses);
+            int index = 0;
+            foreach (Transform child in r.transform)
+            {
+                if (index < 4)
+                    child.GetComponent<Image>().sprite = PlayerCode[index];
+                else
+                {
+                    if (candles[index - 4] == 2)
+                    {
+                        child.GetComponent<Image>().color = new Color(255, 207, 34);
+                    }
+                    else if (candles[index - 4] == 1)
+                    {
+                        child.GetComponent<Image>().color = new Color(140, 140, 140);
+                    }
+                    else
+                    {
+                        child.GetComponent<Image>().color = Color.white;
+                    }
+                }
+
+                index++;
             }
         }
         if (PlayerCode == CorrectCode)
