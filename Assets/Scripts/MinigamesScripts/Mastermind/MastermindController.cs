@@ -162,6 +162,7 @@ public class MastermindController : MonoBehaviour
             List<int> candles = new List<int>();
             for(int n = 0; n < 4; n++)
             {
+                bool candleAdded = false;
                 for (int pp = 0; pp < 4; pp++)
                 {
                     if (PlayerCode[n].name == CorrectCode[pp].name && n == pp && ColorCount[PossibleRunes.FindIndex(e => e.name == PlayerCode[n].name)] > 0)
@@ -171,6 +172,7 @@ public class MastermindController : MonoBehaviour
                         candleSignal++;
                         RemoveColor(PlayerCode[n]);
                         candles.Add(2);
+                        candleAdded = true;
                         break;
                     }
                     else if (PlayerCode[n].name == CorrectCode[pp].name && n != pp && ColorCount[PossibleRunes.FindIndex(e => e.name == PlayerCode[n].name)] > 0)
@@ -180,13 +182,12 @@ public class MastermindController : MonoBehaviour
                         candleSignal++;
                         RemoveColor(PlayerCode[n]);
                         candles.Add(1);
+                        candleAdded = true;
                         break;
                     }
-                    else
-                        candles.Add(0);
-
                 }
-                  
+                if (candleAdded == false)
+                    candles.Add(0);
             }
 
             var guesses = PreviousGuessesCanvas.transform.Find("List of guesses");
