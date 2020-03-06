@@ -456,6 +456,16 @@ PrefabInstance:
         for her cookie recipe in her room than go to the underworld and summon her
         for it.\r\n"
       objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: restartDialogueQuip
+      value: I would like to hear about somthing else
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: endDialogueQuip
+      value: Thank you for your story but I must be on my way
+      objectReference: {fileID: 0}
     - target: {fileID: 628692603181474323, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
       propertyPath: m_Sprite

@@ -16,7 +16,8 @@ public class DialogueScript : MonoBehaviour
     public string startText;
     public List<Dialogue> allOptions = new List<Dialogue>();
     private Dialogue currentDialogue = null;
-
+    public string restartDialogueQuip;
+    public string endDialogueQuip;
     public void Start()
     {
         if (dialogueBox.activeInHierarchy)
@@ -71,12 +72,30 @@ public class DialogueScript : MonoBehaviour
         }
         else
         {
-            GameObject button = Instantiate(buttonPrefab, buttonPanel.transform);
-            button.GetComponentInChildren<Text>().text = "Close";
-            button.GetComponent<Button>().onClick.AddListener(CloseDialogue);
+            
+            
+            GameObject restartDialogueButton = Instantiate(buttonPrefab, buttonPanel.transform);
+            restartDialogueButton.GetComponentInChildren<Text>().text = restartDialogueQuip;
+            restartDialogueButton.GetComponent<Button>().onClick.AddListener(ShowBox);
+
+            GameObject closeButton = Instantiate(buttonPrefab, buttonPanel.transform);
+            closeButton.GetComponentInChildren<Text>().text = endDialogueQuip;
+            closeButton.GetComponent<Button>().onClick.AddListener(CloseDialogue);
+            
         }
     }
 
+
+    //public void RestartDialogue()
+    //{
+    //    dialogueText.text = startText;
+    //    currentDialogue = new Dialogue
+    //    {
+    //        response = startText,
+    //        options = allOptions
+    //    };
+    //    currentDialogue = currentDialogue.options.
+    //}
     public void CloseDialogue()
     {
         dialogueBox.SetActive(false);
