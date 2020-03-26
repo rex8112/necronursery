@@ -394,7 +394,7 @@ PrefabInstance:
     - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
       propertyPath: allOptions.Array.data[0].options.Array.data[2].response
-      value: Test 1 1
+      value: Test 1 1 2 3
       objectReference: {fileID: 0}
     - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
