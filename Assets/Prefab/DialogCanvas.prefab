@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 628692602138911265}
   - component: {fileID: 628692602138911264}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: DialogCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -711,20 +711,151 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
         type: 3}
+      propertyPath: allOptions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
       propertyPath: allOptions.Array.data[0].options.Array.data[0].option
-      value: Test 1 1
+      value: Continue
       objectReference: {fileID: 0}
     - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
         type: 3}
       propertyPath: allOptions.Array.data[0].options.Array.data[0].response
-      value: Test 1 1
+      value: "But, you can\u2019t raise such spirits without some tools. Thankfully
+        our art isn\u2019t as complex as it once was."
       objectReference: {fileID: 0}
-    - target: {fileID: 6552194135434000458, guid: 7a6ddb2606bf32c439b1263748740aec,
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: startText
+      value: "Hello there young one. Planning to raise the dead are you? Good to see
+        such spirits from today\u2019s youth. Hehehe."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].response
+      value: "But, you can\u2019t raise such spirits without some tools. Thankfully
+        our art isn\u2019t as complex as it once was."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].response
+      value: "Ah, the days of ceremonies and exotic sacrifices. Today it\u2019s much
+        simpler, and faster, to raise the dead. Or even create monsters."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].response
+      value: "To raise a monster you\u2019ll have to plant it. While we used to rely
+        on dead bodies, today we have handy, and easy to move, seeds instead. Here
+        are some as a gift."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].response
+      value: "You\u2019ll need some \u2018sacrifices\u2019 to raise that seed to maturity.
+        Here is some flesh for it."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].response
+      value: Flesh is a common enough resource. Easily obtained, and easy to feed
+        to a monster plant.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].response
+      value: "With that much Flesh, you should be able to partially raise a zombie
+        from this seedling. Just don\u2019t let the little fella nip any digits off
+        your hand. They can be a bit feisty at first."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].options.Array.data[0].response
+      value: "That won\u2019t be enough Flesh to raise it completely though. So you\u2019ll
+        have to get more. How do you feel about Morgues?\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: restartDialogueQuip
+      value: Could you repeat that?
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134428580312, guid: 7a6ddb2606bf32c439b1263748740aec,
+        type: 3}
+      propertyPath: endDialogueQuip
+      value: Thank you, I'll get to it then.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552194134468233131, guid: 7a6ddb2606bf32c439b1263748740aec,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6552194134468233131, guid: 7a6ddb2606bf32c439b1263748740aec,
+    - target: {fileID: 6552194135434000458, guid: 7a6ddb2606bf32c439b1263748740aec,
         type: 3}
       propertyPath: m_IsActive
       value: 1

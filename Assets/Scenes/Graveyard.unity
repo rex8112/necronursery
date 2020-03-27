@@ -1996,6 +1996,189 @@ MonoBehaviour:
   menuBox: {fileID: 1702021072}
   menuText: {fileID: 61181291}
   textActive: 0
+--- !u!1001 &782727652
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 628692602138911279, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_Name
+      value: PostTutorialDialogCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911279, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].option
+      value: 'I would like to learn more.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].response
+      value: "If you have any other questions, try talking to the Elder. He knows
+        more than a thing or two\u2026 Just be careful as he tends to ramble on a
+        bit."
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: startText
+      value: "There, that wasn\u2019t so hard now was it? \nYou\u2019ll get used to
+        this in no time!\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[1].option
+      value: '
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[1].response
+      value: "If you have any other questions, try talking to the Elder. He knows
+        more than a thing or two\u2026 Just be careful as he tends to ramble on a
+        bit."
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602540641812, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602602101300, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602383477112, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d6de1c72b67766a469644b4cf43a3669, type: 3}
 --- !u!1 &786270577
 GameObject:
   m_ObjectHideFlags: 0
@@ -6108,6 +6291,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialDialogCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 628692602138911279, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6216,7 +6404,17 @@ PrefabInstance:
     - target: {fileID: 628692602540641812, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602602101300, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602383477112, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6de1c72b67766a469644b4cf43a3669, type: 3}
