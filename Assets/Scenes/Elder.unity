@@ -352,6 +352,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[1].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[1].options.Array.data[0].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[0].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[0].options.Array.data[0].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[1].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[1].options.Array.data[0].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[1].options.Array.data[0].options.Array.data[0].options.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[2].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[3].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[4].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[2].options.Array.data[0].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[3].options.Array.data[0].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[4].options.Array.data[0].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[5].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[5].options.Array.data[0].options.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
       propertyPath: startText
       value: Ah come to chat with an old fellow like me, ever wonder about necromancy
         in the old days?
@@ -384,7 +464,10 @@ PrefabInstance:
     - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
       propertyPath: allOptions.Array.data[0].options.Array.data[1].response
-      value: tests 1 1
+      value: "Magic is a very volatile science, if you make a small mistake you risk
+        blowing yourself up as the least dangerous thing that can happen. Raising
+        the dead is no less risky. But by mixing in botany we can grow undead safely,
+        or safer than we used to.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
@@ -394,7 +477,7 @@ PrefabInstance:
     - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
       propertyPath: allOptions.Array.data[0].options.Array.data[2].response
-      value: Test 1 1 2 3
+      value: We grow manny "Monstors", which would you lie to know more about?
       objectReference: {fileID: 0}
     - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
@@ -465,6 +548,255 @@ PrefabInstance:
         type: 3}
       propertyPath: endDialogueQuip
       value: Thank you for your story but I must be on my way
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[1].options.Array.data[0].response
+      value: "Botany allows us to not only control how fast a particular undead grows,
+        but also make sure that different undead don\u2019t attack each other while
+        growing. The same thing goes for growing plants, as some plants can strangle
+        another's roots. Only in this case a Wendigo for example will eat a zombie
+        if given the chance."
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[1].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[1].options.Array.data[0].options.Array.data[0].response
+      value: "Necromancy and Botany are even found naturally with the Ossa Amet. Only
+        it\u2019s a raspberry bush that dies in the winter while in a magically concentrated
+        area, and then rises into a fearsome creature. We can even grow our own version
+        of it, with the shoot of an Ossa Amet.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[1].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[0].option
+      value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[1].option
+      value: 'Wendigo '
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[2].option
+      value: ' Jiang-Shi'
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[3].option
+      value: Wraith
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[4].option
+      value: Mummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[4].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[3].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[2].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[1].options.Array.data[0].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[1].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[1].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[2].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[3].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[0].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[4].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[0].response
+      value: "Zombies are the most basic form of undead. They can be easily raised
+        and were, for a time, the only kind of undead we could raise. As making specialized
+        undead was very hard with normal bodies.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[0].options.Array.data[0].response
+      value: "We can easily make many Zombie seeds, and specialize them as we\u2019re
+        growing them. They could either be walking biohazards, or we could even make
+        them carry out rudimentary tasks. \r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[0].options.Array.data[0].options.Array.data[0].response
+      value: "However because they\u2019re the easiest to make and are very simple,
+        they aren\u2019t powerhouses by any means."
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[1].response
+      value: "Wendigo are technically the easiest monster to raise. Should they be
+        restricted enough and fed a large amount of flesh, they should be easy to
+        manage if you don\u2019t get too close. \r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[1].options.Array.data[0].response
+      value: "But Wendigo are monsters of greed, they\u2019ll eat anything they can.
+        At least they aren\u2019t picky eaters like I am. I still won\u2019t touch
+        brussel sprouts.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[1].options.Array.data[0].options.Array.data[0].response
+      value: "We don\u2019t know why they keep eating but they don\u2019t grow or
+        gain weight once they\u2019ve matured. They\u2019re almost like trash cans
+        but only take meat, be it fresh, rotten, or ancient dried jerky.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[2].options.Array.data[0].response
+      value: "The most impressive thing about Jiang-Shi is that they can\u2019t really
+        die. Or die again as it were. They have the ability to bounce back from any
+        damage, should they be incapacitated they\u2019ll regrow quickly, which helps
+        because ours are mixed with bamboo.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[2].options.Array.data[0].options.Array.data[0].response
+      value: "The Bamboo it grows in gives it some flexibility, so most of it\u2019s
+        greatest weakness is gone, but it\u2019s not totally flexible and not incredibly
+        smart. So if one gets loose, we just put a plank in the middle of the doorway."
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[2].response
+      value: "The Jiang-Shi is the product of a virus from long ago. The virus is
+        easily spread should a Jiang-Shi scratch a victim. After a few hours the victim
+        will change into a Jiang-Shi as well.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[3].response
+      value: "Wraiths have a tendency to be very violent given they are undead born
+        from spite. The plant we use helps keep it in control if the Wraiths growing
+        point is disturbed.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[3].options.Array.data[0].response
+      value: The flower we use steals energy from mushrooms and like the Wraith dislikes
+        sunny spots. If the Wraith is exposed to sunlight, the flower will keep it
+        in check until we get to giving them both shade.
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[3].options.Array.data[0].options.Array.data[0].response
+      value: "That being said, should both be exposed to sunlight long enough they
+        will both eventually die. Or the flower will die and the wraith will die\u2026.
+        again."
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[5].option
+      value: Lich
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[5].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[5].options.Array.data[0].options.Array.data[0].option
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[4].response
+      value: "I\u2019m sure you\u2019re familiar with what a Mummy is? Well to recreate
+        them effectively, we have to use a type of plant found in a desert that absorbs
+        moisture out of the air. It also has an effect of absorbing water from the
+        Mummy."
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[4].options.Array.data[0].response
+      value: "The particular plant we use has been made to also partially absorb ambient
+        magic and distribute it into the mummy. Now we could let the Mummy grow by
+        itself this way, but I don\u2019t think you\u2019d live that long."
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[4].options.Array.data[0].options.Array.data[0].response
+      value: "If you give it magic, putting it next to the plant should let it be
+        absorbed quickly and vitalize the mummy. Don\u2019t worry about the mummy
+        turning on you and \u2018cursing\u2019 you. It stays alive by magic, so it
+        can\u2019t use any. It \u2018lives\u2019 on a fine balance of magic."
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[5].response
+      value: "The creature we call a Lich, is a domestic form of the mighty Ossa Amet.
+        If I can remember right that literally means Raspberry Bones. It's a magical
+        creature of the deep cold forests of the far north.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[5].options.Array.data[0].response
+      value: "The domesticated Lich is grown from Shoot of an Ossa Amet and cannot
+        be replicated from another domestic Lich; for the power of a Necromancer\u2019s
+        lich comes from the original creature and its connection to Nature."
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692602190799747, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: allOptions.Array.data[0].options.Array.data[2].options.Array.data[5].options.Array.data[0].options.Array.data[0].response
+      value: Finding an Ossa Amet in the wild and collecting a sample is difficult
+        and a rare accomplishment for even the most experienced Necromancer.
       objectReference: {fileID: 0}
     - target: {fileID: 628692603181474323, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
