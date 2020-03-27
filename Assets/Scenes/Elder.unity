@@ -814,6 +814,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_MinSize
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 628692601650372229, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 628692602540641812, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
       propertyPath: m_AnchorMax.y

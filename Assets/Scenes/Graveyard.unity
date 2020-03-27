@@ -2162,6 +2162,16 @@ PrefabInstance:
         more than a thing or two\u2026 Just be careful as he tends to ramble on a
         bit."
       objectReference: {fileID: 0}
+    - target: {fileID: 628692601650372229, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692601650372229, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 628692602540641812, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -6294,7 +6304,7 @@ PrefabInstance:
     - target: {fileID: 628692602138911279, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 628692602138911267, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
@@ -6400,6 +6410,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692601650372229, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628692601650372229, guid: d6de1c72b67766a469644b4cf43a3669,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 628692602540641812, guid: d6de1c72b67766a469644b4cf43a3669,
         type: 3}
