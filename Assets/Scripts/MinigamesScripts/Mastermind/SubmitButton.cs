@@ -7,7 +7,7 @@ public class SubmitButton : MonoBehaviour
 {
     public int triesLeft;
     public Text onScreenNumber;
-
+    public GameObject slider;
     private void Start()
     {
         triesLeft = 12;
@@ -21,7 +21,8 @@ public class SubmitButton : MonoBehaviour
         }
 
         triesLeft--;
-        onScreenNumber.text = (triesLeft).ToString("00");
+        //onScreenNumber.text = (triesLeft).ToString("00");
+        slider.GetComponent<Slider>().value = triesLeft;
         GameObject.Find("Main Camera").GetComponent<MastermindController>().resourceAmount = triesLeft + 1;
     }
 
