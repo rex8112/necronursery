@@ -233,12 +233,12 @@ MonoBehaviour:
   - {fileID: 830378295}
   - {fileID: 1232748328}
   allIngredients:
-  - {fileID: 21300000, guid: f2673c54e20351743829698097bb70ce, type: 3}
-  - {fileID: 21300000, guid: 37274896dd02be34294c76189bbfdcc4, type: 3}
-  - {fileID: 21300000, guid: 82cfe88b1d55fe646abdb502970056a0, type: 3}
-  - {fileID: 21300000, guid: 3efdb1437ce6fd1478031710febc59a3, type: 3}
-  - {fileID: 21300000, guid: a8e00bb639b75f1439063be6e93ad503, type: 3}
-  - {fileID: 21300000, guid: d8fa76778b893894492fe5d657b2e844, type: 3}
+  - {fileID: 21300000, guid: b396768c34454904692af265ddb5f266, type: 3}
+  - {fileID: 21300000, guid: 099bdff8f28ec7543886107a1621611b, type: 3}
+  - {fileID: 21300000, guid: 7849ee5fe4a6aa14f90aba9f09e78d0e, type: 3}
+  - {fileID: 21300000, guid: 2fc7d4fbb1075ca4ba923d23b77deb4d, type: 3}
+  - {fileID: 21300000, guid: 443f0a6a7dcfc5c498eec4b78b85610d, type: 3}
+  - {fileID: 21300000, guid: a1aa23ffbb8d9e6439ff58cf4310bd18, type: 3}
   - {fileID: 21300000, guid: d121df3c51172cb4cbc5a27dcf517ad8, type: 3}
   progressObjects:
   - {fileID: 1262313152}
