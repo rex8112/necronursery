@@ -14,14 +14,159 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantManager: {fileID: 11400000, guid: 9648723e9bd176d4da0472a3f2458f6a, type: 2}
   tapToStart: 1
-  knowledge: []
+  knowledge:
+  - name: Zombie
+    plant:
+      name: Zombie
+      type: Flesh
+      xpToGive: 40
+      stage1:
+      - name: Flesh
+        required: 10
+      stage2:
+      - name: Flesh
+        required: 20
+      stage3:
+      - name: Flesh
+        required: 30
+      stages: {fileID: 2017790332621676551, guid: 0de4c470cd4a4e84eaeca1d6a71df1f7,
+        type: 3}
+    stage1:
+    - name: Flesh
+      known: 0
+    stage2:
+    - name: Flesh
+      known: 0
+    stage3:
+    - name: Flesh
+      known: 0
+  - name: Wendigo
+    plant:
+      name: Wendigo
+      type: Flesh
+      xpToGive: 60
+      stage1:
+      - name: Flesh
+        required: 10
+      stage2:
+      - name: Flesh
+        required: 20
+      stage3:
+      - name: Flesh
+        required: 30
+      stages: {fileID: 4528988479935732399, guid: 386617442e045aa4f97b94c4a414eb8c,
+        type: 3}
+    stage1:
+    - name: Flesh
+      known: 0
+    stage2:
+    - name: Flesh
+      known: 0
+    stage3:
+    - name: Flesh
+      known: 0
+  - name: Mummy
+    plant:
+      name: Mummy
+      type: Magic
+      xpToGive: 130
+      stage1:
+      - name: Magic
+        required: 8
+      stage2:
+      - name: Magic
+        required: 16
+      stage3:
+      - name: Magic
+        required: 20
+      - name: Souls
+        required: 10
+      stages: {fileID: 2651411655131333510, guid: 9a419547981adf34cba9e1ab113d4bf3,
+        type: 3}
+    stage1:
+    - name: Magic
+      known: 0
+    stage2:
+    - name: Magic
+      known: 0
+    stage3:
+    - name: Magic
+      known: 0
+    - name: Souls
+      known: 0
+  - name: JiangShi
+    plant:
+      name: JiangShi
+      type: Souls
+      xpToGive: 170
+      stage1:
+      - name: Souls
+        required: 15
+      stage2:
+      - name: Souls
+        required: 25
+      stage3:
+      - name: Souls
+        required: 25
+      - name: Magic
+        required: 15
+      stages: {fileID: 9041364145380956557, guid: 0193fcd6a4fa5764b94f023343d06127,
+        type: 3}
+    stage1:
+    - name: Souls
+      known: 0
+    stage2:
+    - name: Souls
+      known: 0
+    stage3:
+    - name: Souls
+      known: 0
+    - name: Magic
+      known: 0
+  - name: Wraith
+    plant:
+      name: Wraith
+      type: Souls
+      xpToGive: 220
+      stage1:
+      - name: Souls
+        required: 20
+      stage2:
+      - name: Souls
+        required: 20
+      - name: Magic
+        required: 15
+      stage3:
+      - name: Souls
+        required: 30
+      - name: Magic
+        required: 20
+      - name: Flesh
+        required: 15
+      stages: {fileID: 2008902690115995173, guid: 23163aac4a089c94ea02e4c0c4be1aa3,
+        type: 3}
+    stage1:
+    - name: Souls
+      known: 0
+    stage2:
+    - name: Souls
+      known: 0
+    - name: Magic
+      known: 0
+    stage3:
+    - name: Souls
+      known: 0
+    - name: Magic
+      known: 0
+    - name: Flesh
+      known: 0
   resources:
   - name: Teeth
     value: 0
     defaultValue: 0
     teethValue: 1
   - name: Flesh
-    value: 50
+    value: 100
     defaultValue: 100
     teethValue: 2
   - name: Magic
@@ -36,17 +181,16 @@ MonoBehaviour:
   - name: Zombie Seed
     plantName: Zombie
     level: 1
-    value: 2
+    value: 1
     defaultValue: 1
     teethValue: 10
   - name: Wendigo Seed
     plantName: Wendigo
     level: 2
-    value: 1
+    value: 0
     defaultValue: 0
     teethValue: 20
   plants:
-  - Zombie
   - 
   - 
   - 
@@ -56,7 +200,8 @@ MonoBehaviour:
   - 
   - 
   - 
-  stageInts: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
-  level: 1
-  xp: 60
+  - 
+  stageInts: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  level: 0
+  xp: 0
   xpPerLevel: 40

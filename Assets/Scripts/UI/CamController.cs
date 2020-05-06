@@ -9,6 +9,7 @@ public class CamController : MonoBehaviour
     [SerializeField] Camera menuCam;
     [SerializeField] Camera mainCam;
     [SerializeField] float tranSpeed = 6f;
+    [SerializeField] GameObject tutorial;
 
 
 
@@ -42,6 +43,7 @@ public class CamController : MonoBehaviour
                 move = false;
                 menuCam.gameObject.SetActive(false);
                 sc.ChangeAudio();
+                tutorial.SetActive(true);
             }
         }
 
