@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8086620801612550771
+--- !u!1001 &8635895285051536465
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 7798496621293433460, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
         type: 3}
       propertyPath: m_Name
-      value: ZombieStages
+      value: WraithStages
       objectReference: {fileID: 0}
     - target: {fileID: 3818744407241088473, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
         type: 3}
@@ -117,46 +117,30 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 227057473187892665, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 22d3b4d584aff854da6cef5a8c52aba6,
-        type: 3}
-    - target: {fileID: 5842688530941919444, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -15.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5842688530941919444, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -72.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5842688530941919444, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 184.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5842688530941919444, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 184.05
-      objectReference: {fileID: 0}
     - target: {fileID: 5842688530941919444, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.1341
+      value: 2.621106
       objectReference: {fileID: 0}
     - target: {fileID: 5842688530941919444, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.1341
+      value: 2.621106
       objectReference: {fileID: 0}
     - target: {fileID: 5842688530941919444, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.1341
+      value: 2.621106
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842688530941919444, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842688530941919444, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 6840332774835301825, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
         type: 3}
@@ -166,39 +150,24 @@ PrefabInstance:
     - target: {fileID: 5514522953662566947, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5514522953662566947, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -4.9
+      value: -71
       objectReference: {fileID: 0}
     - target: {fileID: 5707215105184679543, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1242377461195676985, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 04688722be76388459361e836927f99a,
+      objectReference: {fileID: 21300000, guid: 3d491de7983635a4487c311935439e15,
         type: 3}
-    - target: {fileID: 1242377461195676985, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2191354486694821426, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2191354486694821426, guid: 2e5221ea7d50b874a89ebe6c5645e7a1,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: db62d102dc31ce34a9aea67714e81c2f,
+      objectReference: {fileID: 21300000, guid: 25405c8cffe292540bcf769783b343b6,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e5221ea7d50b874a89ebe6c5645e7a1, type: 3}

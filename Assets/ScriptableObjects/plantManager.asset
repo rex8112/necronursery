@@ -42,3 +42,55 @@ MonoBehaviour:
       required: 30
     stages: {fileID: 4528988479935732399, guid: 386617442e045aa4f97b94c4a414eb8c,
       type: 3}
+  - name: Mummy
+    type: Magic
+    xpToGive: 130
+    stage1:
+    - name: Magic
+      required: 8
+    stage2:
+    - name: Magic
+      required: 16
+    stage3:
+    - name: Magic
+      required: 20
+    - name: Souls
+      required: 10
+    stages: {fileID: 2651411655131333510, guid: 9a419547981adf34cba9e1ab113d4bf3,
+      type: 3}
+  - name: JiangShi
+    type: Souls
+    xpToGive: 170
+    stage1:
+    - name: Souls
+      required: 15
+    stage2:
+    - name: Souls
+      required: 25
+    stage3:
+    - name: Souls
+      required: 25
+    - name: Magic
+      required: 15
+    stages: {fileID: 9041364145380956557, guid: 0193fcd6a4fa5764b94f023343d06127,
+      type: 3}
+  - name: Wraith
+    type: Souls
+    xpToGive: 220
+    stage1:
+    - name: Souls
+      required: 20
+    stage2:
+    - name: Souls
+      required: 20
+    - name: Magic
+      required: 15
+    stage3:
+    - name: Souls
+      required: 30
+    - name: Magic
+      required: 20
+    - name: Flesh
+      required: 15
+    stages: {fileID: 2008902690115995173, guid: 23163aac4a089c94ea02e4c0c4be1aa3,
+      type: 3}
